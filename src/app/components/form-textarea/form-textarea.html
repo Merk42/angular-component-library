@@ -1,11 +1,10 @@
 <label [htmlFor]="idfor()" class="block font-bold w-full"><ng-content></ng-content>@if(required()){*}</label>
-<input
+<textarea
   [id]="idfor()"
-  [type]="type()"
   class="block border-yellow-800 border-2 w-full"
   [value]="value()"
   (input)="update($event)"
-  />
+  ></textarea>
 @if (!invalid()) {
   <app-form-notes [minLength]="minLength()"
     [maxLength]="maxLength()"

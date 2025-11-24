@@ -1,36 +1,21 @@
-<div class="grid grid-cols-2 gap-4">
-  <div>
-    <form (submit)="onSubmit($event)">
-      <p>fields marked with * are required</p>
+<h2 class="text-2xl">form-input</h2>
+<form (submit)="onSubmit($event)" class="grid grid-cols-2 gap-4">
+  <p class="col-span-2">fields marked with * are required</p>
 
-      <label for="input" class="block font-bold">basic</label>
-      <input id="input" class="block border-yellow-800 border-2" [field]="demoForm.input" />
-      <app-form-input id="fi-demo" [field]="demoForm.component">component</app-form-input>
-      <app-form-input id="fi-demo-2" [field]="demoForm.optional">optional</app-form-input>
+  <app-form-input id="fi-demo" [field]="demoForm.required">required</app-form-input>
+  <app-form-input id="fi-demo-2" [field]="demoForm.optional">optional</app-form-input>
 
-      <app-form-input id="minlength-demo" [field]="demoForm.minlength">minlength</app-form-input>
-      <app-form-input id="maxlength-demo" [field]="demoForm.maxlength">maxlength</app-form-input>
-      <app-form-input id="minmaxlength-demo" [field]="demoForm.minmaxlength"
-        >minmaxlength</app-form-input
-      >
+  <app-form-input id="minlength-demo" [field]="demoForm.minlength">minlength</app-form-input>
+  <app-form-input id="maxlength-demo" [field]="demoForm.maxlength">maxlength</app-form-input>
+  <app-form-input id="minmaxlength-demo" [field]="demoForm.minmaxlength"
+    >minmaxlength</app-form-input
+  >
 
-      <app-form-input id="min-demo" type="number" [field]="demoForm.min">min</app-form-input>
-      <app-form-input id="max-demo" type="number" [field]="demoForm.max">max</app-form-input>
-      <app-form-input id="minmax-demo" type="number" [field]="demoForm.minmax"
-        >minmax</app-form-input
-      >
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-  <div>
-    <pre>{{ demoForm.input().value() }}</pre>
-    <pre>{{ demoForm.component().value() }}</pre>
-    <pre>{{ demoForm.optional().value() }}</pre>
-    <pre>{{ demoForm.minlength().value() }}</pre>
-    <pre>{{ demoForm.maxlength().value() }}</pre>
-    <pre>{{ demoForm.minmaxlength().value() }}</pre>
-    <pre>{{ demoForm.min().value() }}</pre>
-    <pre>{{ demoForm.max().value() }}</pre>
-    <pre>{{ demoForm.minmax().value() }}</pre>
-  </div>
-</div>
+  <app-form-input id="min-demo" type="number" [field]="demoForm.min">min</app-form-input>
+  <app-form-input id="max-demo" type="number" [field]="demoForm.max">max</app-form-input>
+  <app-form-input id="minmax-demo" type="number" [field]="demoForm.minmax"
+    >minmax</app-form-input
+  >
+  <button type="submit">Submit</button>
+</form>
+

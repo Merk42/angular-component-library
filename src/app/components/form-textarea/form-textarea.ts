@@ -5,14 +5,12 @@ import { FormError } from "../form-error/form-error";
 import { FormNotes } from '../form-notes/form-notes';
 
 @Component({
-  selector: 'app-form-input',
+  selector: 'app-form-textarea',
   imports: [FormError, FormNotes],
-  templateUrl: './form-input.html',
-  styleUrl: './form-input.css'
+  templateUrl: './form-textarea.html',
+  styleUrl: './form-textarea.css',
 })
-export class FormInput implements FormValueControl<string|number|null> {
-
-  readonly type = input<string>('text');
+export class FormTextarea implements FormValueControl<string|number|null> {
 
   readonly value = model<string | number | null>(null);
   readonly disabled = input(false);

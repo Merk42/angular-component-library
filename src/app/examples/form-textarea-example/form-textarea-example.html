@@ -1,0 +1,16 @@
+
+<h2 class="text-2xl">form-textarea</h2>
+<form (submit)="onSubmit($event)" class="grid grid-cols-2 gap-4">
+  <p class="col-span-2">fields marked with * are required</p>
+
+  <app-form-textarea id="fi-demo" [field]="demoForm.required">required</app-form-textarea>
+  <app-form-textarea id="fi-demo-2" [field]="demoForm.optional">optional</app-form-textarea>
+
+  <app-form-textarea id="minlength-demo" [field]="demoForm.minlength">minlength</app-form-textarea>
+  <app-form-textarea id="maxlength-demo" [field]="demoForm.maxlength">maxlength</app-form-textarea>
+  <app-form-textarea id="minmaxlength-demo" [field]="demoForm.minmaxlength"
+    >minmaxlength</app-form-textarea
+  >
+
+  <button type="submit">Submit</button>
+</form>
