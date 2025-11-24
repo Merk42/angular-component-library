@@ -2,7 +2,9 @@
 <input
   [id]="idfor()"
   [type]="type()"
-  class="block border-yellow-800 border-2 w-full"
+  class="block border-2 w-full"
+  [class.border-sky-500]="!invalid()"
+  [class.border-rose-800]="invalid()"
   [value]="value()"
   (input)="update($event)"
   />
