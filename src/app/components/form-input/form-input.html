@@ -1,0 +1,23 @@
+<label [htmlFor]="idfor()" class="block font-bold"><ng-content></ng-content>@if(required()){*}</label>
+<input
+  [id]="idfor()"
+  [type]="type()"
+  class="block border-yellow-800 border-2"
+  [value]="value()"
+  (input)="update($event)"
+  />
+  @if (!invalid()) {
+    <span class="italic text-sm">{{lengthCopy()}}</span>
+    <span class="italic text-sm">{{numberCopy()}} </span>
+  }
+
+  @if (invalid()) {
+    <app-form-error
+      role="alert"
+      [errors]="errors()"
+      [minLength]="minLength()"
+      [maxLength]="maxLength()"
+      [min]="min()"
+      [max]="max()"
+      />
+  }
