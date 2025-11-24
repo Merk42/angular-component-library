@@ -2,18 +2,18 @@
 <form (submit)="onSubmit($event)" class="grid grid-cols-2 gap-4">
   <p class="col-span-2">fields marked with * are required</p>
 
-  <app-form-input id="fi-demo" [field]="demoForm.required">required</app-form-input>
-  <app-form-input id="fi-demo-2" [field]="demoForm.optional">optional</app-form-input>
+  <app-form-input id="fi-required" [field]="demoForm.required">required</app-form-input>
+  <app-form-input id="fi-optional" [field]="demoForm.optional">optional</app-form-input>
 
-  <app-form-input id="minlength-demo" [field]="demoForm.minlength">minlength</app-form-input>
-  <app-form-input id="maxlength-demo" [field]="demoForm.maxlength">maxlength</app-form-input>
-  <app-form-input id="minmaxlength-demo" [field]="demoForm.minmaxlength"
+  <app-form-input id="fi-minlength" [field]="demoForm.minlength">minlength</app-form-input>
+  <app-form-input id="fi-maxlength" [field]="demoForm.maxlength">maxlength</app-form-input>
+  <app-form-input id="fi-minmaxlength" [field]="demoForm.minmaxlength"
     >minmaxlength</app-form-input
   >
 
-  <app-form-input id="min-demo" type="number" [field]="demoForm.min">min</app-form-input>
-  <app-form-input id="max-demo" type="number" [field]="demoForm.max">max</app-form-input>
-  <app-form-input id="minmax-demo" type="number" [field]="demoForm.minmax"
+  <app-form-input id="fi-min" type="number" [field]="demoForm.min">min</app-form-input>
+  <app-form-input id="fi-max" type="number" [field]="demoForm.max">max</app-form-input>
+  <app-form-input id="fi-minmax" type="number" [field]="demoForm.minmax"
     >minmax</app-form-input
   >
   <button type="submit" class="col-span-2">Submit</button>

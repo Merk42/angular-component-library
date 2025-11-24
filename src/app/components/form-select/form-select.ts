@@ -1,11 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, computed, input, model } from '@angular/core';
+import { FormValueControl } from '@angular/forms/signals';
+import type { ValidationError } from '@angular/forms/signals';
+import { FormError } from "../form-error/form-error";
+import { FormNotes } from '../form-notes/form-notes';
 
 @Component({
   selector: 'app-form-select',
-  imports: [],
+  imports: [FormError, FormNotes],
   templateUrl: './form-select.html',
   styleUrl: './form-select.css',
 })
-export class FormSelect {
+export class FormSelect implements FormValueControl<string|number|null> {
+  readonly value = model<string | number | null>(null);
+  readonly disabled = input(false);
+  readonly required = input(false);
 
+  readonly id = input.required()
+
+  invalid = input<boolean>(false);
+  errors = input<readonly ValidationError.WithOptionalField[]>([]);
+
+  idfor = computed(() => {
+    return `fi-${this.id()}`
+  })
+
+  update($event:any) {
+    this.value.set(($event.target as HTMLInputElement).value)
+  }
 }

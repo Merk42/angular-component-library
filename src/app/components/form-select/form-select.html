@@ -1,1 +1,21 @@
-<p>form-select works!</p>
+<label [htmlFor]="idfor()" class="block font-bold w-full"><ng-content></ng-content>@if(required()){*}</label>
+<select
+  [id]="idfor()"
+  class="block border-2 w-full"
+  [class.border-sky-500]="!invalid()"
+  [class.border-rose-800]="invalid()"
+  [value]="value()"
+  (input)="update($event)"
+  >
+  <ng-content select="option"></ng-content>
+</select>
+@if (!invalid()) {
+  <app-form-notes></app-form-notes>
+}
+
+@if (invalid()) {
+  <app-form-error
+    role="alert"
+    [errors]="errors()"
+    />
+}
