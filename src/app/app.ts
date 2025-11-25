@@ -5,10 +5,11 @@ import { FormTextareaExample } from "./examples/form-textarea-example/form-texta
 import { FormCheckboxExample } from "./examples/form-checkbox-example/form-checkbox-example";
 import { FormRadioExample } from "./examples/form-radio-example/form-radio-example";
 import { FormSelectExample } from "./examples/form-select-example/form-select-example";
+import { FormExample } from "./examples/form-example/form-example";
 
 @Component({
   selector: 'mec-root',
-  imports: [RouterOutlet, FormInputExample, FormTextareaExample, FormCheckboxExample, FormRadioExample, FormSelectExample],
+  imports: [RouterOutlet, FormInputExample, FormTextareaExample, FormCheckboxExample, FormRadioExample, FormSelectExample, FormExample],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

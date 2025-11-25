@@ -3,12 +3,12 @@
   [id]="idfor()"
   [type]="type()"
   class="block border-2 w-full"
-  [class.border-sky-500]="!invalid()"
-  [class.border-rose-800]="invalid()"
+  [class.border-sky-500]="!showerrors()"
+  [class.border-rose-800]="showerrors()"
   [value]="value()"
   (input)="update($event)"
   />
-@if (!invalid()) {
+@if (!showerrors()) {
   <mec-form-notes [minLength]="minLength()"
     [maxLength]="maxLength()"
     [min]="min()"
@@ -17,7 +17,7 @@
   </mec-form-notes>
 }
 
-@if (invalid()) {
+@if (showerrors()) {
   <mec-form-error
     role="alert"
     [errors]="errors()"

@@ -17,11 +17,16 @@ export class FormSelect implements FormValueControl<string|number|null> {
 
   readonly id = input.required()
 
+  touched = input<boolean>(false);
   invalid = input<boolean>(false);
   errors = input<readonly ValidationError.WithOptionalField[]>([]);
 
+  showerrors = computed(() => {
+    return this.invalid() && this.touched()
+  })
+
   idfor = computed(() => {
-    return `fi-${this.id()}`
+    return `fs-${this.id()}`
   })
 
   update($event:any) {

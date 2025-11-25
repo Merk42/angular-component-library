@@ -1,4 +1,4 @@
-import { Component, computed, input, model } from '@angular/core';
+import { Component, computed, input, InputSignal, model, ModelSignal, OutputRef } from '@angular/core';
 import { FormValueControl } from '@angular/forms/signals';
 import type { ValidationError } from '@angular/forms/signals';
 import { FormError } from "../form-error/form-error";
@@ -25,8 +25,13 @@ export class FormInput implements FormValueControl<string|number|null> {
 
   readonly id = input.required()
 
+  touched = input<boolean>(false);
   invalid = input<boolean>(false);
   errors = input<readonly ValidationError.WithOptionalField[]>([]);
+
+  showerrors = computed(() => {
+    return this.invalid() && this.touched()
+  })
 
   idfor = computed(() => {
     return `fi-${this.id()}`

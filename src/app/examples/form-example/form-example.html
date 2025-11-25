@@ -1,0 +1,18 @@
+<div class="grid grid-cols-2 gap-4">
+  <form (submit)="onSubmit($event)">
+    <mec-form-input id="first_name" [field]="demoForm.first_name">first name</mec-form-input>
+    <mec-form-input id="last_name" [field]="demoForm.last_name">last name</mec-form-input>
+    <mec-form-input id="email" [field]="demoForm.email">email</mec-form-input>
+    <mec-form-textarea id="feedback" [field]="demoForm.feedback">email</mec-form-textarea>
+    <mec-form-select id="state" [field]="demoForm.state">state
+      <option value="pa">PA</option>
+      <option value="nj">NJ</option>
+      <option value="ny">NY</option>
+    </mec-form-select>
+    <mec-form-radio></mec-form-radio>
+    <mec-form-checkbox id="confirm" [field]="demoForm.confirm">confirm your choice</mec-form-checkbox>
+    <button mec-button type="submit">submit</button>
+
+  </form>
+  <pre>{{this.demoModel() | json}}</pre>
+</div>
