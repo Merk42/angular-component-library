@@ -3,10 +3,13 @@
   [id]="idfor()"
   [type]="type()"
   class="block border-2 w-full"
-  [class.border-sky-500]="!showerrors()"
-  [class.border-rose-800]="showerrors()"
+  [class.border-sky-500]="!showerrors() && !disabled()"
+  [class.border-rose-800]="showerrors() && !disabled()"
+  [class.bg-neutral-300]="disabled()"
+  [class.border-neutral-600]="disabled()"
   [value]="value()"
   (input)="update($event)"
+  [disabled]="disabled()"
   />
 @if (!showerrors()) {
   <mec-form-notes [minLength]="minLength()"
