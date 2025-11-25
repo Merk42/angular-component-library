@@ -1,10 +1,11 @@
-import { Component, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
 @Component({
   selector: 'mec-form-notes',
   imports: [],
   templateUrl: './form-notes.html',
   styleUrl: './form-notes.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormNotes {
   readonly minLength = input<number | undefined>(undefined);

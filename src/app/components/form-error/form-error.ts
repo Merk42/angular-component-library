@@ -1,10 +1,11 @@
-import { Component, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import type { ValidationError } from '@angular/forms/signals';
 
 @Component({
   selector: 'mec-form-error',
   templateUrl: './form-error.html',
   styleUrl: './form-error.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormError {
   errors = input<readonly ValidationError.WithOptionalField[]>([]);

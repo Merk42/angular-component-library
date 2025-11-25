@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { Field, form, required, email } from '@angular/forms/signals';
 import { FormCheckbox } from '../../components/form-checkbox/form-checkbox';
 import { FormInput } from '../../components/form-input/form-input';
@@ -10,7 +10,8 @@ import { JsonPipe } from '@angular/common';
 
 
 interface DemoData {
-  first_name: string|null;
+  basic: string;
+  first_name: string;
   last_name: string;
   email: string;
   feedback: string;
@@ -24,11 +25,13 @@ interface DemoData {
   imports: [Button, Field, FormCheckbox, FormInput, FormRadio, FormSelect, FormTextarea, JsonPipe],
   templateUrl: './form-example.html',
   styleUrl: './form-example.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormExample {
 
   demoModel = signal<DemoData>({
-    first_name: null,
+    basic: '',
+    first_name: '',
     last_name: '',
     email: '',
     feedback: '',
@@ -38,6 +41,7 @@ export class FormExample {
   });
 
   demoForm = form(this.demoModel, (schemaPath) => {
+    required(schemaPath.basic);
     required(schemaPath.first_name);
     required(schemaPath.email)
     email(schemaPath.email)

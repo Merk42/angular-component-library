@@ -1,5 +1,5 @@
 import { FormCheckboxControl } from '@angular/forms/signals';
-import { Component, computed, input, model, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, model } from '@angular/core';
 import type { ValidationError } from '@angular/forms/signals';
 import { FormError } from "../form-error/form-error";
 import { FormNotes } from '../form-notes/form-notes';
@@ -8,6 +8,7 @@ import { FormNotes } from '../form-notes/form-notes';
   imports: [],
   templateUrl: './form-checkbox.html',
   styleUrl: './form-checkbox.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormCheckbox implements FormCheckboxControl {
 

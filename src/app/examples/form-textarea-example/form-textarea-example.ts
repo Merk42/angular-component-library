@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { Field, form, required, minLength, maxLength, email, min, max } from '@angular/forms/signals';
 import { FormTextarea } from '../../components/form-textarea/form-textarea';
 
@@ -15,6 +15,7 @@ interface DemoData {
   imports: [Field, FormTextarea],
   templateUrl: './form-textarea-example.html',
   styleUrl: './form-textarea-example.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormTextareaExample {
   demoModel = signal<DemoData>({

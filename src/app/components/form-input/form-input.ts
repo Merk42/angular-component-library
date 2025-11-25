@@ -1,4 +1,4 @@
-import { Component, computed, input, InputSignal, model, ModelSignal, OutputRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, InputSignal, model, ModelSignal, OutputRef } from '@angular/core';
 import { FormValueControl } from '@angular/forms/signals';
 import type { ValidationError } from '@angular/forms/signals';
 import { FormError } from "../form-error/form-error";
@@ -8,7 +8,8 @@ import { FormNotes } from '../form-notes/form-notes';
   selector: 'mec-form-input',
   imports: [FormError, FormNotes],
   templateUrl: './form-input.html',
-  styleUrl: './form-input.css'
+  styleUrl: './form-input.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormInput implements FormValueControl<string|number|null> {
 
@@ -25,7 +26,7 @@ export class FormInput implements FormValueControl<string|number|null> {
 
   readonly id = input.required()
 
-  touched = input<boolean>(false);
+  touched = model<boolean>(false);
   invalid = input<boolean>(false);
   errors = input<readonly ValidationError.WithOptionalField[]>([]);
 

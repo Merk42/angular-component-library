@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { Field, form, required, minLength, maxLength, email, min, max } from '@angular/forms/signals';
 import { FormSelect } from '../../components/form-select/form-select';
 
@@ -12,6 +12,7 @@ interface DemoData {
   imports: [Field, FormSelect],
   templateUrl: './form-select-example.html',
   styleUrl: './form-select-example.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormSelectExample {
   demoModel = signal<DemoData>({
