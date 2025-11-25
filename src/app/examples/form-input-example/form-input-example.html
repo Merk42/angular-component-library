@@ -2,19 +2,19 @@
 <form (submit)="onSubmit($event)" class="grid grid-cols-2 gap-4">
   <p class="col-span-2">fields marked with * are required</p>
 
-  <app-form-input id="fi-required" [field]="demoForm.required">required</app-form-input>
-  <app-form-input id="fi-optional" [field]="demoForm.optional">optional</app-form-input>
+  <mec-form-input id="fi-required" [field]="demoForm.required">required</mec-form-input>
+  <mec-form-input id="fi-optional" [field]="demoForm.optional">optional</mec-form-input>
 
-  <app-form-input id="fi-minlength" [field]="demoForm.minlength">minlength</app-form-input>
-  <app-form-input id="fi-maxlength" [field]="demoForm.maxlength">maxlength</app-form-input>
-  <app-form-input id="fi-minmaxlength" [field]="demoForm.minmaxlength"
-    >minmaxlength</app-form-input
+  <mec-form-input id="fi-minlength" [field]="demoForm.minlength">minlength</mec-form-input>
+  <mec-form-input id="fi-maxlength" [field]="demoForm.maxlength">maxlength</mec-form-input>
+  <mec-form-input id="fi-minmaxlength" [field]="demoForm.minmaxlength"
+    >minmaxlength</mec-form-input
   >
 
-  <app-form-input id="fi-min" type="number" [field]="demoForm.min">min</app-form-input>
-  <app-form-input id="fi-max" type="number" [field]="demoForm.max">max</app-form-input>
-  <app-form-input id="fi-minmax" type="number" [field]="demoForm.minmax"
-    >minmax</app-form-input
+  <mec-form-input id="fi-min" type="number" [field]="demoForm.min">min</mec-form-input>
+  <mec-form-input id="fi-max" type="number" [field]="demoForm.max">max</mec-form-input>
+  <mec-form-input id="fi-minmax" type="number" [field]="demoForm.minmax"
+    >minmax</mec-form-input
   >
   <button type="submit" class="col-span-2">Submit</button>
 </form>

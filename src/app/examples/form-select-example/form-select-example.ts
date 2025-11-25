@@ -8,7 +8,7 @@ interface DemoData {
 }
 
 @Component({
-  selector: 'app-form-select-example',
+  selector: 'mec-form-select-example',
   imports: [Field, FormSelect],
   templateUrl: './form-select-example.html',
   styleUrl: './form-select-example.css',

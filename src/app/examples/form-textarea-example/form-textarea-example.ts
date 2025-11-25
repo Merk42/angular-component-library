@@ -11,7 +11,7 @@ interface DemoData {
 }
 
 @Component({
-  selector: 'app-form-textarea-example',
+  selector: 'mec-form-textarea-example',
   imports: [Field, FormTextarea],
   templateUrl: './form-textarea-example.html',
   styleUrl: './form-textarea-example.css',

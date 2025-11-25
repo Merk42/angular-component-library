@@ -14,7 +14,7 @@ interface DemoData {
 }
 
 @Component({
-  selector: 'app-form-input-example',
+  selector: 'mec-form-input-example',
   imports: [Field, FormInput],
   templateUrl: './form-input-example.html',
   styleUrl: './form-input-example.css',

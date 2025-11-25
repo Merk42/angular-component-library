@@ -8,16 +8,16 @@
   (input)="update($event)"
   ></textarea>
 @if (!invalid()) {
-  <app-form-notes [minLength]="minLength()"
+  <mec-form-notes [minLength]="minLength()"
     [maxLength]="maxLength()"
     [min]="min()"
     [max]="max()">
 
-  </app-form-notes>
+  </mec-form-notes>
 }
 
 @if (invalid()) {
-  <app-form-error
+  <mec-form-error
     role="alert"
     [errors]="errors()"
     [minLength]="minLength()"

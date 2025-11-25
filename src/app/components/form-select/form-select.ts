@@ -5,7 +5,7 @@ import { FormError } from "../form-error/form-error";
 import { FormNotes } from '../form-notes/form-notes';
 
 @Component({
-  selector: 'app-form-select',
+  selector: 'mec-form-select',
   imports: [FormError, FormNotes],
   templateUrl: './form-select.html',
   styleUrl: './form-select.css',

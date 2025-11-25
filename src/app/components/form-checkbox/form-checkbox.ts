@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-form-checkbox',
+  selector: 'mec-form-checkbox',
   imports: [],
   templateUrl: './form-checkbox.html',
   styleUrl: './form-checkbox.css',

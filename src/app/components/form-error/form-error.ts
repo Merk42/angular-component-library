@@ -2,7 +2,7 @@ import { Component, computed, input } from '@angular/core';
 import type { ValidationError } from '@angular/forms/signals';
 
 @Component({
-  selector: 'app-form-error',
+  selector: 'mec-form-error',
   templateUrl: './form-error.html',
   styleUrl: './form-error.css',
 })

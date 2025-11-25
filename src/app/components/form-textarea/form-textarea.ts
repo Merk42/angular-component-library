@@ -5,7 +5,7 @@ import { FormError } from "../form-error/form-error";
 import { FormNotes } from '../form-notes/form-notes';
 
 @Component({
-  selector: 'app-form-textarea',
+  selector: 'mec-form-textarea',
   imports: [FormError, FormNotes],
   templateUrl: './form-textarea.html',
   styleUrl: './form-textarea.css',

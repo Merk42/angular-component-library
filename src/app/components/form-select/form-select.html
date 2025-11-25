@@ -10,11 +10,11 @@
   <ng-content select="option"></ng-content>
 </select>
 @if (!invalid()) {
-  <app-form-notes></app-form-notes>
+  <mec-form-notes></mec-form-notes>
 }
 
 @if (invalid()) {
-  <app-form-error
+  <mec-form-error
     role="alert"
     [errors]="errors()"
     />

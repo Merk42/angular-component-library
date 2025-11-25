@@ -7,7 +7,7 @@ import { FormRadioExample } from "./examples/form-radio-example/form-radio-examp
 import { FormSelectExample } from "./examples/form-select-example/form-select-example";
 
 @Component({
-  selector: 'app-root',
+  selector: 'mec-root',
   imports: [RouterOutlet, FormInputExample, FormTextareaExample, FormCheckboxExample, FormRadioExample, FormSelectExample],
   templateUrl: './app.html',
   styleUrl: './app.css'

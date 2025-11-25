@@ -1,7 +1,7 @@
 import { Component, computed, input } from '@angular/core';
 
 @Component({
-  selector: 'app-form-notes',
+  selector: 'mec-form-notes',
   imports: [],
   templateUrl: './form-notes.html',
   styleUrl: './form-notes.css',

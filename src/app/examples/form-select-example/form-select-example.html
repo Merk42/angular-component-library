@@ -2,15 +2,15 @@
 <form (submit)="onSubmit($event)" class="grid grid-cols-2 gap-4">
   <p class="col-span-2">fields marked with * are required</p>
 
-  <app-form-select id="fs-required" [field]="demoForm.required">required
+  <mec-form-select id="fs-required" [field]="demoForm.required">required
     <option value="">Select a country</option>
     <option value="us">United States</option>
     <option value="ca">Canada</option>
-  </app-form-select>
-  <app-form-select id="fs-optional" [field]="demoForm.optional">optional
+  </mec-form-select>
+  <mec-form-select id="fs-optional" [field]="demoForm.optional">optional
     <option value="">Select a country</option>
     <option value="us">United States</option>
     <option value="ca">Canada</option>
-  </app-form-select>
+  </mec-form-select>
   <button type="submit" class="col-span-2">Submit</button>
 </form>
