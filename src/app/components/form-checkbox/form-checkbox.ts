@@ -5,7 +5,7 @@ import { FormError } from "../form-error/form-error";
 import { FormNotes } from '../form-notes/form-notes';
 @Component({
   selector: 'mec-form-checkbox',
-  imports: [],
+  imports: [FormError, FormNotes],
   templateUrl: './form-checkbox.html',
   styleUrl: './form-checkbox.css',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -17,11 +17,16 @@ export class FormCheckbox implements FormCheckboxControl {
 
   readonly id = input.required()
 
+  touched = model<boolean>(false);
   invalid = input<boolean>(false);
   errors = input<readonly ValidationError.WithOptionalField[]>([]);
 
+  showerrors = computed(() => {
+    return this.invalid() && this.touched()
+  })
+
   idfor = computed(() => {
-    return `fi-${this.id()}`
+    return `fc-${this.id()}`
   })
 
   /** Whether the toggle is checked */

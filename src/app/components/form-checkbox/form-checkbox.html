@@ -1,3 +1,16 @@
+<div>
 <input [id]="idfor()" type="checkbox" [value]="checked()" (input)="toggle()"/>
 <label [htmlFor]="idfor()" class="block font-bold w-full"><ng-content></ng-content>@if(required()){*}</label>
+</div>
+@if (!showerrors()) {
+  <mec-form-notes>
+    <ng-content select="[notes]"></ng-content>
+  </mec-form-notes>
+}
 
+@if (showerrors()) {
+  <mec-form-error
+    role="alert"
+    [errors]="errors()"
+    />
+}
