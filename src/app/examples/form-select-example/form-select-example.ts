@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { Field, form, required, minLength, maxLength, email, min, max } from '@angular/forms/signals';
+import { Field, form, required } from '@angular/forms/signals';
 import { FormSelect } from '../../components/form-select/form-select';
 import { Button } from "../../components/button/button";
 
