@@ -11,7 +11,7 @@ interface fieldOption {
 
 @Component({
   selector: 'mec-form-radio',
-  imports: [Field],
+  imports: [Field, FormError, FormNotes],
   templateUrl: './form-radio.html',
   styleUrl: './form-radio.css',
   changeDetection: ChangeDetectionStrategy.OnPush

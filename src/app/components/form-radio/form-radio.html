@@ -8,4 +8,16 @@
       </div>
     }
   </div>
+  @if (!showerrors()) {
+    <mec-form-notes>
+      <ng-content select="[notes]"></ng-content>
+    </mec-form-notes>
+  }
+
+  @if (showerrors()) {
+    <mec-form-error
+      role="alert"
+      [errors]="errors()"
+      />
+  }
 </fieldset>

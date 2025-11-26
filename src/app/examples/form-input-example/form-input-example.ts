@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { Field, form, required, minLength, maxLength, email, min, max } from '@angular/forms/signals';
 import { FormInput } from '../../components/form-input/form-input';
+import { Button } from "../../components/button/button";
 
 interface DemoData {
   required: string;
@@ -15,7 +16,7 @@ interface DemoData {
 
 @Component({
   selector: 'mec-form-input-example',
-  imports: [Field, FormInput],
+  imports: [Field, FormInput, Button],
   templateUrl: './form-input-example.html',
   styleUrl: './form-input-example.css',
   changeDetection: ChangeDetectionStrategy.OnPush
