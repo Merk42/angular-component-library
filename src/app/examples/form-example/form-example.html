@@ -1,7 +1,9 @@
 <div class="grid grid-cols-2 gap-4">
-  <form (submit)="onSubmit($event)">
+  <form (submit)="onSubmit($event)" class="flex flex-col gap-4">
+    <div>
     <label class="block font-bold w-full">basic</label>
     <input class="block border-2 w-full" type="text" [field]="demoForm.basic"/>
+    </div>
     <mec-form-input id="first_name" [field]="demoForm.first_name">first name</mec-form-input>
     <pre>form {{demoForm.first_name().touched()}}</pre>
 
