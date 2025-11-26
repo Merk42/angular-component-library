@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { Field, form, required } from '@angular/forms/signals';
+import { Field, customError, form, required, submit } from '@angular/forms/signals';
 import { FormSelect } from '../../components/form-select/form-select';
 import { Button } from "../../components/button/button";
 
@@ -27,9 +27,16 @@ export class FormSelectExample {
 
   onSubmit(event: Event) {
     event.preventDefault();
-    // Perform login logic here
-    const credentials = this.demoModel();
-    console.log('Logging in with:', credentials);
-    // e.g., await this.authService.login(credentials);
+    submit(this.demoForm, async (form) => {
+      console.log(form)
+      try {
+        console.log(this.demoForm().value());
+        return undefined
+      } catch (error) {
+        return customError( {
+          message: 'Somehow, an error returned'
+        })
+      }
+    })
   }
 }

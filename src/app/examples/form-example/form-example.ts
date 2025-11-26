@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { Field, form, required, email } from '@angular/forms/signals';
+import { Field, customError, email, form, required, submit } from '@angular/forms/signals';
 import { FormCheckbox } from '../../components/form-checkbox/form-checkbox';
 import { FormInput } from '../../components/form-input/form-input';
 import { FormRadio } from '../../components/form-radio/form-radio';
@@ -53,14 +53,22 @@ export class FormExample {
     required(schemaPath.first_name);
     required(schemaPath.email)
     email(schemaPath.email)
+    required(schemaPath.favorite)
     required(schemaPath.confirm);
   });
 
   onSubmit(event: Event) {
     event.preventDefault();
-    // Perform login logic here
-    const credentials = this.demoModel();
-    console.log('Logging in with:', credentials);
-    // e.g., await this.authService.login(credentials);
+    submit(this.demoForm, async (form) => {
+      console.log(form)
+      try {
+        console.log(this.demoForm().value());
+        return undefined
+      } catch (error) {
+        return customError( {
+          message: 'Somehow, an error returned'
+        })
+      }
+    })
   }
 }
