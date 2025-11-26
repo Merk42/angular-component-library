@@ -29,6 +29,14 @@ interface DemoData {
 })
 export class FormExample {
 
+  options = [{
+    label:'yes',
+    value:'yes'
+  },{
+    label:'no',
+    value:'no'
+  }]
+
   demoModel = signal<DemoData>({
     basic: '',
     first_name: '',
