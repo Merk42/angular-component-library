@@ -1,12 +1,6 @@
 <div class="grid grid-cols-2 gap-4">
   <form (submit)="onSubmit($event)" class="flex flex-col gap-4">
-    <div>
-    <label class="block font-bold w-full">basic</label>
-    <input class="block border-2 w-full" type="text" [field]="demoForm.basic"/>
-    </div>
     <mec-form-input id="first_name" [field]="demoForm.first_name">first name</mec-form-input>
-    <pre>form {{demoForm.first_name().touched()}}</pre>
-
     <mec-form-input id="last_name" [field]="demoForm.last_name">last name</mec-form-input>
     <mec-form-input id="email" [field]="demoForm.email">email</mec-form-input>
     <mec-form-textarea id="feedback" [field]="demoForm.feedback">feedback</mec-form-textarea>
@@ -18,7 +12,6 @@
     <mec-form-radio id="radios" [options]="options" [field]="demoForm.favorite">favorite</mec-form-radio>
     <mec-form-checkbox id="confirm" [field]="demoForm.confirm">confirm your choice</mec-form-checkbox>
     <button mec-button type="submit">submit</button>
-
   </form>
   <pre>{{this.demoModel() | json}}</pre>
 </div>

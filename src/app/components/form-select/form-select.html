@@ -8,6 +8,7 @@
   [class.border-neutral-600]="disabled()"
   [value]="value()"
   (input)="update($event)"
+  (blur)="touched.set(true)"
   >
   <ng-content select="option"></ng-content>
 </select>

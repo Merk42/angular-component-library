@@ -6,11 +6,10 @@ import { FormCheckboxExample } from "./examples/form-checkbox-example/form-check
 import { FormRadioExample } from "./examples/form-radio-example/form-radio-example";
 import { FormSelectExample } from "./examples/form-select-example/form-select-example";
 import { FormExample } from "./examples/form-example/form-example";
-import { Devdemo } from "./devdemo/devdemo";
 
 @Component({
   selector: 'mec-root',
-  imports: [RouterOutlet, FormInputExample, FormTextareaExample, FormCheckboxExample, FormRadioExample, FormSelectExample, FormExample, Devdemo],
+  imports: [RouterOutlet, FormInputExample, FormTextareaExample, FormCheckboxExample, FormRadioExample, FormSelectExample, FormExample],
   templateUrl: './app.html',
   styleUrl: './app.css',
   changeDetection: ChangeDetectionStrategy.OnPush
