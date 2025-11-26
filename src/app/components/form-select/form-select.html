@@ -13,7 +13,9 @@
   <ng-content select="option"></ng-content>
 </select>
 @if (!showerrors()) {
-  <mec-form-notes></mec-form-notes>
+  <mec-form-notes>
+    <ng-content select="[notes]"></ng-content>
+  </mec-form-notes>
 }
 
 @if (showerrors()) {

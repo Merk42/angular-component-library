@@ -1,2 +1,9 @@
-<span class="italic text-sm">{{lengthCopy()}}</span>
-<span class="italic text-sm">{{numberCopy()}} </span>
+<ul>
+  @if (lengthCopy()) {
+  <li class="italic text-sm">{{lengthCopy()}}</li>
+  }
+  @if (numberCopy()) {
+  <li class="italic text-sm">{{numberCopy()}}</li>
+  }
+  <li class="italic text-sm"><ng-content></ng-content></li>
+</ul>
