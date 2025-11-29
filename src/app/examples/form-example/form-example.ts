@@ -10,7 +10,6 @@ import { JsonPipe } from '@angular/common';
 
 
 interface DemoData {
-  basic: string;
   first_name: string;
   last_name: string;
   email: string;
@@ -38,7 +37,6 @@ export class FormExample {
   }]
 
   demoModel = signal<DemoData>({
-    basic: '',
     first_name: '',
     last_name: '',
     email: '',
@@ -49,11 +47,10 @@ export class FormExample {
   });
 
   demoForm = form(this.demoModel, (schemaPath) => {
-    required(schemaPath.basic);
     required(schemaPath.first_name);
-    required(schemaPath.email)
-    email(schemaPath.email)
-    required(schemaPath.favorite)
+    required(schemaPath.email);
+    email(schemaPath.email);
+    required(schemaPath.favorite);
     required(schemaPath.confirm);
   });
 

@@ -3,7 +3,13 @@
   <div class="flex gap-2">
     @for(option of options(); track option) {
       <div>
-        <input [id]="id + '-' + option.value" type="radio" [value]="option.value" [field]="field()"/>
+        <input
+          [id]="id() + '-' + option.value"
+          type="radio"
+          [value]="option.value"
+          [field]="field()"
+          (blur)="touched.set(true)
+          "/>
         <label [for]="id + '-' + option.value">{{option.label}}</label>
       </div>
     }
