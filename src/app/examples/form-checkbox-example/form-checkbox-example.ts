@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { Field, customError, form, submit } from '@angular/forms/signals';
+import { Field, customError, disabled, form, submit } from '@angular/forms/signals';
 import { FormCheckbox } from '../../components/form-checkbox/form-checkbox';
 import { Button } from "../../components/button/button";
 
 interface DemoData {
   favorite:boolean;
+  disabled:boolean;
 }
 
 @Component({
@@ -17,10 +18,11 @@ interface DemoData {
 export class FormCheckboxExample {
   demoModel = signal<DemoData>({
     favorite: false,
+    disabled: false
   });
 
   demoForm = form(this.demoModel, (schemaPath) => {
-
+    disabled(schemaPath.disabled)
   });
 
   onSubmit(event: Event) {

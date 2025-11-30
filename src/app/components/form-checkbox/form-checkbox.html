@@ -7,7 +7,7 @@
   [disabled]="disabled()"
   (blur)="touched.set(true)"
   />
-<label [htmlFor]="idfor()" class="block font-bold w-full"><ng-content></ng-content>@if(required()){*}</label>
+<label [htmlFor]="idfor()" class="font-bold w-full"><ng-content></ng-content>@if(required()){*}</label>
 </div>
 @if (!showerrors()) {
   <mec-form-notes>

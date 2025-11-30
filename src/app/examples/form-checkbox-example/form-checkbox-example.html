@@ -1,5 +1,6 @@
 <h2 class="text-2xl">form-checkbox</h2>
 <form (submit)="onSubmit($event)" class="grid grid-cols-2 gap-4">
   <mec-form-checkbox id="fc" [field]="demoForm.favorite">favorite</mec-form-checkbox>
+  <mec-form-checkbox id="fc-disabled" [field]="demoForm.disabled">disabled</mec-form-checkbox>
   <button mec-button type="submit">submit</button>
 </form>
