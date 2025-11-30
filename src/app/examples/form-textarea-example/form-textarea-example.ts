@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { Field, customError, form, required, minLength, maxLength, submit } from '@angular/forms/signals';
+import { Field, customError, disabled, form, maxLength, minLength, readonly, required, submit } from '@angular/forms/signals';
 import { FormTextarea } from '../../components/form-textarea/form-textarea';
 import { Button } from "../../components/button/button";
 
@@ -9,6 +9,8 @@ interface DemoData {
   minlength: string;
   maxlength: string;
   minmaxlength: string;
+  disabled: string;
+  readonly: string;
 }
 
 @Component({
@@ -24,18 +26,22 @@ export class FormTextareaExample {
     optional: 'baz',
     minlength: 'minlength',
     maxlength: 'maxlength',
-    minmaxlength: 'minmaxlength'
+    minmaxlength: 'minmaxlength',
+    disabled: '',
+    readonly: ''
   });
 
   demoForm = form(this.demoModel, (schemaPath) => {
     required(schemaPath.required);
 
-     minLength(schemaPath.minlength, 8)
-     maxLength(schemaPath.maxlength, 16)
-     minLength(schemaPath.minmaxlength, 8)
-     maxLength(schemaPath.minmaxlength, 16)
-     required(schemaPath.minmaxlength);
+    minLength(schemaPath.minlength, 8)
+    maxLength(schemaPath.maxlength, 16)
+    minLength(schemaPath.minmaxlength, 8)
+    maxLength(schemaPath.minmaxlength, 16)
+    required(schemaPath.minmaxlength);
 
+    disabled(schemaPath.disabled)
+    readonly(schemaPath.readonly)
   });
 
   onSubmit(event: Event) {

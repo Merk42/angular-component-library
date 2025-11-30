@@ -16,6 +16,7 @@ export class FormTextarea implements FormValueControl<string|number|null> {
   readonly value = model<string | number | null>(null);
   readonly disabled = input(false);
   readonly required = input(false);
+  readonly readonly = input(false);
 
   readonly minLength = input<number | undefined>(undefined);
   readonly maxLength = input<number | undefined>(undefined);

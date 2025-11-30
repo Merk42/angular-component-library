@@ -2,13 +2,16 @@
 <textarea
   [id]="idfor()"
   class="block border-2 w-full"
-  [class.border-sky-500]="!showerrors() && !disabled()"
-  [class.border-rose-800]="showerrors() && !disabled()"
+  [class.border-sky-500]="!showerrors() && !disabled() && !readonly()"
+  [class.border-rose-800]="showerrors() && !disabled() && !readonly()"
   [class.bg-neutral-300]="disabled()"
   [class.border-neutral-600]="disabled()"
+  [class.bg-neutral-100]="readonly()"
+  [class.border-transparent]="readonly()"
   [value]="value()"
   (input)="update($event)"
   [disabled]="disabled()"
+  [readOnly]="readonly()"
   (blur)="touched.set(true)"
   ></textarea>
 @if (!showerrors()) {
