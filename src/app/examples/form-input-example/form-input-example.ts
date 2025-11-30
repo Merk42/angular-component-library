@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { Field, customError, form, required, minLength, maxLength, email, min, max, submit } from '@angular/forms/signals';
+import { Field, customError, disabled, email, form, min, minLength, max, maxLength, readonly, required, submit } from '@angular/forms/signals';
 import { FormInput } from '../../components/form-input/form-input';
 import { Button } from "../../components/button/button";
 
@@ -12,6 +12,8 @@ interface DemoData {
   min:number;
   max:number;
   minmax:number;
+  disabled:string;
+  readonly: string;
 }
 
 @Component({
@@ -24,14 +26,16 @@ interface DemoData {
 export class FormInputExample {
 
   demoModel = signal<DemoData>({
-    required: 'bar',
-    optional: 'baz',
-    minlength: 'minlength',
-    maxlength: 'maxlength',
-    minmaxlength: 'minmaxlength',
+    required: '',
+    optional: '',
+    minlength: '',
+    maxlength: '',
+    minmaxlength: '',
     min: 0,
     max: 99,
-    minmax: 50
+    minmax: 50,
+    disabled: '',
+    readonly: ''
   });
 
   demoForm = form(this.demoModel, (schemaPath) => {
@@ -47,6 +51,9 @@ export class FormInputExample {
      max(schemaPath.max, 100)
      min(schemaPath.minmax, 10)
      max(schemaPath.minmax, 100)
+
+      disabled(schemaPath.disabled)
+      readonly(schemaPath.readonly)
   });
 
   onSubmit(event: Event) {
