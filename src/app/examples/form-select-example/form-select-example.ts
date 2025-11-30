@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { Field, customError, form, required, submit } from '@angular/forms/signals';
+import { Field, customError, disabled, form, required, submit } from '@angular/forms/signals';
 import { FormSelect } from '../../components/form-select/form-select';
 import { Button } from "../../components/button/button";
 
 interface DemoData {
   required: string;
   optional: string;
+  disabled: string;
 }
 
 @Component({
@@ -17,12 +18,14 @@ interface DemoData {
 })
 export class FormSelectExample {
   demoModel = signal<DemoData>({
-    required: 'bar',
-    optional: 'baz'
+    required: '',
+    optional: '',
+    disabled: ''
   });
 
   demoForm = form(this.demoModel, (schemaPath) => {
     required(schemaPath.required);
+    disabled(schemaPath.disabled)
   });
 
   onSubmit(event: Event) {
