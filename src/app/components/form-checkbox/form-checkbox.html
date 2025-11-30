@@ -1,13 +1,13 @@
-<div>
-<input
-  [id]="idfor()"
-  type="checkbox"
-  [value]="checked()"
-  (input)="toggle()"
-  [disabled]="disabled()"
-  (blur)="touched.set(true)"
-  />
-<label [htmlFor]="idfor()" class="font-bold w-full"><ng-content></ng-content>@if(required()){*}</label>
+<div class="flex gap-1">
+  <input
+    [id]="idfor()"
+    type="checkbox"
+    [value]="checked()"
+    (input)="toggle()"
+    [disabled]="disabled()"
+    (blur)="touched.set(true)"
+    />
+  <label [htmlFor]="idfor()" class="font-bold w-full"><ng-content></ng-content>@if(required()){*}</label>
 </div>
 @if (!showerrors()) {
   <mec-form-notes>
