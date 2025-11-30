@@ -1,8 +1,8 @@
-<fieldset>
+<fieldset [disabled]="disabled()">
   <legend class="block font-bold w-full"><ng-content></ng-content>@if(required()){*}</legend>
   <div class="flex gap-2">
     @for(option of options(); track option) {
-      <div>
+      <div class="flex gap-1">
         <input
           [id]="id() + '-' + option.value"
           type="radio"
@@ -14,6 +14,10 @@
       </div>
     }
   </div>
+  <pre>required: {{required()}}</pre>
+  <pre>touched: {{touched()}}</pre>
+  <pre>invalid: {{invalid()}}</pre>
+  <pre>errors: {{errors() | json}}</pre>
   @if (!showerrors()) {
     <mec-form-notes>
       <ng-content select="[notes]"></ng-content>

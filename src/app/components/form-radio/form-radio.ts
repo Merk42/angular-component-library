@@ -3,6 +3,7 @@ import { Field, FieldTree, FormValueControl } from '@angular/forms/signals';
 import type { ValidationError } from '@angular/forms/signals';
 import { FormError } from "../form-error/form-error";
 import { FormNotes } from '../form-notes/form-notes';
+import { JsonPipe } from '@angular/common';
 
 interface fieldOption {
   value:string;
@@ -11,7 +12,7 @@ interface fieldOption {
 
 @Component({
   selector: 'mec-form-radio',
-  imports: [Field, FormError, FormNotes],
+  imports: [Field, FormError, FormNotes, JsonPipe],
   templateUrl: './form-radio.html',
   styleUrl: './form-radio.css',
   changeDetection: ChangeDetectionStrategy.OnPush
