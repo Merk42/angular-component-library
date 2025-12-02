@@ -13,7 +13,6 @@ interface DemoData {
   selector: 'mec-form-select-example',
   imports: [Field, FormSelect, Button],
   templateUrl: './form-select-example.html',
-  styleUrl: './form-select-example.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormSelectExample {

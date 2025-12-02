@@ -8,7 +8,6 @@ interface LoginData {
   selector: 'mec-devdemo',
   imports: [Field],
   templateUrl: './devdemo.html',
-  styleUrl: './devdemo.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Devdemo {

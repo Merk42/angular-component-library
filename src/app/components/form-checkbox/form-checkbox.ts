@@ -7,7 +7,6 @@ import { FormNotes } from '../form-notes/form-notes';
   selector: 'mec-form-checkbox',
   imports: [FormError, FormNotes],
   templateUrl: './form-checkbox.html',
-  styleUrl: './form-checkbox.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormCheckbox implements FormCheckboxControl {

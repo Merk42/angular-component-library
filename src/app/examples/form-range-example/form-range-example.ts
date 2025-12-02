@@ -13,7 +13,6 @@ interface DemoData {
   selector: 'mec-form-range-example',
   imports: [Field, FormRange, Button],
   templateUrl: './form-range-example.html',
-  styleUrl: './form-range-example.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormRangeExample {

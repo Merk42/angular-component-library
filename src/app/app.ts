@@ -12,7 +12,6 @@ import { FormRangeExample } from "./examples/form-range-example/form-range-examp
   selector: 'mec-root',
   imports: [RouterOutlet, FormInputExample, FormTextareaExample, FormCheckboxExample, FormRadioExample, FormSelectExample, FormExample, FormRangeExample],
   templateUrl: './app.html',
-  styleUrl: './app.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class App {

@@ -8,7 +8,6 @@ import { FormNotes } from '../form-notes/form-notes';
   selector: 'mec-form-textarea',
   imports: [FormError, FormNotes],
   templateUrl: './form-textarea.html',
-  styleUrl: './form-textarea.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormTextarea implements FormValueControl<string|number|null> {

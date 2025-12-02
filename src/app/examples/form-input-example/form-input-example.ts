@@ -20,7 +20,6 @@ interface DemoData {
   selector: 'mec-form-input-example',
   imports: [Field, FormInput, Button],
   templateUrl: './form-input-example.html',
-  styleUrl: './form-input-example.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormInputExample {

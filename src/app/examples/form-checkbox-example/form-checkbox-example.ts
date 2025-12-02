@@ -12,7 +12,6 @@ interface DemoData {
   selector: 'mec-form-checkbox-example',
   imports: [Button, Field, FormCheckbox],
   templateUrl: './form-checkbox-example.html',
-  styleUrl: './form-checkbox-example.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormCheckboxExample {

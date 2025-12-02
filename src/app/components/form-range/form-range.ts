@@ -8,7 +8,6 @@ import { FormNotes } from '../form-notes/form-notes';
   selector: 'mec-form-range',
   imports: [FormError, FormNotes],
   templateUrl: './form-range.html',
-  styleUrl: './form-range.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormRange implements FormValueControl<string|number|null> {

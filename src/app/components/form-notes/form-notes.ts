@@ -4,7 +4,6 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
   selector: 'mec-form-notes',
   imports: [],
   templateUrl: './form-notes.html',
-  styleUrl: './form-notes.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormNotes {

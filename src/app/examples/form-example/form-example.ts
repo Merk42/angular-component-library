@@ -23,7 +23,6 @@ interface DemoData {
   selector: 'mec-form-example',
   imports: [Button, Field, FormCheckbox, FormInput, FormRadio, FormSelect, FormTextarea, JsonPipe],
   templateUrl: './form-example.html',
-  styleUrl: './form-example.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormExample {

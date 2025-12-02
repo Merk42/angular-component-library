@@ -17,7 +17,6 @@ interface DemoData {
   selector: 'mec-form-textarea-example',
   imports: [Field, FormTextarea, Button],
   templateUrl: './form-textarea-example.html',
-  styleUrl: './form-textarea-example.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormTextareaExample {

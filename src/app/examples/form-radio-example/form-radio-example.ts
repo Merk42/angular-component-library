@@ -15,7 +15,6 @@ interface DemoData {
   selector: 'mec-form-radio-example',
   imports: [Button, Field, FormRadio, FormNotes, FormError],
   templateUrl: './form-radio-example.html',
-  styleUrl: './form-radio-example.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 

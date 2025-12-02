@@ -8,7 +8,6 @@ import { FormNotes } from '../form-notes/form-notes';
   selector: 'mec-form-input',
   imports: [FormError, FormNotes],
   templateUrl: './form-input.html',
-  styleUrl: './form-input.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormInput implements FormValueControl<string|number|null> {

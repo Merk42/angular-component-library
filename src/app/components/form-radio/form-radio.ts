@@ -14,7 +14,6 @@ interface fieldOption {
   selector: 'mec-form-radio',
   imports: [Field, FormError, FormNotes, JsonPipe],
   templateUrl: './form-radio.html',
-  styleUrl: './form-radio.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormRadio implements FormValueControl<string|number> {

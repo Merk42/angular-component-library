@@ -4,7 +4,6 @@ import type { ValidationError } from '@angular/forms/signals';
 @Component({
   selector: 'mec-form-error',
   templateUrl: './form-error.html',
-  styleUrl: './form-error.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormError {
