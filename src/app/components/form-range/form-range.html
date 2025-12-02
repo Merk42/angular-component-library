@@ -3,6 +3,8 @@
   [id]="idfor()"
   type="range"
   [attr.list]="idfor() + '-options'"
+  [max]="max()"
+  [min]="min()"
   class="block border-2 w-full"
   [class.border-sky-500]="!showerrors() && !disabled() && !readonly()"
   [class.border-rose-800]="showerrors() && !disabled() && !readonly()"

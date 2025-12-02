@@ -18,10 +18,8 @@ export class FormRange implements FormValueControl<string|number|null> {
   readonly required = input(false);
   readonly readonly = input(false);
 
-  readonly minLength = input<number | undefined>(undefined);
-  readonly maxLength = input<number | undefined>(undefined);
-  readonly min = input<number | undefined>(undefined);
-  readonly max = input<number | undefined>(undefined);
+  readonly min = input<number | undefined>(0);
+  readonly max = input<number | undefined>(0);
 
   readonly id = input.required()
 

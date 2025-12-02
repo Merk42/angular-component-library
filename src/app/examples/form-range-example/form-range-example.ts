@@ -6,8 +6,7 @@ import { Button } from "../../components/button/button";
 interface DemoData {
   required: string;
   optional: string;
-  disabled:string;
-  readonly: string;
+  disabled: string;
 }
 
 @Component({
@@ -44,15 +43,15 @@ export class FormRangeExample {
   demoModel = signal<DemoData>({
     required: '',
     optional: '',
-    disabled: '',
-    readonly: ''
+    disabled: ''
   });
 
   demoForm = form(this.demoModel, (schemaPath) => {
     max(schemaPath.optional, 600)
+    max(schemaPath.required, 100)
 
       disabled(schemaPath.disabled)
-      readonly(schemaPath.readonly)
+      max(schemaPath.disabled, 100)
   });
 
   onSubmit(event: Event) {
