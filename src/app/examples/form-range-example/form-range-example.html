@@ -1,0 +1,5 @@
+<h2 class="text-2xl">form-range</h2>
+<form (submit)="onSubmit($event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<mec-form-range id="fi-range" type="range" [options]="ranges" [field]="demoForm.optional" >optional</mec-form-range>
+  <button mec-button type="submit" class="md:col-span-2">Submit</button>
+</form>

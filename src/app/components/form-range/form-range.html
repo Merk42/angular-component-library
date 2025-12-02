@@ -1,0 +1,47 @@
+<label [htmlFor]="idfor()" class="block font-bold w-full"><ng-content></ng-content>@if(required()){*}</label>
+<input
+  [id]="idfor()"
+  type="range"
+  [attr.list]="idfor() + '-options'"
+  class="block border-2 w-full"
+  [class.border-sky-500]="!showerrors() && !disabled() && !readonly()"
+  [class.border-rose-800]="showerrors() && !disabled() && !readonly()"
+  [class.bg-neutral-300]="disabled()"
+  [class.border-neutral-600]="disabled()"
+  [class.bg-neutral-100]="readonly()"
+  [class.border-transparent]="readonly()"
+  [value]="value()"
+  (input)="update($event)"
+  [disabled]="disabled()"
+  [readOnly]="readonly()"
+  (blur)="touched.set(true)"
+  />
+  @if (rangeList()) {
+    <datalist class="relative block" [id]="idfor() + '-options'">
+      @for (option of rangeList(); track option.value) {
+        <option
+          [style.left]="option.left + '%'"
+          class="absolute -translate-x-1/2 text-sm"
+          [value]="option.value"
+          [label]="option.label">
+        </option>
+      }
+    </datalist>
+  }
+
+@if (!showerrors() && !rangeList()) {
+  <mec-form-notes
+    [min]="min()"
+    [max]="max()">
+    <ng-content select="[notes]"></ng-content>
+  </mec-form-notes>
+}
+
+@if (showerrors()) {
+  <mec-form-error
+    role="alert"
+    [errors]="errors()"
+    [min]="min()"
+    [max]="max()"
+    />
+}
