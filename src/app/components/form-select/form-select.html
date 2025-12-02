@@ -1,9 +1,11 @@
 <label [htmlFor]="idfor()" class="block font-bold w-full"><ng-content></ng-content>@if(required()){*}</label>
 <select
   [id]="idfor()"
-  class="block border-2 w-full"
-  [class.border-sky-500]="!showerrors() && !disabled()"
-  [class.border-rose-800]="showerrors() && !disabled()"
+  class="block border-2 w-full rounded-lg h-[2.75rem] px-2"
+  [class.bg-white]="!showerrors()"
+  [class.border-sky-500]="!showerrors()"
+  [class.bg-rose-200]="showerrors()"
+  [class.border-rose-800]="showerrors()"
   [class.bg-neutral-300]="disabled()"
   [class.border-neutral-600]="disabled()"
   [value]="value()"

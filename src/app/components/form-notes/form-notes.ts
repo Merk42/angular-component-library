@@ -4,7 +4,10 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
   selector: 'mec-form-notes',
   imports: [],
   templateUrl: './form-notes.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'min-h-6 block'
+  }
 })
 export class FormNotes {
   readonly minLength = input<number | undefined>(undefined);

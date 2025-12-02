@@ -22,7 +22,7 @@ export class FormSelect implements FormValueControl<string|number|null> {
   errors = input<readonly ValidationError.WithOptionalField[]>([]);
 
   showerrors = computed(() => {
-    return this.invalid() && this.touched()
+    return this.invalid() && this.touched() && !this.disabled()
   })
 
   idfor = computed(() => {

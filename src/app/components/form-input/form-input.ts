@@ -31,7 +31,7 @@ export class FormInput implements FormValueControl<string|number|null> {
   errors = input<readonly ValidationError.WithOptionalField[]>([]);
 
   showerrors = computed(() => {
-    return this.invalid() && this.touched()
+    return this.invalid() && this.touched() && !this.disabled() && !this.readonly()
   })
 
   idfor = computed(() => {

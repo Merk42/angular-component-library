@@ -4,7 +4,10 @@ import type { ValidationError } from '@angular/forms/signals';
 @Component({
   selector: 'mec-form-error',
   templateUrl: './form-error.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'min-h-6 block'
+  }
 })
 export class FormError {
   errors = input<readonly ValidationError.WithOptionalField[]>([]);
