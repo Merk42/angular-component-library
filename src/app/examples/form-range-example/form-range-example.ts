@@ -40,6 +40,18 @@ export class FormRangeExample {
   }
 ]
 
+offsetranges = [
+  {
+    label:'50',
+    value: 50
+  },
+  {
+    label:'100',
+    value: 100
+  }
+
+]
+
   demoModel = signal<DemoData>({
     required: '',
     optional: '',
@@ -48,10 +60,13 @@ export class FormRangeExample {
 
   demoForm = form(this.demoModel, (schemaPath) => {
     max(schemaPath.optional, 600)
-    max(schemaPath.required, 100)
+    max(schemaPath.required, 150)
 
       disabled(schemaPath.disabled)
       max(schemaPath.disabled, 100)
+
+
+      min(schemaPath.required, 32)
   });
 
   onSubmit(event: Event) {

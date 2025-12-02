@@ -63,6 +63,6 @@ export class FormRange implements FormValueControl<string|number|null> {
   rangeLeft(value:number):number {
     const MIN = this.min() || 0;
     const MAX = this.max() || 0;
-    return (value / MAX) * 100
+    return ((value - MIN) / (MAX - MIN)) * 100
   }
 }
