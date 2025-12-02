@@ -1,4 +1,7 @@
-<label [htmlFor]="idfor()" class="block font-bold w-full"><ng-content></ng-content>@if(required()){*}</label>
+<label [htmlFor]="idfor()" class="flex font-bold w-full">
+  <span class="w-[1ch]">@if(required()){*}</span>
+  <span><ng-content></ng-content></span>
+</label>
 <textarea
   [id]="idfor()"
   class="block border-2 w-full"
