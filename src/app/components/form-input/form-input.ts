@@ -13,7 +13,7 @@ import { FormNotes } from '../form-notes/form-notes';
 })
 export class FormInput implements FormValueControl<string|number|null> {
 
-  readonly type = input<string>('text');
+  readonly type = input<'color'|'date'|'datetime-local'|'email'|'file'|'month'|'number'|'password'|'range'|'search'|'tel'|'text'|'time'|'url'|'week'>('text');
 
   readonly value = model<string | number | null>(null);
   readonly disabled = input(false);
