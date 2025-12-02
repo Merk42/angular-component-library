@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
   templateUrl: './form-notes.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'min-h-6 block'
+    class: 'min-h-6 block has-[li:first-child:last-child:empty]:hidden'
   }
 })
 export class FormNotes {
@@ -14,7 +14,6 @@ export class FormNotes {
   readonly maxLength = input<number | undefined>(undefined);
   readonly min = input<number | undefined>(undefined);
   readonly max = input<number | undefined>(undefined);
-
 
   lengthCopy = computed(() => {
     if (this.minLength()) {
