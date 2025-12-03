@@ -1,5 +1,8 @@
 <ul>
 @for (msg of messages(); track msg) {
-  <li class="text-rose-700">{{ msg}}</li>
+  <li class="text-rose-700 flex gap-1">
+    <mec-hero-icon [icon]="'exclamation-triangle'"/>
+    <span>{{msg}}</span>
+  </li>
 }
 </ul>

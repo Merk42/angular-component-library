@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import type { ValidationError } from '@angular/forms/signals';
+import { HeroIcon } from "../hero-icon/hero-icon";
 
 @Component({
   selector: 'mec-form-error',
@@ -7,7 +8,8 @@ import type { ValidationError } from '@angular/forms/signals';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'min-h-6 block'
-  }
+  },
+  imports: [HeroIcon]
 })
 export class FormError {
   errors = input<readonly ValidationError.WithOptionalField[]>([]);
