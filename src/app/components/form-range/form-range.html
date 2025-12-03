@@ -9,12 +9,12 @@
   [max]="max()"
   [min]="min()"
   class="block border-2 w-full"
-  [class.border-sky-500]="!showerrors() && !disabled() && !readonly()"
-  [class.border-rose-800]="showerrors() && !disabled() && !readonly()"
-  [class.bg-neutral-300]="disabled()"
-  [class.border-neutral-600]="disabled()"
-  [class.bg-neutral-100]="readonly()"
-  [class.border-transparent]="readonly()"
+  [class.bg-rose-200]="displayState() === 'error'"
+  [class.border-rose-800]="displayState() === 'error'"
+  [class.bg-neutral-300]="displayState() === 'disabled'"
+  [class.border-neutral-600]="displayState() === 'disabled'"
+  [class.bg-neutral-100]="displayState() === 'readonly'"
+  [class.border-transparent]="displayState() === 'readonly'"
   [value]="value()"
   (input)="update($event)"
   [disabled]="disabled()"
@@ -34,7 +34,7 @@
     </datalist>
   }
 
-@if (!showerrors() && !rangeList()) {
+@if (displayState() !== 'error' && !rangeList()) {
   <mec-form-notes
     [min]="min()"
     [max]="max()">
@@ -42,7 +42,7 @@
   </mec-form-notes>
 }
 
-@if (showerrors()) {
+@if (displayState() === 'error') {
   <mec-form-error
     role="alert"
     [errors]="errors()"

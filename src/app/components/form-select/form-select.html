@@ -5,12 +5,12 @@
 <select
   [id]="idfor()"
   class="block border-2 w-full rounded-lg h-[2.75rem] px-2"
-  [class.bg-white]="!showerrors()"
-  [class.border-sky-500]="!showerrors()"
-  [class.bg-rose-200]="showerrors()"
-  [class.border-rose-800]="showerrors()"
-  [class.bg-neutral-300]="disabled()"
-  [class.border-neutral-600]="disabled()"
+  [class.bg-white]="displayState() === 'default'"
+  [class.border-sky-800]="displayState() === 'default'"
+  [class.bg-rose-200]="displayState() === 'error'"
+  [class.border-rose-800]="displayState() === 'error'"
+  [class.bg-neutral-300]="displayState() === 'disabled'"
+  [class.border-neutral-600]="displayState() === 'disabled'"
   [value]="value()"
   (input)="update($event)"
   [disabled]="disabled()"
@@ -18,13 +18,13 @@
   >
   <ng-content select="option"></ng-content>
 </select>
-@if (!showerrors()) {
+@if (displayState() !== 'error') {
   <mec-form-notes>
     <ng-content select="[notes]"></ng-content>
   </mec-form-notes>
 }
 
-@if (showerrors()) {
+@if (displayState() === 'error') {
   <mec-form-error
     role="alert"
     [errors]="errors()"
