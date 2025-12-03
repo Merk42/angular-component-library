@@ -1,14 +1,18 @@
-<div class="flex gap-1">
-  <input
-    [id]="idfor()"
-    type="checkbox"
-    [value]="checked()"
-    (input)="toggle()"
-    [disabled]="disabled()"
-    (blur)="touched.set(true)"
-    />
-  <label [htmlFor]="idfor()" class="font-bold w-full"><ng-content></ng-content>@if(required()){*}</label>
-</div>
+<label class="flex gap-1" [for]="idfor()">
+  <span class="w-[1.5rem] grid place-content-center">
+    <input
+      [id]="idfor()"
+      type="checkbox"
+      class="peer sr-only"
+      [value]="checked()"
+      (input)="toggle()"
+      [disabled]="disabled()"
+      (blur)="touched.set(true)"
+      />
+    <span class="peer-checked:bg-yellow-800 w-2 h-2 block outline-2 outline-offset-2 outline-sky-800"></span>
+  </span>
+  <span><ng-content></ng-content>@if(required()){*}</span>
+</label>
 @if (!showerrors()) {
   <mec-form-notes>
     <ng-content select="[notes]"></ng-content>
