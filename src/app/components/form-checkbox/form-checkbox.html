@@ -9,7 +9,7 @@
       [disabled]="disabled()"
       (blur)="touched.set(true)"
       />
-    <span class="peer-checked:bg-yellow-800 w-2 h-2 block outline-2 outline-offset-2 outline-sky-800"></span>
+    <span class="peer-checked:bg-yellow-800 w-2 h-2 block outline-2 outline-offset-2 outline-sky-800 peer-disabled:outline-slate-400"></span>
   </span>
   <span><ng-content></ng-content>@if(required()){*}</span>
 </label>
