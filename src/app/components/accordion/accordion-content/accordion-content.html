@@ -2,7 +2,7 @@
   class="accordion-navigation"
   [class.active]="opened()">
 	<button
-    class="w-full flex place-content-between border-2 p-2 rounded-t-sm text-xl cursor-pointer"
+    class="w-full flex place-content-between border-2 p-2 rounded-t-sm text-xl cursor-pointer border-sky-800"
     [class.rounded-b-sm]="!opened()"
 		[class.active]="opened()"
     [class.border-b-0]="opened()"
@@ -16,7 +16,7 @@
 	</button>
 
 	<div
-    class="border-2 p-2 rounded-b-sm bg-gray-200 border-t-0"
+    class="border-2 p-2 rounded-b-sm bg-sky-100 border-t-0 border-sky-800"
     [id]="id() + '-content'"
     [attr.aria-labelledby]="id() + '-button'"
     [class.hidden]="!opened()"
