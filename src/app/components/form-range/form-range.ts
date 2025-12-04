@@ -50,16 +50,22 @@ export class FormRange implements FormValueControl<string|number|null> {
   options = input<{value:number,label:string}[]>([])
 
   rangeList = computed(() => {
-    if (!this.max() || !this.options()) {
+    if (!this.max() || !this.options() || !this.options().length) {
       return []
     }
-    /*
+
+    const OPTIONS = this.options().sort((a, b) => a.value - b.value);
     const MAX = this.max() || 0;
-    if (MAX > this.options()[this.options().length - 1].value) {
-      throw new Error("range option out of bounds");
+    const MIN = this.min() || 0;
+
+    if (MAX < OPTIONS[this.options().length - 1].value) {
+      throw new Error(`option ${OPTIONS[this.options().length - 1].value} is greater than max of ${MAX}`);
     }
-    */
-    return this.options().map(user => {
+    if (MIN > OPTIONS[0].value) {
+      throw new Error(`option ${OPTIONS[0].value} is less than min of ${MIN}`);
+    }
+
+    return OPTIONS.map(user => {
         return {
             value: user.value,
             label: user.label,
