@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { Field, customError, disabled, email, form, min, minLength, max, maxLength, readonly, required, submit } from '@angular/forms/signals';
+import { Field, customError, disabled, form, min, max, submit } from '@angular/forms/signals';
 import { FormRange } from '../../components/form-range/form-range';
 import { Button } from "../../components/button/button";
 
