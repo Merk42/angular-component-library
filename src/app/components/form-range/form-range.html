@@ -1,6 +1,6 @@
 <label [htmlFor]="idfor()" class="flex font-bold w-full">
   <span class="w-[1ch]">@if(required()){*}</span>
-  <span><ng-content></ng-content></span>
+  <span><ng-content /></span>
 </label>
 <input
   [id]="idfor()"
@@ -38,7 +38,7 @@
   <mec-form-notes
     [min]="min()"
     [max]="max()">
-    <ng-content select="[notes]"></ng-content>
+    <ng-content select="[notes]" />
   </mec-form-notes>
 }
 

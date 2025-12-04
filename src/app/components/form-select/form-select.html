@@ -1,6 +1,6 @@
 <label [htmlFor]="idfor()" class="flex font-bold w-full">
   <span class="w-[1ch]">@if(required()){*}</span>
-  <span><ng-content></ng-content></span>
+  <span><ng-content /></span>
 </label>
 <select
   [id]="idfor()"
@@ -16,11 +16,11 @@
   [disabled]="disabled()"
   (blur)="touched.set(true)"
   >
-  <ng-content select="option"></ng-content>
+  <ng-content select="option" />
 </select>
 @if (displayState() !== 'error') {
   <mec-form-notes>
-    <ng-content select="[notes]"></ng-content>
+    <ng-content select="[notes]" />
   </mec-form-notes>
 }
 
