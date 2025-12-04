@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ContentChildren, QueryList, AfterContentInit, HostBinding, AfterViewInit, OnDestroy, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ContentChildren, QueryList, AfterContentInit, HostBinding, AfterViewInit, OnDestroy, input, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AccordionContent } from './accordion-content/accordion-content';
 import { AccordionService } from './accordion-service';
@@ -10,6 +10,8 @@ import { AccordionService } from './accordion-service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Accordion implements AfterContentInit, AfterViewInit, OnDestroy {
+private accordionService = inject(AccordionService);
+
 readonly multiple = input(false);
   readonly size = input('');
   readonly bg = input('');
@@ -19,9 +21,12 @@ readonly multiple = input(false);
   @ContentChildren(AccordionContent)
   groups!: QueryList<AccordionContent>;
   groupsSubscription!: Subscription;
-  constructor(
-    private accordionService: AccordionService,
-    ) {
+
+/** Inserted by Angular inject() migration for backwards compatibility */
+constructor(...args: unknown[]);
+  constructor() {
+    const accordionService = this.accordionService;
+
     accordionService.openedAccordion$.subscribe(
       IDtoOpen => {
         this.scrollToAndOpen(IDtoOpen);
