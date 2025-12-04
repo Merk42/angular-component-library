@@ -1,8 +1,8 @@
 <div
-  [id]="id()"
+  [id]="id() + '-tabpanel'"
   role="tabpanel"
   [tabindex]="active() ? 0 : -1"
-  [attr.aria-labelledby]="id() + '__link'"
+  [attr.aria-labelledby]="id() + '-tab'"
   class="border-2 p-2 rounded-sm cursor-pointer border-sky-800"
   >
 	<ng-content />

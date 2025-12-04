@@ -11,12 +11,12 @@
     @for (tab of tabs(); track tab.id()) {
         <button
             #buttonz
-            [id]="tab.id() + '__link'"
+            [id]="tab.id() + '-tab'"
             type="button"
             role="tab"
             [attr.aria-selected]="tab.active()"
             [attr.tabindex]="tab.active() ? null : -1"
-            [attr.aria-controls]="tab.id()"
+            [attr.aria-controls]="tab.id() + '-tabpanel'"
             (click)="selectTab(tab)"
             (keydown)="onKeyDown($event)"
             class="border-2 border-b-0 p-2 rounded-t-sm text-xl cursor-pointer border-sky-800"
