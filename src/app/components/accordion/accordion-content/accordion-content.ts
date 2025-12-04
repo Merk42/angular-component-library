@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, EventEmitter, HostBinding, Output, input, model } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, HostBinding, input, model, output } from '@angular/core';
 import { HeroIcon } from '../../hero-icon/hero-icon';
 @Component({
   selector: 'mec-accordion-content',
@@ -13,5 +13,5 @@ export class AccordionContent {
 
   showAriaAttrs: boolean = true;
 
-  @Output() toggle: EventEmitter<any> = new EventEmitter<any>();
+  readonly toggle = output<any>();
 }

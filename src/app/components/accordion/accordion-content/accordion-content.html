@@ -6,7 +6,7 @@
     [class.rounded-b-sm]="!opened()"
 		[class.active]="opened()"
     [class.border-b-0]="opened()"
-		(click)="$event.preventDefault();toggle.emit()"
+		(click)="$event.preventDefault();toggle.emit(null)"
 		[attr.aria-expanded]="opened()"
     [attr.aria-controls]="id() + '-content'"
     [id]="id() + '-button'">
