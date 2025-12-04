@@ -7,11 +7,12 @@ import { FormRadioExample } from "./examples/form-radio-example/form-radio-examp
 import { FormSelectExample } from "./examples/form-select-example/form-select-example";
 import { FormExample } from "./examples/form-example/form-example";
 import { FormRangeExample } from "./examples/form-range-example/form-range-example";
-import { AccordionExample } from "./exmaples/accordion-example/accordion-example";
+import { AccordionExample } from "./examples/accordion-example/accordion-example";
+import { TabsExample } from "./examples/tabs-example/tabs-example";
 
 @Component({
   selector: 'mec-root',
-  imports: [RouterOutlet, FormInputExample, FormTextareaExample, FormCheckboxExample, FormRadioExample, FormSelectExample, FormExample, FormRangeExample, AccordionExample],
+  imports: [RouterOutlet, FormInputExample, FormTextareaExample, FormCheckboxExample, FormRadioExample, FormSelectExample, FormExample, FormRangeExample, AccordionExample, TabsExample],
   templateUrl: './app.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

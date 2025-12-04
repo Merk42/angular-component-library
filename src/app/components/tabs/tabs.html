@@ -1,0 +1,25 @@
+<div
+    #tabcontainer
+    class="tabs"
+    role="tablist"
+    [style.--_left]="indicatorLeft()"
+    [style.--_width]="indicatorWidth()"
+    >
+    @for (tab of tabs; track tab.id()) {
+        <button
+            #buttonz
+            [id]="tab.id() + '__link'"
+            type="button"
+            role="tab"
+            [attr.aria-selected]="tab.active()"
+            [attr.tabindex]="tab.active() ? null : -1"
+            [attr.aria-controls]="tab.id()"
+            (click)="selectTab(tab)"
+            (keydown)="onKeyDown($event)">
+            {{tab.title()}}
+        </button>
+    }
+</div>
+<div class="tabs-content">
+      <ng-content></ng-content>
+</div>
