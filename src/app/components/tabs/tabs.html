@@ -1,6 +1,9 @@
 <div
     #tabcontainer
-    class="tabs translate-y-[2px]"
+    class="tabs translate-y-[2px] flex"
+    [class.justify-start]="align() === 'left'"
+    [class.justify-end]="align() === 'right'"
+    [class.justify-center]="align() === 'center'"
     role="tablist"
     [style.--_left]="indicatorLeft()"
     [style.--_width]="indicatorWidth()"

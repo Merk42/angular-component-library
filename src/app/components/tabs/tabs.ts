@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, contentChildren, effect, output, signal, viewChild, viewChildren } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, contentChildren, effect, input, output, signal, viewChild, viewChildren } from '@angular/core';
 import { TabContent } from './tab-content/tab-content';
 
 @Component({
@@ -8,6 +8,7 @@ import { TabContent } from './tab-content/tab-content';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Tabs implements AfterViewInit{
+  readonly align = input<'left'|'right'|'center'>('left')
 	readonly tabClicked = output<boolean>();
   readonly selectedTabClicked = output<object>();
   readonly tabs = contentChildren(TabContent);
