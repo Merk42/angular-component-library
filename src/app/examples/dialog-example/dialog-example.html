@@ -9,3 +9,10 @@
   <p>You must provide confirm and / or cancel buttons, otherwise no way to close!</p>
   <button slot="confirm" mec-button (click)="alertmodal.closeModal()">oh, right</button>
 </dialog>
+<button mec-button (click)="ccmodal.showModal()">Confirm and Cancel Modal</button>
+<dialog mec-modal #ccmodal id="cc-modal">
+  <ng-container slot="title">role="alertdialog"</ng-container>
+  <p>This has confirm and cancel buttons.</p>
+  <button slot="confirm" mec-button (click)="alertmodal.closeModal()">OK</button>
+  <button slot="cancel" mec-button (click)="alertmodal.closeModal()">NO</button>
+</dialog>

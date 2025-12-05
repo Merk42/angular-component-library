@@ -1,5 +1,5 @@
 
-<header class="flex bg-sky-100 p-4">
+<header class="flex bg-sky-100 p-4 gap-2">
   <h2 class="grow text-lg" [id]="id() + '-dialog-title'">
     <ng-content select="[slot=title]"></ng-content>
   </h2>
@@ -16,7 +16,7 @@
 <main class="px-8 my-8">
   <ng-content></ng-content>
 </main>
-<footer class="modal-buttons text-right">
+<footer class="flex bg-sky-100 p-4 gap-2">
   <ng-content select="[slot=confirm]"></ng-content>
   <ng-content select="[slot=cancel]"></ng-content>
 </footer>
