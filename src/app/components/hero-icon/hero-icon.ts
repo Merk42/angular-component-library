@@ -6,5 +6,5 @@ import { Component, input } from '@angular/core';
   templateUrl: './hero-icon.html',
 })
 export class HeroIcon {
-  readonly icon = input.required()
+  readonly icon = input.required<'exclamation-triangle'|'minus'|'plus'|'x-mark'>()
 }

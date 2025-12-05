@@ -1,0 +1,11 @@
+<button mec-button (click)="basicmodal.showModal()">Open Modal</button>
+<dialog mec-modal #basicmodal id="basic-modal">
+  <ng-container slot="title">basic modal</ng-container>
+  <p>Basic modal with no confirm nor cancel buttons</p>
+</dialog>
+<button mec-button (click)="alertmodal.showModal()">Open alert Modal</button>
+<dialog mec-modal #alertmodal id="alert-modal" role="alertdialog">
+  <ng-container slot="title">role="alertdialog"</ng-container>
+  <p>You must provide confirm and / or cancel buttons, otherwise no way to close!</p>
+  <button slot="confirm" mec-button (click)="alertmodal.closeModal()">oh, right</button>
+</dialog>
