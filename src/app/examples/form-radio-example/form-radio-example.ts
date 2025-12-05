@@ -1,19 +1,17 @@
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { Field, customError, disabled, form, required, submit } from '@angular/forms/signals';
 import { FormRadio } from '../../components/form-radio/form-radio';
 import { Button } from "../../components/button/button";
-import { FormNotes } from '../../components/form-notes/form-notes';
-import { FormError } from '../../components/form-error/form-error';
 
 interface DemoData {
-  favorite:string;
-  must: string;
+  optional:string;
+  required: string;
   disabled: string;
 }
 
 @Component({
   selector: 'mec-form-radio-example',
-  imports: [Button, Field, FormRadio, FormNotes, FormError],
+  imports: [Button, Field, FormRadio],
   templateUrl: './form-radio-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -29,13 +27,13 @@ export class FormRadioExample {
   }]
 
   demoModel = signal<DemoData>({
-    favorite: '',
-    must: '',
+    optional: '',
+    required: '',
     disabled: ''
   });
 
   demoForm = form(this.demoModel, (schemaPath) => {
-    required(schemaPath.must)
+    required(schemaPath.required)
     disabled(schemaPath.disabled)
   });
 
@@ -53,8 +51,4 @@ export class FormRadioExample {
       }
     })
   }
-
-    showerrors = computed(() => {
-    return this.demoForm.must().invalid() && this.demoForm.must().touched()
-  })
 }

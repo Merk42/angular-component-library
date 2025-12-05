@@ -1,56 +1,9 @@
 <h2 class="text-2xl">form-radio</h2>
 <form novalidate (submit)="onSubmit($event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
   <p class="md:col-span-2">fields marked with * are required</p>
-  <mec-form-radio id="radios1" [options]="options" [field]="demoForm.favorite">favorite</mec-form-radio>
-   <mec-form-radio id="radios-required" [options]="options" [field]="demoForm.must">must</mec-form-radio>
+  <mec-form-radio id="radios-optional" [options]="options" [field]="demoForm.optional">optional</mec-form-radio>
+   <mec-form-radio id="radios-required" [options]="options" [field]="demoForm.required">required</mec-form-radio>
    <mec-form-radio id="radio-disabled" [options]="options" [field]="demoForm.disabled">disabled</mec-form-radio>
-   <div>
-   <fieldset>
-    <legend class="block font-bold w-full">must@if(demoForm.must().required()){*}</legend>
-  <div class="flex gap-2">
-    @for(option of options; track option) {
-      <div>
-        <input
-          [id]="option.value"
-          type="radio"
-          [value]="option.value"
-          [field]="demoForm.must"/>
-        <label [for]="option.value">{{option.label}}</label>
-      </div>
-    }
-  </div>
 
-
-  @if (!showerrors()) {
-    <mec-form-notes>
-      <ng-content select="[notes]" />
-    </mec-form-notes>
-  }
-
-  @if (showerrors()) {
-    <mec-form-error
-      role="alert"
-      [errors]="demoForm.must().errors()"
-      />
-  }
-
-   </fieldset>
-     <pre>required: {{demoForm.must().required()}}</pre>
-  <pre>touched: {{demoForm.must().touched()}}</pre>
-  <pre>invalid: {{demoForm.must().invalid()}}</pre>
-  </div>
-<div style="display: none;">
-  <label>
-  <input type="radio" value="free" [field]="demoForm.must" />
-  Free
-</label>
-<label>
-  <input type="radio" value="premium" [field]="demoForm.must" />
-  Premium
-</label>
-  <pre>required: {{demoForm.must().required()}}</pre>
-  <pre>touched: {{demoForm.must().touched()}}</pre>
-  <pre>invalid: {{demoForm.must().invalid()}}</pre>
-</div>
   <button mec-button type="submit" class="md:col-span-2">submit</button>
 </form>
