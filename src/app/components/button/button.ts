@@ -5,7 +5,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   imports: [],
   templateUrl: './button.html',
   host: {
-    'class': 'cursor-pointer grow text-center border-yellow-800 border-2 p-2 rounded-md bg-yellow-500'
+    'class': 'cursor-pointer grow text-center relative before:content-[\'\'] before:absolute before:inset-0 before:bg-yellow-800 before:rounded-md'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
