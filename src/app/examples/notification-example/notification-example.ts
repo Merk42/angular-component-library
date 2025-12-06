@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { Notification } from '../../components/notification/notification';
 import { FormInput } from "../../components/form-input/form-input";
 import { Field, form } from '@angular/forms/signals';
@@ -12,7 +12,7 @@ interface DemoData {
   selector: 'mec-notification-example',
   imports: [Notification, Field, FormInput],
   templateUrl: './notification-example.html',
-  styleUrl: './notification-example.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NotificationExample {
   demoModel = signal<DemoData>({
