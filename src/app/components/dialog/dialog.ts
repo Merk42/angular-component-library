@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, Inject, input, OnInit, PLATFORM_ID} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, input, OnInit, PLATFORM_ID, inject } from '@angular/core';
 import { HeroIcon } from "../hero-icon/hero-icon";
 
 @Component({
@@ -12,11 +12,12 @@ import { HeroIcon } from "../hero-icon/hero-icon";
   }
 })
 export class Dialog implements OnInit {
+  private host = inject(ElementRef);
+
   platformId: Object;
-  constructor(
-    private host: ElementRef,
-    @Inject(PLATFORM_ID) platformId: Object
-  ) {
+  constructor() {
+    const platformId = inject<Object>(PLATFORM_ID);
+
     this.platformId = platformId;
   }
   readonly id = input.required<string>();
