@@ -1,6 +1,6 @@
 <div
     #tabcontainer
-    class="tabs translate-y-[2px] flex"
+    class="tabs translate-y-[2px] flex overflow-hidden"
     [class.justify-start]="align() === 'left'"
     [class.justify-end]="align() === 'right'"
     [class.justify-center]="align() === 'center'"
@@ -19,7 +19,8 @@
             [attr.aria-controls]="tab.id() + '-tabpanel'"
             (click)="selectTab(tab)"
             (keydown)="onKeyDown($event)"
-            class="border-2 border-b-0 p-2 rounded-t-sm text-xl cursor-pointer border-sky-800"
+            class="border-2 border-b-0 p-2 rounded-t-sm text-xl cursor-pointer border-sky-800 transition duration-150"
+            [class.translate-y-1]="!tab.active()"
             [class.bg-sky-100]="!tab.active()"
             [class.bg-white]="tab.active()">
             {{tab.title()}}
