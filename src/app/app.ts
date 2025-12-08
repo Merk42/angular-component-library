@@ -12,10 +12,11 @@ import { TabsExample } from "./examples/tabs-example/tabs-example";
 import { NotificationExample } from "./examples/notification-example/notification-example";
 import { DialogExample } from "./examples/dialog-example/dialog-example";
 import { ButtonExample } from "./examples/button-example/button-example";
+import { PaginationExample } from "./examples/pagination-example/pagination-example";
 
 @Component({
   selector: 'mec-root',
-  imports: [RouterOutlet, FormInputExample, FormTextareaExample, FormCheckboxExample, FormRadioExample, FormSelectExample, FormExample, FormRangeExample, AccordionExample, TabsExample, NotificationExample, DialogExample, ButtonExample],
+  imports: [RouterOutlet, FormInputExample, FormTextareaExample, FormCheckboxExample, FormRadioExample, FormSelectExample, FormExample, FormRangeExample, AccordionExample, TabsExample, NotificationExample, DialogExample, ButtonExample, PaginationExample],
   templateUrl: './app.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

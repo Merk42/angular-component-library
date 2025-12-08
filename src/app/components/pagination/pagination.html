@@ -1,0 +1,14 @@
+<div class="flex justify-center gap-2">
+  @for (P of displayPages(); track P) {
+    <a
+      class="border-2 p-2 text-xl cursor-pointer border-sky-800 transition duration-150"
+      [class.bg-white]="!P.is_current"
+      [class.rounded-lg]="!P.is_current"
+      [class.bg-sky-100]="P.is_current"
+      [class.rounded-full]="P.is_current"
+      href="#"
+      [attr.aria-disabled]="P.is_current ? true : null">{{P.number}}</a>
+  }
+</div>
+
+

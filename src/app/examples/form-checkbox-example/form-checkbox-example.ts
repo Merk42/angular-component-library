@@ -6,6 +6,7 @@ import { Button } from "../../components/button/button";
 interface DemoData {
   favorite:boolean;
   disabled:boolean;
+  checked:boolean;
 }
 
 @Component({
@@ -17,11 +18,13 @@ interface DemoData {
 export class FormCheckboxExample {
   demoModel = signal<DemoData>({
     favorite: false,
-    disabled: false
+    disabled: false,
+    checked: true
   });
 
   demoForm = form(this.demoModel, (schemaPath) => {
     disabled(schemaPath.disabled)
+    disabled(schemaPath.checked)
   });
 
   onSubmit(event: Event) {
