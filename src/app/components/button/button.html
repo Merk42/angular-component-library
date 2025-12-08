@@ -1,4 +1,22 @@
-<span class="flex justify-center border-yellow-800 border-2 rounded-md bg-yellow-500 p-2 -translate-y-1 group-hover:-translate-y-2 group-focus-visible:-translate-y-2 group-active:-translate-y-0 group-disabled:-translate-y-0 transition duration-150" >
-  <ng-content />
+<span
+  class="flex justify-center border-2 rounded-md p-2 -translate-y-1 group-hover:-translate-y-2 group-focus-visible:-translate-y-2 group-active:-translate-y-0 group-disabled:-translate-y-0 transition duration-150"
+  [class.translate-y-0]="isAnimating()"
+  [class.bg-yellow-500]="displayState() === '' || displayState() === 'try'"
+  [class.border-yellow-800]="displayState() === '' || displayState() === 'try'"
+  [class.bg-rose-200]="displayState() === 'fail'"
+  [class.border-rose-800]="displayState() === 'fail'"
+  [class.bg-green-200]="displayState() === 'success'"
+  [class.border-green-800]="displayState() === 'success'"
+  >
+  <span><ng-content /></span>
+  @if (displayState() === 'try'){
+    <mec-hero-icon class="animate-spin " [icon]="'arrow-path'"/>
+  }
+  @if (displayState() === 'success'){
+    <mec-hero-icon [icon]="'check'"/>
+  }
+  @if ( displayState() === 'fail'){
+    <mec-hero-icon [icon]="'exclamation-triangle'"/>
+  }
 </span>
 
