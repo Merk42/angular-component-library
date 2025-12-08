@@ -1,11 +1,11 @@
-import { Component, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, viewChild } from '@angular/core';
 import { Dialog } from '../../components/dialog/dialog';
 import { Button } from '../../components/button/button';
 @Component({
   selector: 'mec-dialog-example',
   imports: [Button, Dialog],
   templateUrl: './dialog-example.html',
-  styleUrl: './dialog-example.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DialogExample {
   longmmodal = viewChild.required(Dialog);
