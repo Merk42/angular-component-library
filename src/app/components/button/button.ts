@@ -31,7 +31,6 @@ export class Button {
 
 	private resetStatus(disabledafter: boolean) {
 		setTimeout(() => {
-      console.log('reset after timeout')
       this.displayState.set('');
 			if (disabledafter) {
 				this.isDisabled.set(true)
