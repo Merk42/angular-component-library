@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
 import { Carousel } from '../../components/carousel/carousel';
 import { CarouselContent } from '../../components/carousel/carousel-content/carousel-content';
 import { CarouselConfig } from '../../components/carousel/carousel.config';
@@ -10,47 +10,17 @@ import { CarouselConfig } from '../../components/carousel/carousel.config';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CarouselExample {
-  products: any[] = [
-    {
-      id:1,
-      title:'alpha'
-    },
-    {
-      id:2,
-      title:'beta'
-    },
-    {
-      id:3,
-      title:'gamma'
-    },
-    {
-      id:4,
-      title:'delta'
-    },
-    {
-      id:5,
-      title:'epsilon'
-    },
-    {
-      id:6,
-      title:'zeta'
-    },
-    {
-      id:7,
-      title:'eta'
-    },
-    {
-      id:8,
-      title:'theta'
-    },
-    {
-      id:9,
-      title:'iota'
-    },
-    {
-      id:10,
-      title:'kappa'
-    }
-  ];
   carouselconfig: CarouselConfig = new CarouselConfig();
+
+  slides = computed<{id:number,src:string}[]>(() => {
+    return Array.from({length:15}, (element, index) => {
+      const min = 300;
+      const max = 400;
+      const SIZE = Math.floor(Math.random() * (max - min) + min);
+      return {
+        id: index + 1,
+        src: `https://placecats.com/${SIZE}/${SIZE}`
+      }
+    })
+  });
 }

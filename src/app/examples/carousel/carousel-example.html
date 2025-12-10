@@ -1,9 +1,8 @@
 <mec-carousel [title]="'Carousel Demo'" [config]="carouselconfig">
-  @for (item of products; track item.id; let i = $index) {
+  @for (item of slides(); track item.id;) {
     <mec-carousel-content>
       <div class="relative">
-        <img [src]="`https://placecats.com/64${i}/64${i}`"/>
-        <div style="font-size:.875rem" [innerHTML]="item.title">{{item.title}}</div>
+        <img [src]="item.src"/>
       </div>
     </mec-carousel-content>
   }
