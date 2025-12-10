@@ -24,22 +24,26 @@
 		</div>
 
 	</main>
-  <footer class="flex gap-4">
+  <footer class="flex gap-4 px-2">
     <button
       mec-button
       class="flex-none"
       (click)="prevButton()"
 			[disabled]="prevIsDisabled()">
-      &lt;
+      <mec-hero-icon [icon]="'arrow-left'"/>
     </button>
+
     <ul class="flex-auto justify-center flex gap-2">
       @for(P of pages(); track P.id) {
-        <li
-          class="border-2 p-2 text-xl cursor-pointer border-sky-800 transition duration-150"
-          [class.bg-white]="!P.is_current"
-          [class.rounded-lg]="!P.is_current"
-          [class.bg-sky-100]="P.is_current"
-          [class.rounded-full]="P.is_current">&nbsp;</li>
+        <li>
+          <button
+            (click)="jumpToPage(P.id)"
+            class="border-2 p-2 text-xl cursor-pointer border-sky-800 transition duration-150"
+            [class.bg-white]="!P.is_current"
+            [class.rounded-lg]="!P.is_current"
+            [class.bg-sky-100]="P.is_current"
+            [class.rounded-full]="P.is_current">&nbsp;</button>
+        </li>
       }
     </ul>
     <button
@@ -47,7 +51,7 @@
       class="flex-none"
       (click)="nextButton()"
       [disabled]="nextIsDisabled()">
-      &gt;
+      <mec-hero-icon [icon]="'arrow-right'"/>
     </button>
   </footer>
 </div>

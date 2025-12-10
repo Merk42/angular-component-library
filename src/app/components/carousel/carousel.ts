@@ -20,10 +20,11 @@ import {
 import { CarouselConfig } from './carousel.config';
 import { CarouselContent } from './carousel-content/carousel-content';
 import { Button } from "../button/button";
+import { HeroIcon } from "../hero-icon/hero-icon";
 
 @Component({
   selector: 'mec-carousel',
-  imports: [Button],
+  imports: [Button, HeroIcon],
   templateUrl: './carousel.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -171,4 +172,9 @@ export class Carousel implements OnInit {
 		// this.trackButtonClick();
     this.currentIndex.set(GOTO);
 	}
+
+  jumpToPage(page:number) {
+    const INDEX = (page - 1) * Math.floor(this.numberItemsAcross());
+    this.currentIndex.set(INDEX)
+  }
 }

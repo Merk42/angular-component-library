@@ -2,9 +2,10 @@
   class="accordion-navigation"
   [class.active]="opened()">
 	<button
-    class="w-full flex place-content-between border-2 p-2 rounded-t-sm text-xl cursor-pointer border-sky-800"
+    class="w-full flex place-content-between border-2 p-2 rounded-t-sm text-xl cursor-pointer border-sky-800 transition duration-150"
     [class.rounded-b-sm]="!opened()"
-		[class.active]="opened()"
+    [class.bg-sky-100]="!opened()"
+    [class.bg-white]="opened()"
     [class.border-b-color-white]="opened()"
 		(click)="$event.preventDefault();toggle.emit(null)"
 		[attr.aria-expanded]="opened()"
@@ -23,7 +24,7 @@
     [class.grid-rows-[0fr]]="!opened()"
     >
     <div class="overflow-hidden">
-      <div class="border-2 rounded-b-sm bg-sky-100 border-t-0 border-sky-800 p-2">
+      <div class="border-2 rounded-b-sm bg-white border-t-0 border-sky-800 p-2">
 		    <ng-content />
       </div>
     </div>
