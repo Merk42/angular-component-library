@@ -1,63 +1,10 @@
 <style>
-  .carousel {
-	position: relative;
-	width: 100%;
-	max-width: 90rem;
-  margin:auto;
-}
-  .carousel_pane {
-	overflow: auto;
-	width: 100%;
-	/* keep old API for iOS older than 13, then use new API */
-	-webkit-overflow-scrolling: touch;
-	/* snap to points */
-	scroll-snap-type: mandatory;
-	scroll-snap-type: x mandatory;
-	/* x interval for snapping (100% of container width) */
-	scroll-snap-points-x: repeat(100%);
-	position: relative;
-	z-index: 0;
-}
 .carousel_pane::-webkit-scrollbar {
 	display: none;
 }
-.carousel_items {
-	display: flex;
-	flex-flow: row nowrap;
-	/* --numitems: var(--smallacross); */
-}
-.carousel_items > *{
-	position: relative;
-	white-space: normal;
-	box-sizing: border-box;
-	flex: 1 0 auto;
-	width: 100%;
-	align-items: flex-start;
-	display: flex;
-}
-
-.carousel_items > * {
-	min-width: 0;
-	width: auto;
-	flex-basis: calc(100% / var(--numitems));
-	flex-grow: 0;
-}
-.carousel__button {
-	position: absolute;
-  top: 0;
-	margin-top: calc(100% / var(--numitems)  / 2 - .75rem);
-	transform:translateY(-50%);
-}
-
-.prev-button {
-	left: 0;
-}
-.next-button {
-	right: 0;
-}
 </style>
 
-<div class="carousel"
+<div class="relative m-auto w-full"
   role="region"
   aria-roledescription="carousel"
   [attr.aria-label]="title()"
@@ -66,11 +13,11 @@
   <header class="text-center">
     {{title()}}
   </header>
-	<main class="carousel__buttons-and-items-container">
+	<main>
 
-		<div class="carousel_pane" #pane>
+		<div class="carousel_pane overflow-auto w-full relative z-0 snap-x snap-mandatory" #pane>
 			<div
-        class="carousel_items"
+        class="flex flex-nowrap"
 				[class.not-enough]="prevIsDisabled() && nextIsDisabled()">
 				<ng-content #carouselContents></ng-content>
 			</div>
@@ -85,7 +32,6 @@
 			[disabled]="prevIsDisabled()">
       &lt;
     </button>
-
     <ul class="flex-auto justify-center flex gap-2">
       @for(P of pages(); track P.id) {
         <li
@@ -96,8 +42,8 @@
           [class.rounded-full]="P.is_current">&nbsp;</li>
       }
     </ul>
-        <button
-    mec-button
+    <button
+      mec-button
       class="flex-none"
       (click)="nextButton()"
       [disabled]="nextIsDisabled()">
