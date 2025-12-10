@@ -1,0 +1,10 @@
+<mec-carousel [title]="'Carousel Demo'" [config]="carouselconfig">
+  @for (item of products; track item.id; let i = $index) {
+    <mec-carousel-content>
+      <div class="relative">
+        <img [src]="`https://placecats.com/64${i}/64${i}`"/>
+        <div style="font-size:.875rem" [innerHTML]="item.title">{{item.title}}</div>
+      </div>
+    </mec-carousel-content>
+  }
+</mec-carousel>
