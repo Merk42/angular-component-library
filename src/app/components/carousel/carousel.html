@@ -24,7 +24,7 @@
 		</div>
 
 	</main>
-  <footer class="flex items-start items-center gap-4 px-2">
+  <footer class="flex items-center gap-4 px-2">
     <button
       mec-button
       class="flex-none"
@@ -33,7 +33,7 @@
       <mec-hero-icon [icon]="'arrow-left'"/>
     </button>
 
-    <ul class="flex-auto justify-center flex gap-2">
+    <ul class="flex-auto flex-wrap justify-center flex gap-x-2 gap-y-1">
       @for(P of pages(); track P.id) {
         <li>
           <button
