@@ -15,7 +15,7 @@
   </header>
 	<main>
 
-		<div class="carousel_pane overflow-auto w-full relative z-0 snap-x snap-mandatory" #pane>
+		<div class="carousel_pane overflow-auto w-full relative z-0 snap-x snap-mandatory" #pane (scroll)="scr($event)">
 			<div
         class="flex flex-nowrap"
 				[class.not-enough]="prevIsDisabled() && nextIsDisabled()">

@@ -16,7 +16,8 @@ import {
   signal,
   viewChild
 } from '@angular/core';
-
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 import { CarouselConfig } from './carousel.config';
 import { CarouselContent } from './carousel-content/carousel-content';
 import { Button } from "../button/button";
@@ -29,6 +30,8 @@ import { HeroIcon } from "../hero-icon/hero-icon";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Carousel implements OnInit {
+  private breakpointObserver = inject(BreakpointObserver);
+
 	readonly groups = contentChildren(CarouselContent);
 	readonly id = input<String>('');
 	readonly title = input<String>('');
@@ -43,9 +46,9 @@ export class Carousel implements OnInit {
   platformId: Object;
 
   breakpoint = signal<'small'|'medium'|'large'|'xlarge'>('small');
-  goto = signal<number>(0);
+  scrolledData = new Subject<{offset:number,total:number}>();
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  constructor() {
     const platformId = inject<Object>(PLATFORM_ID);
 
     this.platformId = platformId;
@@ -62,6 +65,10 @@ export class Carousel implements OnInit {
   }
 
   ngOnInit(): void {
+    this.scrolledData.pipe(debounceTime(300)).subscribe(value => {
+      const PAGE = (Math.round(value.offset / value.total) + 1)
+      this.jumpToPage(PAGE)
+    });
 		if (isPlatformServer(this.platformId)) {
 			this.isServerRendered.set(true);
 		} else {
@@ -139,7 +146,6 @@ export class Carousel implements OnInit {
           } else if (result.breakpoints[Breakpoints.XLarge]) {
             this.breakpoint.set('xlarge')
           }
-          // this.checkButtonStatus(this.currentIndex());
         }
       });
 	}
@@ -176,5 +182,9 @@ export class Carousel implements OnInit {
   jumpToPage(page:number) {
     const INDEX = (page - 1) * Math.floor(this.numberItemsAcross());
     this.currentIndex.set(INDEX)
+  }
+
+  scr(event:any) {
+    this.scrolledData.next({offset:event.target.scrollLeft,total:event.target.offsetWidth});
   }
 }
