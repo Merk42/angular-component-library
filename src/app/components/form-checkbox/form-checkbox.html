@@ -1,5 +1,5 @@
 <label class="flex gap-1" [for]="idfor()">
-  <span class="w-[1.5rem] grid place-content-center">
+  <span class="w-[1.5rem] grid place-items-center">
     <input
       [id]="idfor()"
       type="checkbox"
@@ -10,12 +10,17 @@
       (blur)="touched.set(true)"
       />
     <span
-      class="w-2 h-2 block outline-2 outline-offset-2"
-      [class.bg-yellow-800]="checked() && !disabled()"
-      [class.bg-slate-400]="checked() && disabled()"
+      class="col-start-1 row-start-1 w-2 h-2 block outline-2 outline-offset-2"
       [class.outline-sky-800]="!disabled()"
       [class.outline-slate-400]="disabled()"
-      ></span>
+      >
+    </span>
+    <span
+      class="col-start-1 row-start-1 w-2 h-2 block transition"
+      [class.scale-0]="!checked()"
+      [class.bg-yellow-800]="checked() && !disabled()"
+      [class.bg-slate-400]="checked() && disabled()"
+    ></span>
   </span>
   <span><ng-content />@if(required()){*}</span>
 </label>
