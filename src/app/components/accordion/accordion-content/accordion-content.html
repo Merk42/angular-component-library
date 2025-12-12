@@ -17,7 +17,7 @@
 	</button>
 
 	<div
-    class="grid transition-all duration-500 ease-in-out border-t-0 border-2"
+    class="grid transition-all duration-500 ease-in-out border-t-0 border-2 rounded-b-sm"
     [id]="id() + '-content'"
     [attr.aria-labelledby]="id() + '-button'"
     [class.grid-rows-[1fr]]="opened()"
@@ -26,7 +26,7 @@
     [class.grid-rows-[0fr]]="!opened()"
     >
     <div class="overflow-hidden">
-      <div class="rounded-b-sm bg-white p-2">
+      <div class="bg-white p-2">
 		    <ng-content />
       </div>
     </div>
