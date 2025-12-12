@@ -17,14 +17,16 @@
 	</button>
 
 	<div
-    class="grid overflow-hidden transition-all duration-500 ease-in-out"
+    class="grid transition-all duration-500 ease-in-out border-t-0 border-2"
     [id]="id() + '-content'"
     [attr.aria-labelledby]="id() + '-button'"
     [class.grid-rows-[1fr]]="opened()"
+    [class.border-transparent]="!opened()"
+    [class.border-sky-800]="opened()"
     [class.grid-rows-[0fr]]="!opened()"
     >
     <div class="overflow-hidden">
-      <div class="border-2 rounded-b-sm bg-white border-t-0 border-sky-800 p-2">
+      <div class="rounded-b-sm bg-white p-2">
 		    <ng-content />
       </div>
     </div>
