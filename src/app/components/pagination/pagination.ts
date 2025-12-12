@@ -13,21 +13,22 @@ interface Page {
 })
 export class Pagination {
   newPage = output<number>()
-  MAXTOSHOW = 5;
 
   readonly current = model<number>(1);
   readonly total = input<number>(1);
+  readonly max = input<number>(5)
 
   pagesArray = computed<number[]>(() => {
     let offset = 0;
-    const BUFFER = Math.ceil(this.MAXTOSHOW / 2)
-    const pagestoshow = this.total() >= this.MAXTOSHOW ? this.MAXTOSHOW : this.total();
-    if (this.total() > this.MAXTOSHOW) {
+    const MAX = Number(this.max());
+    const BUFFER = Math.ceil(MAX / 2)
+    const pagestoshow = this.total() >= MAX ? MAX : this.total();
+    if (this.total() > MAX) {
       if (this.current() > BUFFER) {
         offset = this.current() - BUFFER;
       }
       if (this.current() > (this.total() - BUFFER)) {
-        offset = this.total() - this.MAXTOSHOW;
+        offset = this.total() - MAX;
       }
     }
     return [...Array(pagestoshow).keys()].map(x => x + 1 + offset);
