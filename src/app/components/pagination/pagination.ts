@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, model, output } from '@angular/core';
 
 interface Page {
   number: number;
@@ -12,10 +12,10 @@ interface Page {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Pagination {
-
+  newPage = output<number>()
   MAXTOSHOW = 5;
 
-  readonly current = input<number>(1);
+  readonly current = model<number>(1);
   readonly total = input<number>(1);
 
   pagesArray = computed<number[]>(() => {
@@ -41,5 +41,10 @@ export class Pagination {
       }; // Creates an object with a 'value' property
     });
   })
+
+  goToPage(page:number) {
+    this.current.set(page);
+    this.newPage.emit(page);
+  }
 }
 

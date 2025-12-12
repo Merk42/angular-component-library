@@ -4,7 +4,7 @@ import { Pagination } from "../../components/pagination/pagination";
 import { FormInput } from "../../components/form-input/form-input";
 
 interface DemoData {
-  current:number;
+  max:number;
   total:number;
 }
 
@@ -17,16 +17,13 @@ interface DemoData {
 export class PaginationExample {
 
   demoModel = signal<DemoData>({
-    current: 1,
+    max: 5,
     total: 10
   });
 
   demoForm = form(this.demoModel, (schemaPath) => {
-    min(schemaPath.current, 1)
+    min(schemaPath.max, 1)
     min(schemaPath.total, 1);
-    max(schemaPath.current, ({valueOf}) => valueOf(schemaPath.total), {
-      message: 'Current page can not be higher than total'
-    })
   });
 
   onSubmit(event: Event) {
