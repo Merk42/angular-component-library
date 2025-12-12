@@ -18,7 +18,7 @@ interface DemoData {
 
 export class FormRadioExample {
 
-  options = [{
+  optional = [{
     label:'yes',
     value:'yes'
   },{
@@ -26,10 +26,26 @@ export class FormRadioExample {
     value:'no'
   }]
 
+  required = [{
+    label:'yes',
+    value:'yes'
+  },{
+    label:'no',
+    value:'no'
+  }]
+
+  disabled = [{
+    label:'checked',
+    value:'yes'
+  },{
+    label:'unchecked',
+    value:'no'
+  }]
+
   demoModel = signal<DemoData>({
     optional: '',
     required: '',
-    disabled: ''
+    disabled: 'yes'
   });
 
   demoForm = form(this.demoModel, (schemaPath) => {

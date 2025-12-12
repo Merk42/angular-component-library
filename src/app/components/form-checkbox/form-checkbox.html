@@ -9,18 +9,14 @@
       [disabled]="disabled()"
       (blur)="touched.set(true)"
       />
-    <span
-      class="col-start-1 row-start-1 w-2 h-2 block outline-2 outline-offset-2"
-      [class.outline-sky-800]="!disabled()"
-      [class.outline-slate-400]="disabled()"
-      >
-    </span>
-    <span
-      class="col-start-1 row-start-1 w-2 h-2 block transition"
-      [class.scale-0]="!checked()"
-      [class.bg-yellow-800]="checked() && !disabled()"
-      [class.bg-slate-400]="checked() && disabled()"
-    ></span>
+      <span
+        class="col-start-1 row-start-1 w-2 h-2 block outline-2 outline-offset-2 outline-sky-800 peer-disabled:outline-slate-400"
+        >
+      </span>
+      <span
+        class="col-start-1 row-start-1 scale-0 peer-checked:scale-100 peer-checked:bg-yellow-800 peer-disabled:bg-slate-400 w-2 h-2 block transition"
+        >
+      </span>
   </span>
   <span><ng-content />@if(required()){*}</span>
 </label>

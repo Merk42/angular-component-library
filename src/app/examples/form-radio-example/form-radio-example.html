@@ -1,9 +1,9 @@
 <h2 class="text-2xl">form-radio</h2>
 <form novalidate (submit)="onSubmit($event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
   <p class="md:col-span-2">fields marked with * are required</p>
-  <mec-form-radio id="radios-optional" [options]="options" [field]="demoForm.optional">optional</mec-form-radio>
-   <mec-form-radio id="radios-required" [options]="options" [field]="demoForm.required">required</mec-form-radio>
-   <mec-form-radio id="radio-disabled" [options]="options" [field]="demoForm.disabled">disabled</mec-form-radio>
+  <mec-form-radio id="radios-optional" [options]="optional" [field]="demoForm.optional">optional</mec-form-radio>
+   <mec-form-radio id="radios-required" [options]="required" [field]="demoForm.required">required</mec-form-radio>
+   <mec-form-radio id="radio-disabled" [options]="disabled" [field]="demoForm.disabled">disabled</mec-form-radio>
 
   <button mec-button type="submit" class="md:col-span-2">submit</button>
 </form>
