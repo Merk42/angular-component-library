@@ -21,7 +21,10 @@ export class Pagination {
   pagesArray = computed<number[]>(() => {
     let offset = 0;
     const MAX = Number(this.max());
-    const BUFFER = Math.ceil(MAX / 2)
+    if (this.total() < MAX) {
+       return Array.from({ length: this.total() }, (_, i) => i + 1);
+    }
+    const BUFFER = Math.ceil(MAX / 2);
     const pagestoshow = this.total() >= MAX ? MAX : this.total();
     if (this.total() > MAX) {
       if (this.current() > BUFFER) {
