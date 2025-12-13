@@ -19,6 +19,7 @@
   [disabled]="disabled()"
   [readOnly]="readonly()"
   (blur)="touched.set(true)"
+  [placeholder]="placeholder()"
   ></textarea>
 @if (displayState() !== 'error') {
   <mec-form-notes [minLength]="minLength()"

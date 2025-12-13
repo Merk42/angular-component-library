@@ -2,7 +2,7 @@
 <form (submit)="onSubmit($event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
   <p class="md:col-span-2">fields marked with * are required</p>
 
-  <mec-form-input id="fi-required" [field]="demoForm.required">required</mec-form-input>
+  <mec-form-input id="fi-required" [field]="demoForm.required" placeholder="put somethin will ya">required</mec-form-input>
   <mec-form-input id="fi-optional" [field]="demoForm.optional">optional <span notes>idk just something custom</span></mec-form-input>
 
   <mec-form-input id="fi-minlength" [field]="demoForm.minlength">minlength</mec-form-input>

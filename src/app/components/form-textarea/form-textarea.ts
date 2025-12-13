@@ -12,6 +12,8 @@ import { FormNotes } from '../form-notes/form-notes';
 })
 export class FormTextarea implements FormValueControl<string|number|null> {
 
+  readonly placeholder = input<string>('');
+
   readonly value = model<string | number | null>(null);
   readonly disabled = input(false);
   readonly required = input(false);
