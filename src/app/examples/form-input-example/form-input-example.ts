@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
 import { Field, customError, disabled, email, form, min, minLength, max, maxLength, readonly, required, submit } from '@angular/forms/signals';
 import { FormInput } from '../../components/form-input/form-input';
 import { Button } from "../../components/button/button";
@@ -23,6 +23,7 @@ interface DemoData {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormInputExample {
+  submitbutton = viewChild.required(Button);
 
   demoModel = signal<DemoData>({
     required: '',
@@ -57,12 +58,16 @@ export class FormInputExample {
 
   onSubmit(event: Event) {
     event.preventDefault();
+    this.submitbutton().animateTry();
+    if (!this.demoForm().valid()) {
+      this.submitbutton().animateFail();
+    }
     submit(this.demoForm, async (form) => {
-      console.log(form)
       try {
-        console.log(this.demoForm().value());
+        this.submitbutton().animateSuccess();
         return undefined
       } catch (error) {
+        this.submitbutton().animateFail();
         return customError( {
           message: 'Somehow, an error returned'
         })

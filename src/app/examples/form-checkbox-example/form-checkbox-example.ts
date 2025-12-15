@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
 import { Field, customError, disabled, form, submit } from '@angular/forms/signals';
 import { FormCheckbox } from '../../components/form-checkbox/form-checkbox';
 import { Button } from "../../components/button/button";
@@ -16,6 +16,8 @@ interface DemoData {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormCheckboxExample {
+  submitbutton = viewChild.required(Button);
+
   demoModel = signal<DemoData>({
     favorite: false,
     disabled: false,
@@ -29,12 +31,16 @@ export class FormCheckboxExample {
 
   onSubmit(event: Event) {
     event.preventDefault();
+    this.submitbutton().animateTry();
+    if (!this.demoForm().valid()) {
+      this.submitbutton().animateFail();
+    }
     submit(this.demoForm, async (form) => {
-      console.log(form)
       try {
-        console.log(this.demoForm().value());
+        this.submitbutton().animateSuccess();
         return undefined
       } catch (error) {
+        this.submitbutton().animateFail();
         return customError( {
           message: 'Somehow, an error returned'
         })

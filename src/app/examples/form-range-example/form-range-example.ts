@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
 import { Field, customError, disabled, form, min, max, submit } from '@angular/forms/signals';
 import { FormRange } from '../../components/form-range/form-range';
 import { Button } from "../../components/button/button";
@@ -16,6 +16,8 @@ interface DemoData {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormRangeExample {
+  submitbutton = viewChild.required(Button);
+
   ranges = [
   {
     label:'6oz',
@@ -70,12 +72,16 @@ offsetranges = [
 
   onSubmit(event: Event) {
     event.preventDefault();
+    this.submitbutton().animateTry();
+    if (!this.demoForm().valid()) {
+      this.submitbutton().animateFail();
+    }
     submit(this.demoForm, async (form) => {
-      console.log(form)
       try {
-        console.log(this.demoForm().value());
+        this.submitbutton().animateSuccess();
         return undefined
       } catch (error) {
+        this.submitbutton().animateFail();
         return customError( {
           message: 'Somehow, an error returned'
         })

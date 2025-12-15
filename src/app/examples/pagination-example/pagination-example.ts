@@ -1,7 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, viewChild } from '@angular/core';
 import { Field, customError, max, min, form, submit } from '@angular/forms/signals';
 import { Pagination } from "../../components/pagination/pagination";
 import { FormInput } from "../../components/form-input/form-input";
+import { Button } from '../../components/button/button';
 
 interface DemoData {
   max:number;
@@ -15,6 +16,7 @@ interface DemoData {
   styleUrl: './pagination-example.css',
 })
 export class PaginationExample {
+  submitbutton = viewChild.required(Button);
 
   demoModel = signal<DemoData>({
     max: 5,
@@ -28,12 +30,16 @@ export class PaginationExample {
 
   onSubmit(event: Event) {
     event.preventDefault();
+    this.submitbutton().animateTry();
+    if (!this.demoForm().valid()) {
+      this.submitbutton().animateFail();
+    }
     submit(this.demoForm, async (form) => {
-      console.log(form)
       try {
-        console.log(this.demoForm().value());
+        this.submitbutton().animateSuccess();
         return undefined
       } catch (error) {
+        this.submitbutton().animateFail();
         return customError( {
           message: 'Somehow, an error returned'
         })

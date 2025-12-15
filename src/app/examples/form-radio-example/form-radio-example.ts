@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
 import { Field, customError, disabled, form, required, submit } from '@angular/forms/signals';
 import { FormRadio } from '../../components/form-radio/form-radio';
 import { Button } from "../../components/button/button";
@@ -17,6 +17,7 @@ interface DemoData {
 })
 
 export class FormRadioExample {
+  submitbutton = viewChild.required(Button);
 
   optional = [{
     label:'yes',
@@ -55,12 +56,16 @@ export class FormRadioExample {
 
   onSubmit(event: Event) {
     event.preventDefault();
+    this.submitbutton().animateTry();
+    if (!this.demoForm().valid()) {
+      this.submitbutton().animateFail();
+    }
     submit(this.demoForm, async (form) => {
-      console.log(form)
       try {
-        console.log(this.demoForm().value());
+        this.submitbutton().animateSuccess();
         return undefined
       } catch (error) {
+        this.submitbutton().animateFail();
         return customError( {
           message: 'Somehow, an error returned'
         })
