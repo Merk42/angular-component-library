@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/
 import { Field, customError, disabled, form, required, submit } from '@angular/forms/signals';
 import { FormSelect } from '../../components/form-select/form-select';
 import { Button } from "../../components/button/button";
+import { ExampleTemplate } from "../../example-template/example-template";
 
 interface DemoData {
   required: string;
@@ -11,7 +12,7 @@ interface DemoData {
 
 @Component({
   selector: 'mec-form-select-example',
-  imports: [Field, FormSelect, Button],
+  imports: [Field, FormSelect, Button, ExampleTemplate],
   templateUrl: './form-select-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

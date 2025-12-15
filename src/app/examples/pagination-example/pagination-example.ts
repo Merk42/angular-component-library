@@ -1,8 +1,9 @@
-import { Component, signal, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
 import { Field, customError, max, min, form, submit } from '@angular/forms/signals';
 import { Pagination } from "../../components/pagination/pagination";
 import { FormInput } from "../../components/form-input/form-input";
 import { Button } from '../../components/button/button';
+import { ExampleTemplate } from "../../example-template/example-template";
 
 interface DemoData {
   max:number;
@@ -11,9 +12,9 @@ interface DemoData {
 
 @Component({
   selector: 'mec-pagination-example',
-  imports: [Pagination, FormInput, Field],
+  imports: [Pagination, FormInput, Field, ExampleTemplate],
   templateUrl: './pagination-example.html',
-  styleUrl: './pagination-example.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PaginationExample {
   submitbutton = viewChild.required(Button);

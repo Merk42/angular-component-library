@@ -1,25 +1,25 @@
-<h2 class="text-2xl">form-input</h2>
-<form (submit)="onSubmit($event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-  <p class="md:col-span-2">fields marked with * are required</p>
+<mec-example-template name="form-input">
+  <form (submit)="onSubmit($event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <p class="md:col-span-2">fields marked with * are required</p>
 
-  <mec-form-input id="fi-required" [field]="demoForm.required" placeholder="put somethin will ya">required</mec-form-input>
-  <mec-form-input id="fi-optional" [field]="demoForm.optional">optional <span notes>idk just something custom</span></mec-form-input>
+    <mec-form-input id="fi-required" [field]="demoForm.required" placeholder="put somethin will ya">required</mec-form-input>
+    <mec-form-input id="fi-optional" [field]="demoForm.optional">optional <span notes>idk just something custom</span></mec-form-input>
 
-  <mec-form-input id="fi-minlength" [field]="demoForm.minlength">minlength</mec-form-input>
-  <mec-form-input id="fi-maxlength" [field]="demoForm.maxlength">maxlength</mec-form-input>
-  <mec-form-input id="fi-minmaxlength" [field]="demoForm.minmaxlength"
-    >minmaxlength</mec-form-input
-  >
+    <mec-form-input id="fi-minlength" [field]="demoForm.minlength">minlength</mec-form-input>
+    <mec-form-input id="fi-maxlength" [field]="demoForm.maxlength">maxlength</mec-form-input>
+    <mec-form-input id="fi-minmaxlength" [field]="demoForm.minmaxlength"
+      >minmaxlength</mec-form-input
+    >
 
-  <mec-form-input id="fi-min" type="number" [field]="demoForm.min">min</mec-form-input>
-  <mec-form-input id="fi-max" type="number" [field]="demoForm.max">max</mec-form-input>
-  <mec-form-input id="fi-minmax" type="number" [field]="demoForm.minmax"
-    >minmax</mec-form-input
-  >
+    <mec-form-input id="fi-min" type="number" [field]="demoForm.min">min</mec-form-input>
+    <mec-form-input id="fi-max" type="number" [field]="demoForm.max">max</mec-form-input>
+    <mec-form-input id="fi-minmax" type="number" [field]="demoForm.minmax"
+      >minmax</mec-form-input
+    >
 
-  <mec-form-input id="fi-disabled" [field]="demoForm.disabled" >disabled</mec-form-input>
-  <mec-form-input id="fi-readonly" [field]="demoForm.readonly" >readonly</mec-form-input>
+    <mec-form-input id="fi-disabled" [field]="demoForm.disabled" >disabled</mec-form-input>
+    <mec-form-input id="fi-readonly" [field]="demoForm.readonly" >readonly</mec-form-input>
 
-  <button mec-button type="submit" #formsubmit class="md:col-span-2">Submit</button>
-</form>
-
+    <button mec-button type="submit" #formsubmit class="md:col-span-2">Submit</button>
+  </form>
+</mec-example-template>

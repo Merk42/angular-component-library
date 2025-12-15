@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { Notification } from '../../components/notification/notification';
 import { FormInput } from "../../components/form-input/form-input";
 import { Field, form } from '@angular/forms/signals';
+import { ExampleTemplate } from "../../example-template/example-template";
 
 interface DemoData {
   demo: number;
@@ -10,7 +11,7 @@ interface DemoData {
 
 @Component({
   selector: 'mec-notification-example',
-  imports: [Notification, Field, FormInput],
+  imports: [Notification, Field, FormInput, ExampleTemplate],
   templateUrl: './notification-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

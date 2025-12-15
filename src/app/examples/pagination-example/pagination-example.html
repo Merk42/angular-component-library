@@ -1,6 +1,7 @@
-<h2 class="text-2xl">pagination</h2>
-<mec-pagination [total]="demoForm.total().value()" [max]="demoForm.max().value()"></mec-pagination>
-<form (submit)="onSubmit($event)" class="grid grid-cols-2 gap-4">
-  <mec-form-input type="number" id="page-total" [field]="demoForm.total">total</mec-form-input>
-  <mec-form-input type="number" id="page-max" [field]="demoForm.max">max</mec-form-input>
-</form>
+<mec-example-template name="pagination">
+  <mec-pagination [total]="demoForm.total().value()" [max]="demoForm.max().value()"></mec-pagination>
+  <form (submit)="onSubmit($event)" class="grid grid-cols-2 gap-4">
+    <mec-form-input type="number" id="page-total" [field]="demoForm.total">total</mec-form-input>
+    <mec-form-input type="number" id="page-max" [field]="demoForm.max">max</mec-form-input>
+  </form>
+</mec-example-template>
