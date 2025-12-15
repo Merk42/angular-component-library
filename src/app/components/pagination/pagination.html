@@ -1,7 +1,7 @@
-<div class="flex justify-center gap-2">
+<div class="flex justify-center gap-2 pages">
   @for (P of displayPages(); track P) {
     <button
-      class="border-2 p-2 text-xl cursor-pointer border-sky-800 transition duration-150"
+      class="border-2 p-2 text-sm cursor-pointer border-sky-800 transition duration-150 box-content leading-none w-[2ch] h-[2ch]"
       [class.bg-white]="!P.is_current"
       [class.rounded-lg]="!P.is_current"
       [class.bg-sky-100]="P.is_current"
