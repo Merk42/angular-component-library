@@ -18,7 +18,7 @@
 		<div class="carousel_pane overflow-auto w-full relative z-0 snap-x snap-mandatory" #pane (scroll)="scr($event)">
 			<div
         class="flex flex-nowrap"
-				[class.not-enough]="prevIsDisabled() && nextIsDisabled()">
+				[class.not-enough]="isPrevDisabled() && isNextDisabled()">
 				<ng-content #carouselContents></ng-content>
 			</div>
 		</div>
@@ -28,8 +28,8 @@
     <button
       mec-button
       class="flex-none"
-      (click)="prevButton()"
-			[disabled]="prevIsDisabled()">
+      (click)="goPrev()"
+			[disabled]="isPrevDisabled()">
       <mec-hero-icon [icon]="'arrow-left'"/>
     </button>
 
@@ -49,8 +49,8 @@
     <button
       mec-button
       class="flex-none"
-      (click)="nextButton()"
-      [disabled]="nextIsDisabled()">
+      (click)="goNext()"
+      [disabled]="isNextDisabled()">
       <mec-hero-icon [icon]="'arrow-right'"/>
     </button>
   </footer>

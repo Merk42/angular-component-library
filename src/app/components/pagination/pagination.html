@@ -1,4 +1,28 @@
 <div class="flex justify-center gap-2 pages">
+  @if (showPrevNext()) {
+    <button
+      mec-button
+      class="flex-none"
+      (click)="goPrev()"
+			[disabled]="isPrevDisabled()">
+      <mec-hero-icon [icon]="'arrow-left'"/>
+    </button>
+  }
+
+  @if (showFirstLast() && !isFirstInDisplay()) {
+    <button
+      class="border-2 p-2 text-sm cursor-pointer border-sky-800 transition duration-150 box-content leading-none w-[2ch] h-[2ch]"
+      [class.bg-white]="!isPrevDisabled()"
+      [class.rounded-lg]="!isPrevDisabled()"
+      [class.bg-sky-100]="isPrevDisabled()"
+      [class.rounded-full]="isPrevDisabled()"
+      (click)="goToPage(1)"
+      [attr.aria-disabled]="isPrevDisabled() ? true : null">1</button>
+    @if (!isSecondInDisplay()) {
+      <span>&hellip;</span>
+    }
+  }
+
   @for (P of displayPages(); track P) {
     <button
       class="border-2 p-2 text-sm cursor-pointer border-sky-800 transition duration-150 box-content leading-none w-[2ch] h-[2ch]"
@@ -8,6 +32,30 @@
       [class.rounded-full]="P.is_current"
       (click)="goToPage(P.number)"
       [attr.aria-disabled]="P.is_current ? true : null">{{P.number}}</button>
+  }
+
+  @if (showFirstLast() && !isLastInDisplay()) {
+    @if (!isSecondToLastInDisplay()) {
+      <span>&hellip;</span>
+    }
+    <button
+      class="border-2 p-2 text-sm cursor-pointer border-sky-800 transition duration-150 box-content leading-none w-[2ch] h-[2ch]"
+      [class.bg-white]="!isNextDisabled()"
+      [class.rounded-lg]="!isNextDisabled()"
+      [class.bg-sky-100]="isNextDisabled()"
+      [class.rounded-full]="isNextDisabled()"
+      (click)="goToPage(total())"
+      [attr.aria-disabled]="isNextDisabled() ? true : null">{{total()}}</button>
+  }
+
+  @if (showPrevNext()) {
+    <button
+      mec-button
+      class="flex-none"
+      (click)="goNext()"
+      [disabled]="isNextDisabled()">
+      <mec-hero-icon [icon]="'arrow-right'"/>
+    </button>
   }
 </div>
 

@@ -91,7 +91,7 @@ export class Carousel implements OnInit {
     return this.config().pagination[this.breakpoint()]
   })
 
-  nextIsDisabled = computed<boolean>(() => {
+  isNextDisabled = computed<boolean>(() => {
 		if (this.currentIndex() === 0) {
 			if (this.groups().length <= Math.floor(this.numberItemsAcross())) {
 				return true
@@ -107,7 +107,7 @@ export class Carousel implements OnInit {
 		}
   })
 
-  prevIsDisabled = computed<boolean>(() => {
+  isPrevDisabled = computed<boolean>(() => {
     return this.currentIndex() <= 0;
   })
 
@@ -155,8 +155,8 @@ export class Carousel implements OnInit {
 		return this.config().pagination[SCREEN];
 	}
 
-	prevButton() {
-		if (this.prevIsDisabled()) {
+	goPrev() {
+		if (this.isPrevDisabled()) {
 			return
 		}
 		let GOTO = this.currentIndex() - Math.floor(this.numberItemsAcross());
@@ -166,8 +166,8 @@ export class Carousel implements OnInit {
     this.currentIndex.set(GOTO);
 	}
 
-	nextButton() {
-		if (this.nextIsDisabled()) {
+	goNext() {
+		if (this.isNextDisabled()) {
 			return
 		}
 		let GOTO = this.currentIndex() + Math.floor(this.numberItemsAcross());

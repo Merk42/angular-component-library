@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, input, model, output } from '@angular/core';
+import { HeroIcon } from '../hero-icon/hero-icon';
+import { Button } from '../button/button';
 
 interface Page {
   number: number;
@@ -7,7 +9,7 @@ interface Page {
 
 @Component({
   selector: 'mec-pagination',
-  imports: [],
+  imports: [Button, HeroIcon],
   templateUrl: './pagination.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -16,7 +18,10 @@ export class Pagination {
 
   readonly current = model<number>(1);
   readonly total = input<number>(1);
-  readonly max = input<number>(5)
+  readonly max = input<number>(5);
+
+  readonly showPrevNext = input<boolean>(false);
+  readonly showFirstLast = input<boolean>(false);
 
   pagesArray = computed<number[]>(() => {
     let offset = 0;
@@ -46,9 +51,42 @@ export class Pagination {
     });
   })
 
+  isFirstInDisplay = computed<boolean>(() => {
+    return !!this.displayPages().filter(page => page.number === 1).length
+  })
+
+  isLastInDisplay = computed<boolean>(() => {
+    return !!this.displayPages().filter(page => page.number === this.total()).length
+  })
+
+  isSecondInDisplay = computed<boolean>(() => {
+    return !!this.displayPages().filter(page => page.number === 2).length
+  })
+
+  isSecondToLastInDisplay = computed<boolean>(() => {
+    return !!this.displayPages().filter(page => page.number === this.total() - 1).length
+  })
+
+  isPrevDisabled = computed(() => {
+    return this.current() === 1;
+  })
+
+  isNextDisabled = computed(() => {
+    return this.current() === this.total();
+  })
+
   goToPage(page:number) {
     this.current.set(page);
     this.newPage.emit(page);
   }
+
+  goPrev() {
+    this.current.set(this.current() - 1)
+  }
+
+  goNext() {
+    this.current.set(this.current() + 1)
+  }
 }
+
 

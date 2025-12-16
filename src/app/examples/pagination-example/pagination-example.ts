@@ -4,15 +4,18 @@ import { Pagination } from "../../components/pagination/pagination";
 import { FormInput } from "../../components/form-input/form-input";
 import { Button } from '../../components/button/button';
 import { ExampleTemplate } from "../../example-template/example-template";
+import { FormCheckbox } from "../../components/form-checkbox/form-checkbox";
 
 interface DemoData {
   max:number;
   total:number;
+  firstLast: false;
+  prevNext: false;
 }
 
 @Component({
   selector: 'mec-pagination-example',
-  imports: [Pagination, FormInput, Field, ExampleTemplate],
+  imports: [Pagination, FormInput, Field, ExampleTemplate, FormCheckbox],
   templateUrl: './pagination-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -21,7 +24,9 @@ export class PaginationExample {
 
   demoModel = signal<DemoData>({
     max: 5,
-    total: 10
+    total: 10,
+    firstLast: false,
+    prevNext: false
   });
 
   demoForm = form(this.demoModel, (schemaPath) => {
