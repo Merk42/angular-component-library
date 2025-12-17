@@ -38,7 +38,7 @@
         <li>
           <button
             (click)="jumpToPage(P.id)"
-            class="border-2 p-2 text-xl cursor-pointer border-sky-800 transition duration-150"
+            mec-button-small
             [class.bg-white]="!P.is_current"
             [class.rounded-lg]="!P.is_current"
             [class.bg-sky-100]="P.is_current"

@@ -22,10 +22,11 @@ import { CarouselConfig } from './carousel.config';
 import { CarouselContent } from './carousel-content/carousel-content';
 import { Button } from "../button/button";
 import { HeroIcon } from "../hero-icon/hero-icon";
+import { ButtonSmall } from "../button-small/button-small";
 
 @Component({
   selector: 'mec-carousel',
-  imports: [Button, HeroIcon],
+  imports: [Button, HeroIcon, ButtonSmall],
   templateUrl: './carousel.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

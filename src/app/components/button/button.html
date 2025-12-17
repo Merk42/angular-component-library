@@ -12,15 +12,13 @@
   [class.bg-green-200]="displayState() === 'success'"
   [class.border-green-800]="displayState() === 'success'"
   >
-  <span><ng-content /></span>
-  @if (displayState() === 'try'){
-    <mec-hero-icon class="animate-spin " [icon]="'arrow-path'"/>
-  }
-  @if (displayState() === 'success'){
-    <mec-hero-icon [icon]="'check'"/>
-  }
-  @if ( displayState() === 'fail'){
-    <mec-hero-icon [icon]="'exclamation-triangle'"/>
-  }
+  <span class="px-4 transition" [class.-translate-x-4]="displayState() !== ''"><ng-content /></span>
+  <mec-hero-icon
+    class="absolute right-2 transition"
+    [class.scale-0]="displayState() === ''"
+    [class.scale-100]="displayState() !== ''"
+    [class.animate-spin]="displayState() === 'try'"
+    [icon]="displayState() === 'try' ? 'arrow-path' : displayState() === 'success' ? 'check' : 'exclamation-triangle' "
+    />
 </span>
 

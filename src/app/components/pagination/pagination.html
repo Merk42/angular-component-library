@@ -11,10 +11,8 @@
 
   @if (showFirstLast() && !isFirstInDisplay()) {
     <button
-      class="border-2 p-2 text-sm cursor-pointer border-sky-800 transition duration-150 box-content leading-none w-[2ch] h-[2ch]"
-      [class.bg-white]="!isPrevDisabled()"
+      mec-button-small
       [class.rounded-lg]="!isPrevDisabled()"
-      [class.bg-sky-100]="isPrevDisabled()"
       [class.rounded-full]="isPrevDisabled()"
       (click)="goToPage(1)"
       [attr.aria-disabled]="isPrevDisabled() ? true : null">1</button>
@@ -39,10 +37,8 @@
       <span>&hellip;</span>
     }
     <button
-      class="border-2 p-2 text-sm cursor-pointer border-sky-800 transition duration-150 box-content leading-none w-[2ch] h-[2ch]"
-      [class.bg-white]="!isNextDisabled()"
+      mec-button-small
       [class.rounded-lg]="!isNextDisabled()"
-      [class.bg-sky-100]="isNextDisabled()"
       [class.rounded-full]="isNextDisabled()"
       (click)="goToPage(total())"
       [attr.aria-disabled]="isNextDisabled() ? true : null">{{total()}}</button>

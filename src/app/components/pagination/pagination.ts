@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, input, model, output } from '@angular/core';
 import { HeroIcon } from '../hero-icon/hero-icon';
 import { Button } from '../button/button';
+import { ButtonSmall } from "../button-small/button-small";
 
 interface Page {
   number: number;
@@ -9,7 +10,7 @@ interface Page {
 
 @Component({
   selector: 'mec-pagination',
-  imports: [Button, HeroIcon],
+  imports: [Button, HeroIcon, ButtonSmall],
   templateUrl: './pagination.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
