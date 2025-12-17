@@ -12,7 +12,7 @@
   @if (showFirstLast() && !isFirstInDisplay()) {
     <button
       mec-button-small
-      [class.rounded-lg]="!isPrevDisabled()"
+      class="w-[2ch] h-[2ch]"
       [class.rounded-full]="isPrevDisabled()"
       (click)="goToPage(1)"
       [attr.aria-disabled]="isPrevDisabled() ? true : null">1</button>
@@ -23,10 +23,8 @@
 
   @for (P of displayPages(); track P) {
     <button
-      class="border-2 p-2 text-sm cursor-pointer border-sky-800 transition duration-150 box-content leading-none w-[2ch] h-[2ch]"
-      [class.bg-white]="!P.is_current"
-      [class.rounded-lg]="!P.is_current"
-      [class.bg-sky-100]="P.is_current"
+      mec-button-small
+      class="w-[2ch] h-[2ch]"
       [class.rounded-full]="P.is_current"
       (click)="goToPage(P.number)"
       [attr.aria-disabled]="P.is_current ? true : null">{{P.number}}</button>
@@ -38,7 +36,7 @@
     }
     <button
       mec-button-small
-      [class.rounded-lg]="!isNextDisabled()"
+      class="w-[2ch] h-[2ch]"
       [class.rounded-full]="isNextDisabled()"
       (click)="goToPage(total())"
       [attr.aria-disabled]="isNextDisabled() ? true : null">{{total()}}</button>
