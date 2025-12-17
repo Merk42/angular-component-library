@@ -1,12 +1,11 @@
 import { isPlatformBrowser } from '@angular/common';
 import { ChangeDetectionStrategy, Component, ElementRef, input, OnInit, PLATFORM_ID, inject } from '@angular/core';
 import { HeroIcon } from "../hero-icon/hero-icon";
-import { Button } from "../button/button";
 import { ButtonSmall } from "../button-small/button-small";
 
 @Component({
   selector: 'dialog[mec-modal]',
-  imports: [HeroIcon, Button, ButtonSmall],
+  imports: [HeroIcon, ButtonSmall],
   templateUrl: './dialog.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
