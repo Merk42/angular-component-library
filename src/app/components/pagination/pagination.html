@@ -25,7 +25,7 @@
     <button
       mec-button-small
       class="w-[2ch] h-[2ch]"
-      [class.rounded-full]="P.is_current"
+      [disabled]="P.is_current"
       (click)="goToPage(P.number)"
       [attr.aria-disabled]="P.is_current ? true : null">{{P.number}}</button>
   }
