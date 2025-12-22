@@ -52,3 +52,14 @@ export class FormInput implements FormValueControl<string|number|null> {
     this.value.set(($event.target as HTMLInputElement).value)
   }
 }
+
+export const PATTERNS = {
+  zip: {
+    regex: '[0-9]{5}',
+    message: 'Zip code must be 5 digits'
+  },
+  alphanumeric: {
+    regex: '^[a-zA-Z0-9]+$',
+    message: 'Field must only be letters and or numbers'
+  }
+}

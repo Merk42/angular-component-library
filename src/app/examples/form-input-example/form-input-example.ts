@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
-import { Field, customError, disabled, email, form, min, minLength, max, maxLength, readonly, required, submit } from '@angular/forms/signals';
-import { FormInput } from '../../components/form-input/form-input';
+import { Field, customError, disabled, email, form, min, minLength, max, maxLength, pattern, readonly, required, submit } from '@angular/forms/signals';
+import { FormInput, PATTERNS } from '../../components/form-input/form-input';
 import { Button } from "../../components/button/button";
 import { ExampleTemplate } from "../../example-template/example-template";
 
@@ -15,6 +15,7 @@ interface DemoData {
   minmax:number;
   disabled:string;
   readonly: string;
+  regex: string
 }
 
 @Component({
@@ -24,6 +25,7 @@ interface DemoData {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormInputExample {
+
   submitbutton = viewChild.required(Button);
 
   demoModel = signal<DemoData>({
@@ -36,7 +38,8 @@ export class FormInputExample {
     max: 99,
     minmax: 50,
     disabled: '',
-    readonly: ''
+    readonly: '',
+    regex: ''
   });
 
   demoForm = form(this.demoModel, (schemaPath) => {
@@ -55,6 +58,9 @@ export class FormInputExample {
 
       disabled(schemaPath.disabled)
       readonly(schemaPath.readonly)
+
+      // pattern(schemaPath.regex, new RegExp(this.pattern.zip.regex), { message: this.pattern.zip.message });
+      pattern(schemaPath.regex, new RegExp(PATTERNS.alphanumeric.regex), { message: PATTERNS.alphanumeric.message });
   });
 
   onSubmit(event: Event) {
