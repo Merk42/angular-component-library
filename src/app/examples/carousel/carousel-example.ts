@@ -23,4 +23,8 @@ export class CarouselExample {
       }
     })
   });
+
+  toofew = computed<{id:number,src:string}[]>(() => {
+    return this.slides().slice(0, 3)
+  })
 }

@@ -10,20 +10,20 @@
   [attr.aria-label]="title()"
   [style.--numitems]="numAcrossOnScreen()"
   >
-  <header class="text-center">
+  <header class="text-center text-xl">
     {{title()}}
   </header>
 	<main>
 
-		<div class="carousel_pane overflow-auto w-full relative z-0 snap-x snap-mandatory" #pane (scroll)="scr($event)">
-			<div
-        class="flex flex-nowrap"
-				[class.not-enough]="isPrevDisabled() && isNextDisabled()">
-				<ng-content #carouselContents></ng-content>
-			</div>
+		<div class="carousel_pane overflow-auto w-full relative z-0 snap-x snap-mandatory flex flex-nowrap"
+      [class.justify-center]="isPrevDisabled() && isNextDisabled()"
+      #pane
+      (scroll)="scr($event)">
+      <ng-content #carouselContents></ng-content>
 		</div>
 
 	</main>
+  @if (!isPrevDisabled() || !isNextDisabled()){
   <footer class="flex items-center gap-4 px-2">
     <button
       mec-button
@@ -54,4 +54,5 @@
       <mec-hero-icon [icon]="'arrow-right'"/>
     </button>
   </footer>
+}
 </div>

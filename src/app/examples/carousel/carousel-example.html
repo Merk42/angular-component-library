@@ -7,3 +7,14 @@
     </mec-carousel-content>
   }
 </mec-carousel>
+
+
+<mec-carousel [title]="'Too Few Items'" [config]="carouselconfig">
+  @for (item of toofew(); track item.id;) {
+    <mec-carousel-content>
+      <div class="relative">
+        <img [src]="item.src"/>
+      </div>
+    </mec-carousel-content>
+  }
+</mec-carousel>
