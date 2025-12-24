@@ -12,9 +12,9 @@
   [class.bg-green-200]="displayState() === 'success'"
   [class.border-green-800]="displayState() === 'success'"
   >
-  <span class="px-4 transition" [class.-translate-x-4]="displayState() !== ''"><ng-content /></span>
+  <span class="px-4 transition" [class.translate-x-3]="displayState() == ''"><ng-content /></span>
   <mec-hero-icon
-    class="absolute right-2 transition"
+    class="right-2 transition"
     [class.scale-0]="displayState() === ''"
     [class.scale-100]="displayState() !== ''"
     [class.animate-spin]="displayState() === 'try'"
