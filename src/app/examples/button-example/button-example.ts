@@ -8,23 +8,19 @@ import { Button } from "../../components/button/button";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonExample {
-  example = viewChild.required(Button)
+  example = viewChild.required(Button);
 
   animate(t:string) {
-    console.log('animate', t)
-    if(t === 'try') {
-      this.example().animateTry()
-    }
+    const EXAMPLE = this.example();
+    EXAMPLE.animateTry();
     if(t === 'success') {
-      this.example().animateTry()
       setTimeout(() => {
-        this.example().animateSuccess()
+        EXAMPLE.animateSuccess()
       }, 2000);
     }
     if(t === 'fail') {
-      this.example().animateTry()
       setTimeout(() => {
-        this.example().animateFail()
+        EXAMPLE.animateFail()
       }, 2000);
     }
   }

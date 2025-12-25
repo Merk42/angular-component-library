@@ -12,7 +12,7 @@
   [class.bg-green-200]="displayState() === 'success'"
   [class.border-green-800]="displayState() === 'success'"
   >
-  <span class="px-4 transition" [class.translate-x-3]="displayState() == ''"><ng-content /></span>
+  <span class="transition" [class.translate-x-3]="displayState() == ''"><ng-content /></span>
   <mec-hero-icon
     class="right-2 transition"
     [class.scale-0]="displayState() === ''"
