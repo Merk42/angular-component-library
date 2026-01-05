@@ -1,0 +1,29 @@
+<table class="w-full">
+  <thead>
+    @for (row of columns(); track row[0]) {
+    <th>
+      @if (!row.unsortable) {
+      <button class="cursor-pointer flex gap-1" (click)="updateSort(row.key)">
+        <span>{{row.value}}</span>
+        <span>
+          <mec-hero-icon [icon]="columnicon(row.key)"></mec-hero-icon>
+        </span>
+      </button>
+      } @else {
+        <span>{{row.value}}</span>
+      }
+    </th>
+    }
+  </thead>
+  <tbody>
+    @for (row of displaydata(); track row[0];let e = $even) {
+      <tr
+        [class.bg-sky-100]="e"
+        [class.bg-sky-200]="!e">
+        @for (col of row; track col[0]) {
+          <td class="p-2">{{col}}</td>
+        }
+      </tr>
+    }
+  </tbody>
+</table>

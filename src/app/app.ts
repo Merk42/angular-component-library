@@ -14,10 +14,11 @@ import { DialogExample } from "./examples/dialog-example/dialog-example";
 import { ButtonExample } from "./examples/button-example/button-example";
 import { PaginationExample } from "./examples/pagination-example/pagination-example";
 import { CarouselExample } from './examples/carousel/carousel-example';
-
+import { FormToggleExample } from './examples/form-toggle-example/form-toggle-example';
+import { TableExample } from './examples/table-example/table-example';
 @Component({
   selector: 'mec-root',
-  imports: [RouterOutlet, FormInputExample, FormTextareaExample, FormCheckboxExample, FormRadioExample, FormSelectExample, FormExample, FormRangeExample, AccordionExample, TabsExample, NotificationExample, DialogExample, ButtonExample, PaginationExample, CarouselExample],
+  imports: [RouterOutlet, FormInputExample, FormTextareaExample, FormCheckboxExample, FormRadioExample, FormSelectExample, FormExample, FormRangeExample, AccordionExample, TabsExample, NotificationExample, DialogExample, ButtonExample, PaginationExample, CarouselExample, FormToggleExample, TableExample],
   templateUrl: './app.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
