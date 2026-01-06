@@ -1,5 +1,13 @@
 import { ChangeDetectionStrategy, Component, computed, input, signal} from '@angular/core';
 import { HeroIcon } from '../hero-icon/hero-icon';
+
+export interface tablecolumn {
+  key: string;
+  label: string;
+  alignment?: string;
+  unsortable?: boolean;
+}
+
 @Component({
   selector: 'mec-table',
   imports: [HeroIcon],
@@ -8,18 +16,19 @@ import { HeroIcon } from '../hero-icon/hero-icon';
 })
 export class Table {
   readonly data = input.required<any[]>()
-  readonly columns  = input.required<any[]>()
+  readonly columns  = input.required<tablecolumn[]>();
+
+  readonly isCards = input<boolean>(false)
 
   sortby = signal<string>('');
 
   displaydata = computed(() => {
-    const RESULT = [];
     if (this.sortby() !== '') {
       this.data().sort((a, b) => {
       const DESC = this.sortby().charAt(0) === '-' ? true : false;
       const KEY = DESC ? this.sortby().slice(1) : this.sortby();
-      const nameA = a[KEY].toUpperCase(); // ignore upper and lowercase
-      const nameB = b[KEY].toUpperCase(); // ignore upper and lowercase
+      const nameA = typeof a[KEY] === 'number' ? a[KEY] : a[KEY].toUpperCase();
+      const nameB = typeof b[KEY] === 'number' ? b[KEY] : b[KEY].toUpperCase();
       if (nameA < nameB) {
         return DESC ? 1 : -1;
       }
@@ -29,14 +38,7 @@ export class Table {
       return 0;
     });
     }
-    for (const R of this.data()) {
-      const NEWROW = []
-      for (const C of this.columns()) {
-        NEWROW.push(R[C.key])
-      }
-      RESULT.push(NEWROW)
-    }
-    return RESULT;
+    return this.data()
   })
 
   updateSort(key:string) {
@@ -56,5 +58,4 @@ export class Table {
     }
     return 'arrows-up-down'
   }
-
 }

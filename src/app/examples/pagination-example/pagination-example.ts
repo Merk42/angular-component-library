@@ -9,8 +9,8 @@ import { FormCheckbox } from "../../components/form-checkbox/form-checkbox";
 interface DemoData {
   max:number;
   total:number;
-  firstLast: false;
-  prevNext: false;
+  firstLast: boolean;
+  prevNext: boolean;
 }
 
 @Component({

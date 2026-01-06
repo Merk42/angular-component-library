@@ -1,29 +1,40 @@
-<table class="w-full">
-  <thead>
-    @for (row of columns(); track row[0]) {
-    <th>
-      @if (!row.unsortable) {
-      <button class="cursor-pointer flex gap-1" (click)="updateSort(row.key)">
-        <span>{{row.value}}</span>
-        <span>
-          <mec-hero-icon [icon]="columnicon(row.key)"></mec-hero-icon>
-        </span>
-      </button>
-      } @else {
-        <span>{{row.value}}</span>
+<table class="w-full border-2 border-separate border-spacing-0 rounded-sm border-sky-800">
+  <thead [class.hidden]="isCards()">
+    <tr>
+      @for (column of columns(); track column.key) {
+        <th scope="col"  class="p-2">
+          @if (!column.unsortable) {
+        <button class="cursor-pointer flex gap-1" (click)="updateSort(column.key)">
+          <span>{{column.label}}</span>
+          <span>
+            <mec-hero-icon [icon]="columnicon(column.key)"></mec-hero-icon>
+          </span>
+        </button>
+        } @else {
+          <span>{{column.label}}</span>
+        }
+        </th>
       }
-    </th>
-    }
+    </tr>
   </thead>
   <tbody>
-    @for (row of displaydata(); track row[0];let e = $even) {
-      <tr
-        [class.bg-sky-100]="e"
-        [class.bg-sky-200]="!e">
-        @for (col of row; track col[0]) {
-          <td class="p-2">{{col}}</td>
-        }
-      </tr>
-    }
+  @for (row of displaydata(); track row[columns()[0].key];let isEven = $even) {
+    <tr
+      [class.bg-sky-100]="isEven"
+      [class.bg-sky-200]="!isEven"
+      [class.block]="isCards()"
+      >
+      @for (column of columns(); track column.key) {
+        <td
+          [attr.data-col]="column.label"
+          class="px-2 py-1"
+          [class.block]="isCards()"
+          [class.before:content-[attr(data-col)]]="isCards()"
+          [class.before:font-bold]="isCards()"
+          [class.before:block]="isCards()"
+          [class.text-right]="column.alignment === 'right' && !isCards()">{{row[column.key]}}</td>
+      }
+    </tr>
+  }
   </tbody>
 </table>
