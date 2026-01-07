@@ -1,6 +1,5 @@
 <mec-example-template name="form-checkbox">
   <form (submit)="onSubmit($event)" class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <p class="md:col-span-3">fields marked with * are required</p>
     <mec-form-checkbox id="fc" [field]="demoForm.favorite">favorite</mec-form-checkbox>
     <mec-form-checkbox id="fc-disabled" [field]="demoForm.disabled">disabled</mec-form-checkbox>
     <mec-form-checkbox id="fc-checked" [field]="demoForm.checked">checked</mec-form-checkbox>
