@@ -14,6 +14,7 @@ describe('FormSelect', () => {
 
     fixture = TestBed.createComponent(FormSelect);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('id', 'test-select');
     await fixture.whenStable();
   });
 

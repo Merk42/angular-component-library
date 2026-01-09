@@ -14,6 +14,7 @@ describe('FormTextarea', () => {
 
     fixture = TestBed.createComponent(FormTextarea);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('id', 'test-textarea');
     await fixture.whenStable();
   });
 

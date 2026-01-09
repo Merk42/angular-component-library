@@ -14,6 +14,7 @@ describe('FormToggle', () => {
 
     fixture = TestBed.createComponent(FormToggle);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('id', 'test-toggle');
     await fixture.whenStable();
   });
 

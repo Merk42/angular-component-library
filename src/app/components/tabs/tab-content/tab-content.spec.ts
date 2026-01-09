@@ -14,6 +14,7 @@ describe('TabContent', () => {
 
     fixture = TestBed.createComponent(TabContent);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('id', 'test-tab');
     await fixture.whenStable();
   });
 

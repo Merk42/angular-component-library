@@ -14,6 +14,7 @@ describe('ExampleTemplate', () => {
 
     fixture = TestBed.createComponent(ExampleTemplate);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('name', 'test-example');
     await fixture.whenStable();
   });
 

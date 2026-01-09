@@ -14,6 +14,7 @@ describe('FormRadio', () => {
 
     fixture = TestBed.createComponent(FormRadio);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('id', 'test-radio');
     await fixture.whenStable();
   });
 

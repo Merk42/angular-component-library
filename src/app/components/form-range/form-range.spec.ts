@@ -14,6 +14,7 @@ describe('FormRange', () => {
 
     fixture = TestBed.createComponent(FormRange);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('id', 'test-range');
     await fixture.whenStable();
   });
 
