@@ -1,3 +1,4 @@
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FormToggle } from './form-toggle';
@@ -8,7 +9,8 @@ describe('FormToggle', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormToggle]
+      imports: [FormToggle],
+      providers: [provideZonelessChangeDetection()]
     })
     .compileComponents();
 

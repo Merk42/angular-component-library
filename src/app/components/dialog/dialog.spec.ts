@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { Dialog } from './dialog';
-import { PLATFORM_ID } from '@angular/core';
+import { PLATFORM_ID, provideZonelessChangeDetection } from '@angular/core';
 
 describe('Dialog', () => {
   let component: Dialog;
@@ -11,6 +11,7 @@ describe('Dialog', () => {
     await TestBed.configureTestingModule({
       imports: [Dialog],
       providers: [
+        provideZonelessChangeDetection(),
         { provide: PLATFORM_ID, useValue: 'browser' }
       ]
     }).compileComponents();

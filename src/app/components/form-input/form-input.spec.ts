@@ -1,3 +1,4 @@
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { describe, it, expect, beforeEach } from 'vitest';
 import { FormInput } from './form-input';
@@ -8,7 +9,8 @@ describe('FormInput', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormInput]
+      imports: [FormInput],
+      providers: [provideZonelessChangeDetection()]
     }).compileComponents();
 
     fixture = TestBed.createComponent(FormInput);

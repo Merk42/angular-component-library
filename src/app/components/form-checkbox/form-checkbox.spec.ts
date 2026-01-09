@@ -1,3 +1,4 @@
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { describe, it, expect, beforeEach } from 'vitest';
 import { FormCheckbox } from './form-checkbox';
@@ -8,7 +9,8 @@ describe('FormCheckbox', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormCheckbox]
+      imports: [FormCheckbox],
+      providers: [provideZonelessChangeDetection()]
     }).compileComponents();
 
     fixture = TestBed.createComponent(FormCheckbox);

@@ -1,3 +1,4 @@
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ButtonSmall } from './button-small';
@@ -8,7 +9,8 @@ describe('ButtonSmall', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ButtonSmall]
+      imports: [ButtonSmall],
+      providers: [provideZonelessChangeDetection()]
     })
     .compileComponents();
 

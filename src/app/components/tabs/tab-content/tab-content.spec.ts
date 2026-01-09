@@ -1,3 +1,4 @@
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TabContent } from './tab-content';
@@ -8,7 +9,8 @@ describe('TabContent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TabContent]
+      imports: [TabContent],
+      providers: [provideZonelessChangeDetection()]
     })
     .compileComponents();
 

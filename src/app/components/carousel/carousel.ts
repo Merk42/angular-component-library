@@ -115,18 +115,21 @@ export class Carousel implements OnInit {
 	scrollTo(index: number) {
     if (isPlatformBrowser(this.platformId)) {
       const PANE = this.pane().nativeElement as HTMLElement;
-      const ELEWIDTH = PANE.querySelectorAll('mec-carousel-content')[0].clientWidth;
-      // const WIDTH = PANE.clientWidth;
-      const GAP = 0
-      // need to add OR subtract, from current scroll amount
-      const SCROLLTO = (ELEWIDTH + GAP) * index;
-      const isSmoothScrollSupported = 'scrollBehavior' in document.documentElement.style;
-      if (isSmoothScrollSupported) {
-        PANE.scroll({ left: SCROLLTO, behavior: 'smooth' });
-      } else {
-        PANE.scrollLeft = SCROLLTO;
+      const CONTENTS = PANE.querySelectorAll('mec-carousel-content');
+      if (CONTENTS && CONTENTS.length) {
+        const ELEWIDTH = CONTENTS[0].clientWidth;
+        // const WIDTH = PANE.clientWidth;
+        const GAP = 0
+        // need to add OR subtract, from current scroll amount
+        const SCROLLTO = (ELEWIDTH + GAP) * index;
+        const isSmoothScrollSupported = 'scrollBehavior' in document.documentElement.style;
+        if (isSmoothScrollSupported && PANE.scroll) {
+          PANE.scroll({ left: SCROLLTO, behavior: 'smooth' });
+        } else {
+          PANE.scrollLeft = SCROLLTO;
+        }
+        this.currentIndex.set(index);
       }
-      this.currentIndex.set(index);
     }
 	}
 

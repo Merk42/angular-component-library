@@ -1,3 +1,4 @@
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { describe, it, expect, beforeEach } from 'vitest';
 import { Carousel } from './carousel';
@@ -9,7 +10,8 @@ describe('Carousel', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Carousel]
+      imports: [Carousel],
+      providers: [provideZonelessChangeDetection()]
     }).compileComponents();
 
     fixture = TestBed.createComponent(Carousel);

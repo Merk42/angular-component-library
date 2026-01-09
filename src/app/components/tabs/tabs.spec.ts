@@ -1,7 +1,25 @@
+import { Component, provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { Tabs } from './tabs';
 import { TabContent } from './tab-content/tab-content';
+
+@Component({
+  selector: 'mec-tabs',
+  template: `<mec-tabs>
+  <mec-tab-content [title]="'first'" id="first-accordion">
+    <p>Nam auctor augue eros, eget ullamcorper elit faucibus vitae. </p>
+  </mec-tab-content>
+  <mec-tab-content [title]="'second'" id="second-accordion">
+    <p>Fusce enim justo, egestas at leo sit amet, ullamcorper cursus tortor. Cras egestas fermentum rutrum. Pellentesque eget ipsum mollis, posuere dui vel, sodales risus.</p>
+  </mec-tab-content>
+  <mec-tab-content [title]="'third'" id="third-accordion">
+    <p>Pellentesque luctus feugiat malesuada. Nunc commodo at nibh quis rutrum. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+  </mec-tab-content>
+</mec-tabs>`,
+  imports:[TabContent]
+})
+class ChildStubComponent {}
 
 describe('Tabs', () => {
   let component: Tabs;
@@ -9,7 +27,11 @@ describe('Tabs', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Tabs, TabContent]
+      imports: [Tabs, TabContent],
+      providers: [
+        provideZonelessChangeDetection(),
+        { provide: Tabs, useValue: ChildStubComponent }
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(Tabs);

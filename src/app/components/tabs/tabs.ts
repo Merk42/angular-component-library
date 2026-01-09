@@ -43,6 +43,9 @@ export class Tabs implements AfterViewInit{
   }
 
   selectTab(tab: TabContent) {
+    if (!tab) {
+      return
+    }
     this.emitClick();
     // deactivate all tabs
     this.tabs().forEach(tab => tab.active.set(false));

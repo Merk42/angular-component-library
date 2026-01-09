@@ -1,3 +1,4 @@
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FormRadio } from './form-radio';
@@ -8,7 +9,8 @@ describe('FormRadio', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormRadio]
+      imports: [FormRadio],
+      providers: [provideZonelessChangeDetection()]
     })
     .compileComponents();
 

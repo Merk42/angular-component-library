@@ -1,3 +1,4 @@
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { describe, it, expect, beforeEach } from 'vitest';
 import { Notification } from './notification';
@@ -8,7 +9,8 @@ describe('Notification', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Notification]
+      imports: [Notification],
+      providers: [provideZonelessChangeDetection()]
     }).compileComponents();
 
     fixture = TestBed.createComponent(Notification);

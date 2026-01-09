@@ -1,3 +1,4 @@
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FormRange } from './form-range';
@@ -8,7 +9,8 @@ describe('FormRange', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormRange]
+      imports: [FormRange],
+      providers: [provideZonelessChangeDetection()]
     })
     .compileComponents();
 

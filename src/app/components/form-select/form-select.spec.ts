@@ -1,3 +1,4 @@
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FormSelect } from './form-select';
@@ -8,7 +9,8 @@ describe('FormSelect', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormSelect]
+      imports: [FormSelect],
+      providers: [provideZonelessChangeDetection()]
     })
     .compileComponents();
 

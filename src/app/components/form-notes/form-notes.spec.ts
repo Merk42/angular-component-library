@@ -1,3 +1,4 @@
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FormNotes } from './form-notes';
@@ -8,7 +9,8 @@ describe('FormNotes', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormNotes]
+      imports: [FormNotes],
+      providers: [provideZonelessChangeDetection()]
     })
     .compileComponents();
 
