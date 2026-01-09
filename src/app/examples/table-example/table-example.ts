@@ -20,8 +20,9 @@ export class TableExample {
 
       company: 'Google',
       extension: '.ts',
-      framework: 'Angular',
-      year: 2010,
+      framework: 'Angular (2+)',
+      date:'2016-09-14',
+      dates:new Intl.DateTimeFormat("en-US").format(new Date('2016-09-14')),
       ver: '21'
     },
     {
@@ -29,7 +30,8 @@ export class TableExample {
       company: 'Meta',
       extension: '.tsx',
       framework: 'React',
-      year: 2013,
+      date:'2013-05-29',
+      dates:new Intl.DateTimeFormat("en-US").format(new Date('2013-05-29')),
       ver: '19'
     },
     {
@@ -37,7 +39,8 @@ export class TableExample {
       company: 'Evan',
       extension: '.vue',
       framework: 'Vue',
-      year: 2014,
+      date:'2014-02-04',
+      dates:new Intl.DateTimeFormat("en-US").format(new Date('2014-02-04')),
       ver: '3.5'
     },
     {
@@ -45,7 +48,8 @@ export class TableExample {
       company: 'FOSS',
       extension: '.svelte',
       framework: 'Svelte',
-      year: 2016,
+      date:'2016-11-01',
+      dates:new Intl.DateTimeFormat("en-US").format(new Date('2016-11-01')),
       ver: '5.3.8'
     }
   ]
@@ -65,8 +69,10 @@ export class TableExample {
       unsortable: true
     },
     {
-      key: 'year',
-      label: 'Year'
+      key: 'dates',
+      label: 'date',
+      sortkey: 'date',
+      alignment: 'right'
     },
     {
       key: 'ver',

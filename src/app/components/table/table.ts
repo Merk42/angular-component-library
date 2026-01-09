@@ -4,8 +4,9 @@ import { HeroIcon } from '../hero-icon/hero-icon';
 export interface tablecolumn {
   key: string;
   label: string;
-  alignment?: string;
+  alignment?: 'left'|'center'|'right';
   unsortable?: boolean;
+  sortkey?: string;
 }
 
 @Component({
@@ -41,11 +42,12 @@ export class Table {
     return this.data()
   })
 
-  updateSort(key:string) {
-    if (key === this.sortby()) {
-      this.sortby.set('-' + key);
+  updateSort(column:tablecolumn) {
+    const SORTKEY = column.sortkey ? column.sortkey : column.key;
+    if (SORTKEY === this.sortby()) {
+      this.sortby.set('-' + SORTKEY);
     } else {
-      this.sortby.set(key);
+      this.sortby.set(SORTKEY);
     }
   }
 
