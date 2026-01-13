@@ -1,8 +1,8 @@
 <mec-example-template name="form-range">
   <form (submit)="onSubmit($event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <mec-form-range id="fr-optional" [options]="ranges" [field]="demoForm.optional" >optional</mec-form-range>
-    <mec-form-range id="fr-required" [options]="offsetranges" [field]="demoForm.required" >required</mec-form-range>
-    <mec-form-range id="fr-disabled" [field]="demoForm.disabled" >disabled</mec-form-range>
+    <mec-form-range id="fr-optional" [options]="ranges" [formField]="demoForm.optional" >optional</mec-form-range>
+    <mec-form-range id="fr-required" [options]="offsetranges" [formField]="demoForm.required" >required</mec-form-range>
+    <mec-form-range id="fr-disabled" [formField]="demoForm.disabled" >disabled</mec-form-range>
     <button mec-button type="submit" #formsubmit class="md:col-span-2">Submit</button>
   </form>
 </mec-example-template>

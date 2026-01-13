@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
-import { Field, disabled, form, min, max, submit } from '@angular/forms/signals';
+import { FormField, disabled, form, min, max, submit } from '@angular/forms/signals';
 import { FormRange } from '../../components/form-range/form-range';
 import { Button } from "../../components/button/button";
 import { ExampleTemplate } from "../../example-template/example-template";
@@ -12,7 +12,7 @@ interface DemoData {
 
 @Component({
   selector: 'mec-form-range-example',
-  imports: [Field, FormRange, Button, ExampleTemplate],
+  imports: [FormField, FormRange, Button, ExampleTemplate],
   templateUrl: './form-range-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

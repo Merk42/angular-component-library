@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { ExampleTemplate } from "../../example-template/example-template";
 import { Table, tablecolumn } from "../../components/table/table";
-import { Field, form } from '@angular/forms/signals';
+import { FormField, form } from '@angular/forms/signals';
 import { FormCheckbox } from '../../components/form-checkbox/form-checkbox';
 
 interface DemoData {
@@ -10,7 +10,7 @@ interface DemoData {
 
 @Component({
   selector: 'mec-table-example',
-  imports: [ExampleTemplate, Table, Field, FormCheckbox],
+  imports: [ExampleTemplate, Table, FormField, FormCheckbox],
   templateUrl: './table-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

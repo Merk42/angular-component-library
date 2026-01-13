@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
-import { Field, disabled, form, submit } from '@angular/forms/signals';
+import { FormField, disabled, form, submit } from '@angular/forms/signals';
 import { FormCheckbox } from '../../components/form-checkbox/form-checkbox';
 import { Button } from "../../components/button/button";
 import { ExampleTemplate } from "../../example-template/example-template";
@@ -12,7 +12,7 @@ interface DemoData {
 
 @Component({
   selector: 'mec-form-checkbox-example',
-  imports: [Button, Field, FormCheckbox, ExampleTemplate],
+  imports: [Button, FormField, FormCheckbox, ExampleTemplate],
   templateUrl: './form-checkbox-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

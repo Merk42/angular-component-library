@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
-import { Field, disabled, form, submit } from '@angular/forms/signals';
+import { FormField, disabled, form, submit } from '@angular/forms/signals';
 import { FormToggle } from '../../components/form-toggle/form-toggle';
 import { Button } from "../../components/button/button";
 import { ExampleTemplate } from "../../example-template/example-template";
@@ -12,7 +12,7 @@ interface DemoData {
 
 @Component({
   selector: 'mec-form-toggle-example',
-  imports: [Button, Field, FormToggle, ExampleTemplate],
+  imports: [Button, FormField, FormToggle, ExampleTemplate],
   templateUrl: './form-toggle-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
