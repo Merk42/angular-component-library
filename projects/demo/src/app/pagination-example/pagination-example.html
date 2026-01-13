@@ -1,0 +1,13 @@
+<mec-example-template name="pagination">
+  <mec-pagination
+    [total]="demoForm.total().value()"
+    [max]="demoForm.max().value()"
+    [showFirstLast]="demoForm.firstLast().value()"
+    [showPrevNext]="demoForm.prevNext().value()" />
+  <form (submit)="onSubmit($event)" class="grid grid-cols-2 gap-4">
+    <mec-form-input type="number" id="page-total" [field]="demoForm.total">total</mec-form-input>
+    <mec-form-input type="number" id="page-max" [field]="demoForm.max">max</mec-form-input>
+    <mec-form-checkbox id="page-first-last" [field]="demoForm.firstLast">show first and last</mec-form-checkbox>
+    <mec-form-checkbox id="page-prev-next" [field]="demoForm.prevNext">show previous and next</mec-form-checkbox>
+  </form>
+</mec-example-template>

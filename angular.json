@@ -6,27 +6,58 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "angular-component-library": {
+    "mec-at": {
+      "projectType": "library",
+      "root": "projects/mec-at",
+      "sourceRoot": "projects/mec-at/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/mec-at/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/mec-at/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/mec-at/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "demo": {
       "projectType": "application",
       "schematics": {},
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "mec",
+      "root": "projects/demo",
+      "sourceRoot": "projects/demo/src",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "browser": "src/main.ts",
-            "tsConfig": "tsconfig.app.json",
+            "browser": "projects/demo/src/main.ts",
+            "tsConfig": "projects/demo/tsconfig.app.json",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "projects/demo/public"
               }
             ],
             "styles": [
-              "src/styles.css"
-            ]
+              "projects/demo/src/styles.css"
+            ],
+            "server": "projects/demo/src/main.server.ts",
+            "outputMode": "server",
+            "ssr": {
+              "entry": "projects/demo/src/server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -56,10 +87,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular-component-library:build:production"
+              "buildTarget": "demo:build:production"
             },
             "development": {
-              "buildTarget": "angular-component-library:build:development"
+              "buildTarget": "demo:build:development"
             }
           },
           "defaultConfiguration": "development"

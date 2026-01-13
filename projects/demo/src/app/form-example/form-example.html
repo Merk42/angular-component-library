@@ -1,0 +1,19 @@
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <h2 class="md:col-span-2 text-2xl">Form with multiple types</h2>
+  <form novalidate (submit)="onSubmit($event)" class="flex flex-col gap-4">
+    <p>fields marked with * are required</p>
+    <mec-form-input id="first_name" [field]="demoForm.first_name">first name</mec-form-input>
+    <mec-form-input id="last_name" [field]="demoForm.last_name">last name</mec-form-input>
+    <mec-form-input id="email" [field]="demoForm.email">email</mec-form-input>
+    <mec-form-textarea id="feedback" [field]="demoForm.feedback">feedback</mec-form-textarea>
+    <mec-form-select id="state" [field]="demoForm.state">state
+      <option value="pa">PA</option>
+      <option value="nj">NJ</option>
+      <option value="ny">NY</option>
+    </mec-form-select>
+    <mec-form-radio id="radios" [options]="options" [field]="demoForm.favorite">favorite</mec-form-radio>
+    <mec-form-checkbox id="confirm" [field]="demoForm.confirm">confirm your choice</mec-form-checkbox>
+    <button mec-button type="submit" #formsubmit>submit</button>
+  </form>
+  <pre>{{this.demoModel() | json}}</pre>
+</div>

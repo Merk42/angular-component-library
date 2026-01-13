@@ -1,0 +1,23 @@
+<mec-example-template name="form-select">
+  <form (submit)="onSubmit($event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <p class="md:col-span-2">fields marked with * are required</p>
+
+    <mec-form-select id="fs-required" [field]="demoForm.required">required
+      <option value="">Select a country</option>
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+    </mec-form-select>
+    <mec-form-select id="fs-optional" [field]="demoForm.optional">optional
+      <option value="">Select a country</option>
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+    </mec-form-select>
+
+    <mec-form-select id="fs-disabled" [field]="demoForm.disabled">disabled
+      <option value="">Select a country</option>
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+    </mec-form-select>
+    <button mec-button type="submit" #formsubmit class="md:col-span-2">Submit</button>
+  </form>
+</mec-example-template>
