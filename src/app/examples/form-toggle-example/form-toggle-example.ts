@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
-import { Field, customError, disabled, form, submit } from '@angular/forms/signals';
+import { Field, disabled, form, submit } from '@angular/forms/signals';
 import { FormToggle } from '../../components/form-toggle/form-toggle';
 import { Button } from "../../components/button/button";
 import { ExampleTemplate } from "../../example-template/example-template";
@@ -42,9 +42,8 @@ export class FormToggleExample {
         return undefined
       } catch (error) {
         this.submitbutton().animateFail();
-        return customError( {
-          message: 'Somehow, an error returned'
-        })
+        console.error('Somehow, an error returned:', error);
+        throw error
       }
     })
   }

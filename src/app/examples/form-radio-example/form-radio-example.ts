@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
-import { Field, customError, disabled, form, required, submit } from '@angular/forms/signals';
+import { Field, disabled, form, required, submit } from '@angular/forms/signals';
 import { FormRadio } from '../../components/form-radio/form-radio';
 import { Button } from "../../components/button/button";
 import { ExampleTemplate } from "../../example-template/example-template";
@@ -67,9 +67,8 @@ export class FormRadioExample {
         return undefined
       } catch (error) {
         this.submitbutton().animateFail();
-        return customError( {
-          message: 'Somehow, an error returned'
-        })
+        console.error('Somehow, an error returned:', error);
+        throw error
       }
     })
   }

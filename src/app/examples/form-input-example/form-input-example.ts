@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
-import { Field, customError, disabled, email, form, min, minLength, max, maxLength, pattern, readonly, required, submit } from '@angular/forms/signals';
+import { Field, disabled, email, form, min, minLength, max, maxLength, pattern, readonly, required, submit } from '@angular/forms/signals';
 import { FormInput, PATTERNS } from '../../components/form-input/form-input';
 import { Button } from "../../components/button/button";
 import { ExampleTemplate } from "../../example-template/example-template";
@@ -75,9 +75,8 @@ export class FormInputExample {
         return undefined
       } catch (error) {
         this.submitbutton().animateFail();
-        return customError( {
-          message: 'Somehow, an error returned'
-        })
+        console.error('Somehow, an error returned:', error);
+        throw error
       }
     })
   }

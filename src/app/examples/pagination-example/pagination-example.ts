@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
-import { Field, customError, max, min, form, submit } from '@angular/forms/signals';
+import { Field, max, min, form, submit } from '@angular/forms/signals';
 import { Pagination } from "../../components/pagination/pagination";
 import { FormInput } from "../../components/form-input/form-input";
 import { Button } from '../../components/button/button';
@@ -46,9 +46,8 @@ export class PaginationExample {
         return undefined
       } catch (error) {
         this.submitbutton().animateFail();
-        return customError( {
-          message: 'Somehow, an error returned'
-        })
+        console.error('Somehow, an error returned:', error);
+        throw error
       }
     })
   }
