@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { Field, disabled, form, maxLength, minLength, readonly, required, submit } from '@angular/forms/signals';
+import { FormField, disabled, form, maxLength, minLength, readonly, required, submit } from '@angular/forms/signals';
 import { Button, FormTextarea } from 'mec-at';
 import { ExampleTemplate } from "../example-template/example-template";
 
@@ -15,7 +15,7 @@ interface DemoData {
 
 @Component({
   selector: 'mec-form-textarea-example',
-  imports: [Field, FormTextarea, Button, ExampleTemplate],
+  imports: [FormField, FormTextarea, Button, ExampleTemplate],
   templateUrl: './form-textarea-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

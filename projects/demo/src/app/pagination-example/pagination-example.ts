@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
-import { Field, max, min, form, submit } from '@angular/forms/signals';
+import { FormField, max, min, form, submit } from '@angular/forms/signals';
 import { Button, FormCheckbox, FormInput, Pagination } from 'mec-at';
 import { ExampleTemplate } from "../example-template/example-template";
 
@@ -12,7 +12,7 @@ interface DemoData {
 
 @Component({
   selector: 'mec-pagination-example',
-  imports: [Pagination, FormInput, Field, ExampleTemplate, FormCheckbox],
+  imports: [Pagination, FormInput, FormField, ExampleTemplate, FormCheckbox],
   templateUrl: './pagination-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

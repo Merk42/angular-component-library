@@ -2,17 +2,17 @@
   <form (submit)="onSubmit($event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <p class="md:col-span-2">fields marked with * are required</p>
 
-    <mec-form-textarea id="ft-required" [field]="demoForm.required">required</mec-form-textarea>
-    <mec-form-textarea id="ft-optional" [field]="demoForm.optional">optional</mec-form-textarea>
+    <mec-form-textarea id="ft-required" [formField]="demoForm.required">required</mec-form-textarea>
+    <mec-form-textarea id="ft-optional" [formField]="demoForm.optional">optional</mec-form-textarea>
 
-    <mec-form-textarea id="ft-minlength" [field]="demoForm.minlength">minlength</mec-form-textarea>
-    <mec-form-textarea id="ft-maxlength" [field]="demoForm.maxlength">maxlength</mec-form-textarea>
-    <mec-form-textarea id="ft-minmaxlength" [field]="demoForm.minmaxlength"
+    <mec-form-textarea id="ft-minlength" [formField]="demoForm.minlength">minlength</mec-form-textarea>
+    <mec-form-textarea id="ft-maxlength" [formField]="demoForm.maxlength">maxlength</mec-form-textarea>
+    <mec-form-textarea id="ft-minmaxlength" [formField]="demoForm.minmaxlength"
       >minmaxlength</mec-form-textarea
     >
 
-    <mec-form-textarea id="ft-disabled" [field]="demoForm.disabled" >disabled</mec-form-textarea>
-    <mec-form-textarea id="ft-readonly" [field]="demoForm.readonly" >readonly</mec-form-textarea>
+    <mec-form-textarea id="ft-disabled" [formField]="demoForm.disabled" >disabled</mec-form-textarea>
+    <mec-form-textarea id="ft-readonly" [formField]="demoForm.readonly" >readonly</mec-form-textarea>
 
 
     <button mec-button type="submit" #formsubmit class="md:col-span-2">Submit</button>

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
-import { Field, disabled, form, required, submit } from '@angular/forms/signals';
+import { FormField, disabled, form, required, submit } from '@angular/forms/signals';
 import { Button, FormSelect } from 'mec-at';
 import { ExampleTemplate } from "../example-template/example-template";
 
@@ -11,7 +11,7 @@ interface DemoData {
 
 @Component({
   selector: 'mec-form-select-example',
-  imports: [Field, FormSelect, Button, ExampleTemplate],
+  imports: [FormField, FormSelect, Button, ExampleTemplate],
   templateUrl: './form-select-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

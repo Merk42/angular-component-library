@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
-import { Field, email, form, required, submit } from '@angular/forms/signals';
+import { FormField, email, form, required, submit } from '@angular/forms/signals';
 import { Button, FormCheckbox, FormInput, FormRadio, FormSelect, FormTextarea } from 'mec-at';
 import { JsonPipe } from '@angular/common';
 
@@ -15,7 +15,7 @@ interface DemoData {
 
 @Component({
   selector: 'mec-form-example',
-  imports: [Button, Field, FormCheckbox, FormInput, FormRadio, FormSelect, FormTextarea, JsonPipe],
+  imports: [Button, FormField, FormCheckbox, FormInput, FormRadio, FormSelect, FormTextarea, JsonPipe],
   templateUrl: './form-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
