@@ -12,6 +12,7 @@ import { AccordionExample } from "./accordion-example/accordion-example";
 import { TabsExample } from "./tabs-example/tabs-example";
 import { NotificationExample } from "./notification-example/notification-example";
 import { DialogExample } from "./dialog-example/dialog-example";
+import { DrawerExample } from './drawer-example/drawer-example';
 import { ButtonExample } from "./button-example/button-example";
 import { PaginationExample } from "./pagination-example/pagination-example";
 import { CarouselExample } from './carousel/carousel-example';
@@ -20,7 +21,7 @@ import { TableExample } from './table-example/table-example';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormInputExample, FormTextareaExample, FormCheckboxExample, FormRadioExample, FormSelectExample, FormExample, FormRangeExample, AccordionExample, TabsExample, NotificationExample, DialogExample, ButtonExample, PaginationExample, CarouselExample, FormToggleExample, TableExample],
+  imports: [RouterOutlet, FormInputExample, FormTextareaExample, FormCheckboxExample, FormRadioExample, FormSelectExample, FormExample, FormRangeExample, AccordionExample, TabsExample, NotificationExample, DialogExample, DrawerExample, ButtonExample, PaginationExample, CarouselExample, FormToggleExample, TableExample],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

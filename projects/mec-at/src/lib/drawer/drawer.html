@@ -1,0 +1,49 @@
+<style>
+  @keyframes dialog-in {
+    0% {
+      transform: translateX(100%);
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes dialog-out {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  :host[open] {
+    animation: dialog-in 0.3s linear(0, 1 44.7%, 0.898 51.8%, 0.874 55.1%, 0.866 58.4%, 0.888 64.3%, 1 77.4%, 0.98 84.5%, 1);
+  }
+  :host[closing]{
+    animation: dialog-out 0.3s forwards;
+  }
+</style>
+
+<header class="flex bg-sky-100 p-4 gap-2">
+  <h2 class="grow text-lg" [id]="id() + '-dialog-title'">
+    <ng-content select="[slot=title]" />
+  </h2>
+  @if (!isAlert) {
+    <button
+      mec-button-small
+      class="cursor-pointer"
+      (click)="closeModal()"
+      type="button"
+    >
+      <mec-hero-icon [icon]="'x-mark'"/>
+    </button>
+    }
+</header>
+<main class="px-8 my-8">
+  <ng-content />
+</main>
+<footer class="flex bg-sky-100 p-4 gap-2">
+  <ng-content select="[slot=confirm]" />
+  <ng-content select="[slot=cancel]" />
+</footer>

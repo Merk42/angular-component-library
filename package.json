@@ -4,8 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base-href /component-library/angular-tailwind/",
-    "watch": "ng build --watch --configuration development",
+    "build": "npm run build:lib && npm run build:demo",
+    "watch": "ng build --project=demo --watch --configuration development",
+    "build:lib": "ng build --project=mec-at",
+    "build:demo": "ng build --project=demo --base-href /component-library/angular-tailwind/",
     "test": "ng test",
     "serve:ssr:demo": "node dist/demo/server/server.mjs"
   },
