@@ -11,7 +11,7 @@ interface DemoData {
 }
 
 @Component({
-  selector: 'mec-pagination-example',
+  selector: 'app-pagination-example',
   imports: [Pagination, FormInput, FormField, ExampleTemplate, FormCheckbox],
   templateUrl: './pagination-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
 import { Carousel, CarouselContent, CarouselConfig } from 'mec-at';
 
 @Component({
-  selector: 'mec-carousel-example',
+  selector: 'app-carousel-example',
   imports: [Carousel, CarouselContent],
   templateUrl: './carousel-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush

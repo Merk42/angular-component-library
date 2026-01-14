@@ -8,7 +8,7 @@ interface DemoData {
 }
 
 @Component({
-  selector: 'mec-table-example',
+  selector: 'app-table-example',
   imports: [ExampleTemplate, Table, FormField, FormCheckbox],
   templateUrl: './table-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush

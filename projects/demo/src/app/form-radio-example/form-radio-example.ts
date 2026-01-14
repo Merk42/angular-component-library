@@ -10,7 +10,7 @@ interface DemoData {
 }
 
 @Component({
-  selector: 'mec-form-radio-example',
+  selector: 'app-form-radio-example',
   imports: [Button, FormField, FormRadio, ExampleTemplate],
   templateUrl: './form-radio-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush

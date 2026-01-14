@@ -14,7 +14,7 @@ interface DemoData {
 }
 
 @Component({
-  selector: 'mec-form-example',
+  selector: 'app-form-example',
   imports: [Button, FormField, FormCheckbox, FormInput, FormRadio, FormSelect, FormTextarea, JsonPipe],
   templateUrl: './form-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush

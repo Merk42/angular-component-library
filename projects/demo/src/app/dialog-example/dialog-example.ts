@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, viewChild } from '@angular/core';
 import { Button, Dialog } from 'mec-at';
 @Component({
-  selector: 'mec-dialog-example',
+  selector: 'app-dialog-example',
   imports: [Button, Dialog],
   templateUrl: './dialog-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush

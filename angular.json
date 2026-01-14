@@ -10,7 +10,7 @@
       "projectType": "library",
       "root": "projects/mec-at",
       "sourceRoot": "projects/mec-at/src",
-      "prefix": "lib",
+      "prefix": "mec",
       "architect": {
         "build": {
           "builder": "@angular/build:ng-packagr",

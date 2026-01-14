@@ -10,7 +10,7 @@ interface DemoData {
 }
 
 @Component({
-  selector: 'mec-form-range-example',
+  selector: 'app-form-range-example',
   imports: [FormField, FormRange, Button, ExampleTemplate],
   templateUrl: './form-range-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, viewChild } from '@angular/core';
 import { Button } from "mec-at";
 
 @Component({
-  selector: 'mec-button-example',
+  selector: 'app-button-example',
   imports: [Button],
   templateUrl: './button-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -10,7 +10,7 @@ interface DemoData {
 }
 
 @Component({
-  selector: 'mec-form-checkbox-example',
+  selector: 'app-form-checkbox-example',
   imports: [Button, FormField, FormCheckbox, ExampleTemplate],
   templateUrl: './form-checkbox-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush

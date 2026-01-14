@@ -10,7 +10,7 @@ interface DemoData {
 }
 
 @Component({
-  selector: 'mec-form-toggle-example',
+  selector: 'app-form-toggle-example',
   imports: [Button, FormField, FormToggle, ExampleTemplate],
   templateUrl: './form-toggle-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush

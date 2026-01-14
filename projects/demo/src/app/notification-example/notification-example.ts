@@ -9,7 +9,7 @@ interface DemoData {
 }
 
 @Component({
-  selector: 'mec-notification-example',
+  selector: 'app-notification-example',
   imports: [Notification, FormField, FormInput, ExampleTemplate],
   templateUrl: './notification-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush

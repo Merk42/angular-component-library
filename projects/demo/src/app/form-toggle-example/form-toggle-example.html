@@ -1,8 +1,8 @@
-<mec-example-template name="form-toggle">
+<app-example-template name="form-toggle">
   <form (submit)="onSubmit($event)" class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <mec-form-toggle id="fc" [formField]="demoForm.favorite">favorite</mec-form-toggle>
     <mec-form-toggle id="fc-disabled" [formField]="demoForm.disabled">disabled</mec-form-toggle>
     <mec-form-toggle id="fc-checked" [formField]="demoForm.checked">checked</mec-form-toggle>
     <button mec-button type="submit" #formsubmit class="md:col-span-3">submit</button>
   </form>
-</mec-example-template>
+</app-example-template>
