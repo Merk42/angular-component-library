@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, viewChild } from '@angular/core';
 import { Button } from "mec-at";
+import { ExampleTemplate } from '../example-template/example-template';
 
 @Component({
   selector: 'app-button-example',
-  imports: [Button],
+  imports: [Button, ExampleTemplate],
   templateUrl: './button-example.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
