@@ -53,7 +53,7 @@ export class FormInput implements FormValueControl<string|number|null> {
       case 'readonly':
         return 'bg-neutral-100 border-transparent dark:bg-neutral-900'
       default:
-        return 'bg-slate-500/10 border-sky-800'
+        return 'bg-slate-500/10 dark:bg-slate-500/50 border-sky-800'
     }
   })
 
