@@ -8,6 +8,7 @@
     "watch": "ng build --project=demo --watch --configuration development",
     "build:lib": "ng build --project=mec-at",
     "build:demo": "ng build --project=demo --base-href /component-library/angular-tailwind/",
+    "refresh": "npm run build:lib && npm run start",
     "test": "ng test",
     "serve:ssr:demo": "node dist/demo/server/server.mjs"
   },
