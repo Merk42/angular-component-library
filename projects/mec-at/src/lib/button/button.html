@@ -1,16 +1,6 @@
 <span
   class="flex justify-center border-2 rounded-md p-2 -translate-y-1  group-disabled:-translate-y-0 transition duration-150"
-  [class.group-hover:-translate-y-2]="!isAnimating()"
-  [class.group-focus-visible:-translate-y-2]="!isAnimating()"
-  [class.group-active:-translate-y-0]="!isAnimating()"
-  [class.translate-y-0]="isAnimating()"
-  [class.cursor-wait]="isAnimating()"
-  [class.bg-yellow-500]="displayState() === '' || displayState() === 'try'"
-  [class.border-yellow-800]="displayState() === '' || displayState() === 'try'"
-  [class.bg-rose-200]="displayState() === 'fail'"
-  [class.border-rose-800]="displayState() === 'fail'"
-  [class.bg-green-200]="displayState() === 'success'"
-  [class.border-green-800]="displayState() === 'success'"
+  [class]="stateClasses()"
   >
   <span class="transition" [class.translate-x-3]="displayState() == ''"><ng-content /></span>
   <mec-hero-icon

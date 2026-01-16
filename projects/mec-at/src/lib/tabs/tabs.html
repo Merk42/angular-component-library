@@ -20,9 +20,7 @@
             (click)="selectTab(tab)"
             (keydown)="onKeyDown($event)"
             class="border-2 border-b-0 p-2 rounded-t-sm text-xl cursor-pointer border-sky-800 transition duration-150"
-            [class.translate-y-1]="!tab.active()"
-            [class.bg-sky-100]="!tab.active()"
-            [class.bg-white]="tab.active()">
+            [class]="activeClasses(tab.active())">
             {{tab.title()}}
         </button>
     }

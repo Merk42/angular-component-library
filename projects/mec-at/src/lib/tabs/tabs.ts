@@ -17,6 +17,13 @@ export class Tabs implements AfterViewInit{
   tablist = viewChild.required<ElementRef>('tabcontainer');
   btz = viewChildren<ElementRef>('buttonz');
 
+  activeClasses(active:boolean) {
+    if (active) {
+      return 'bg-canvas'
+    }
+    return 'bg-sky-100 dark:bg-sky-900 translate-y-1'
+  }
+
   constructor() {
     effect(() => {
       const tabs = this.tabs();

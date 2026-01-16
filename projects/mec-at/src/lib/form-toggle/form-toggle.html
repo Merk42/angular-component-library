@@ -3,6 +3,7 @@
 
       <span class="track flex items-center w-[4ch] h-[1ch] mx-4 rounded-full"
         [class.bg-slate-300]="disabled()"
+        [class.dark:bg-slate-700]="disabled()"
         [class.bg-sky-800]="!disabled()"
       >
     <input
@@ -18,13 +19,9 @@
 
         <span class="inline-block border-2 border-b-4 p-2 text-sm cursor-pointer transition duration-150 box-content leading-none w-[1ch] h-[1ch]"
         [class.border-sky-800]="!disabled()"
+        [class.dark:border-slate-700]="disabled()"
         [class.border-slate-300]="disabled()"
-        [class.-translate-x-[40%]]="!checked()"
-        [class.rounded-lg]="!checked()"
-        [class.bg-white]="!checked()"
-        [class.bg-sky-100]="checked()"
-        [class.rounded-full]="checked()"
-        [class.translate-x-[40%]]="checked()"
+        [class]="checkedClasses()"
         ></span>
 
       </span>

@@ -3,10 +3,7 @@
   [class.active]="opened()">
 	<button
     class="w-full flex place-content-between border-2 p-2 rounded-t-sm text-xl cursor-pointer border-sky-800 transition duration-150"
-    [class.rounded-b-sm]="!opened()"
-    [class.bg-sky-100]="!opened()"
-    [class.bg-white]="opened()"
-    [class.border-b-color-white]="opened()"
+    [class]="openedClasses()"
 		(click)="$event.preventDefault();toggle.emit(null)"
 		[attr.aria-expanded]="opened()"
     [attr.aria-controls]="id() + '-content'"
@@ -26,7 +23,7 @@
     [class.grid-rows-[0fr]]="!opened()"
     >
     <div class="overflow-hidden">
-      <div class="bg-white p-2">
+      <div class="bg-white dark:bg-black p-2">
 		    <ng-content />
       </div>
     </div>

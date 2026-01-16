@@ -22,6 +22,8 @@
     <tr
       [class.bg-sky-100]="isEven"
       [class.bg-sky-200]="!isEven"
+      [class.dark:bg-sky-900]="isEven"
+      [class.dark:bg-sky-800]="!isEven"
       [class.block]="isCards()"
       >
       @for (column of columns(); track column.key) {
