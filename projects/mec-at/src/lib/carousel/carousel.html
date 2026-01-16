@@ -39,10 +39,7 @@
           <button
             (click)="jumpToPage(P.id)"
             mec-button-small
-            [class.bg-white]="!P.is_current"
-            [class.rounded-lg]="!P.is_current"
-            [class.bg-sky-100]="P.is_current"
-            [class.rounded-full]="P.is_current"></button>
+            [disabled]="P.is_current"></button>
         </li>
       }
     </ul>
