@@ -26,7 +26,7 @@
   }
 </style>
 
-<header class="flex bg-sky-100 p-4 gap-2">
+<header class="flex bg-sky-100 dark:bg-slate-800 p-4 gap-2">
   <h2 class="grow text-lg" [id]="id() + '-dialog-title'">
     <ng-content select="[slot=title]" />
   </h2>
@@ -44,7 +44,7 @@
 <main class="px-8 my-8">
   <ng-content />
 </main>
-<footer class="flex bg-sky-100 p-4 gap-2">
+<footer class="flex bg-sky-100 dark:bg-slate-800  p-4 gap-2">
   <ng-content select="[slot=confirm]" />
   <ng-content select="[slot=cancel]" />
 </footer>

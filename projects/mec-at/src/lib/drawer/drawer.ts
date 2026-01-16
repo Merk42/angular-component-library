@@ -9,7 +9,7 @@ import { ButtonSmall } from "../button-small/button-small";
   templateUrl: './drawer.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: "bg-white rounded-lg shadow-xl max-w-md ml-auto my-0 border-sky-800 border-4 border-b-8 h-screen max-h-none"
+    class: "bg-canvas rounded-lg shadow-xl max-w-md ml-auto my-0 border-sky-800 dark:border-sky-900 border-4 border-b-8 h-screen max-h-none"
   }
 })
 export class Drawer implements OnInit {

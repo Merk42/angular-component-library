@@ -5,7 +5,7 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
   imports: [],
   templateUrl: './button-small.html',
   host: {
-    'class': 'border-2 border-b-4 p-2 text-sm cursor-pointer border-sky-800 transition duration-150 box-content leading-none bg-white dark:bg-slate-800 disabled:bg-sky-100 dark:disabled:bg-sky-800 rounded-lg disabled:rounded-full',
+    'class': 'border-2 border-b-4 p-2 text-sm cursor-pointer border-sky-800 transition duration-150 box-content leading-none bg-canvas disabled:bg-sky-100 dark:disabled:bg-slate-800 rounded-lg disabled:rounded-full',
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })

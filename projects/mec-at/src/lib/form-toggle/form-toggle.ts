@@ -31,7 +31,7 @@ export class FormToggle implements FormCheckboxControl {
     if (this.checked()) {
       return 'bg-sky-100 dark:bg-sky-600 rounded-full translate-x-[40%]'
     }
-    return 'bg-white dark:bg-neutral-800 rounded-lg -translate-x-[40%]'
+    return 'bg-canvas rounded-lg -translate-x-[40%]'
   })
 
   /** Whether the toggle is checked */

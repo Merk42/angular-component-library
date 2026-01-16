@@ -11,7 +11,7 @@
 </dialog>
 <button mec-button (click)="ccmodal.showModal()">Confirm and Cancel Drawer</button>
 <dialog mec-drawer #ccmodal id="cc-drawer">
-  <ng-container slot="title">role="alertdialog"</ng-container>
+  <ng-container slot="title">both buttons</ng-container>
   <p>This has confirm and cancel buttons.</p>
   <button slot="confirm" mec-button (click)="ccmodal.closeModal()">OK</button>
   <button slot="cancel" mec-button (click)="ccmodal.closeModal()">NO</button>

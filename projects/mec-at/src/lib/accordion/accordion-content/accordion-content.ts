@@ -17,8 +17,8 @@ export class AccordionContent {
 
   openedClasses = computed(() => {
     if (this.opened()) {
-      return 'bg-white dark:bg-slate-900 dark:text-white border-b-color-white'
+      return 'bg-canvas text-canvas-text border-b-color-white'
     }
-    return 'bg-sky-100 dark:bg-sky-900 dark:text-white rounded-b-sm'
+    return 'bg-sky-100 dark:bg-sky-900 rounded-b-sm'
   })
 }

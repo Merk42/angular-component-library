@@ -9,7 +9,7 @@ import { ButtonSmall } from "../button-small/button-small";
   templateUrl: './dialog.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: "bg-white rounded-lg shadow-xl max-w-md mx-auto my-auto border-sky-800 border-4 border-b-8"
+    class: "bg-canvas rounded-lg shadow-xl max-w-md mx-auto my-auto border-sky-800 dark:border-sky-900 border-4 border-b-8"
   }
 })
 export class Dialog implements OnInit {
