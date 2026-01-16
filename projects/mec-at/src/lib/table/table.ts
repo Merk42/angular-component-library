@@ -13,7 +13,10 @@ export interface tablecolumn {
   selector: 'mec-table',
   imports: [HeroIcon],
   templateUrl: './table.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    'class': 'block overflow-x-auto',
+  },
 })
 export class Table {
   readonly data = input.required<any[]>()
