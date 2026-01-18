@@ -1,9 +1,9 @@
 <app-example-template name="form-radio">
   <form novalidate (submit)="onSubmit($event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <p class="md:col-span-2">fields marked with * are required</p>
-    <mec-form-radio id="radios-optional" [options]="optional" [formField]="demoForm.optional">optional</mec-form-radio>
-    <mec-form-radio id="radios-required" [options]="required" [formField]="demoForm.required">required</mec-form-radio>
-    <mec-form-radio id="radio-disabled" [options]="disabled" [formField]="demoForm.disabled">disabled</mec-form-radio>
+    <mec-form-radio id="radios-optional" [options]="optional" [groupName]="'optional'" [formField]="demoForm.optional">optional</mec-form-radio>
+    <mec-form-radio id="radios-required" [options]="required" [groupName]="'required'" [formField]="demoForm.required">required</mec-form-radio>
+    <mec-form-radio id="radio-disabled" [options]="disabled"  [groupName]="'disabled'" [formField]="demoForm.disabled">disabled</mec-form-radio>
     <button mec-button type="submit" #formsubmit class="md:col-span-2">submit</button>
   </form>
 </app-example-template>

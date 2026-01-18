@@ -1,9 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, input, model } from '@angular/core';
-import { FormField, FieldTree, FormValueControl } from '@angular/forms/signals';
+import { FormValueControl } from '@angular/forms/signals';
 import type { ValidationError } from '@angular/forms/signals';
 import { FormError } from "../form-error/form-error";
 import { FormNotes } from '../form-notes/form-notes';
-import { JsonPipe } from '@angular/common';
 
 interface fieldOption {
   value:string;
@@ -12,14 +11,14 @@ interface fieldOption {
 
 @Component({
   selector: 'mec-form-radio',
-  imports: [FormField, FormError, FormNotes, JsonPipe],
+  imports: [FormError, FormNotes],
   templateUrl: './form-radio.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormRadio implements FormValueControl<string|number> {
 
   options = input<fieldOption[]>([]);
-  formField = input.required<FieldTree<string, string>>()
+  groupName = input.required<string>();
 
   readonly value = model<string | number>('');
   readonly disabled = input(false);

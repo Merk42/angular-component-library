@@ -8,10 +8,11 @@
           [id]="id() + '-' + option.value"
           type="radio"
           class="peer sr-only"
+          [name]="groupName()"
           [value]="option.value"
-          [formField]="formField()"
-          (blur)="touched.set(true)
-          "/>
+          [checked]="value() === option.value"
+          (change)="value.set(option.value)"
+          />
           <span
             class="col-start-1 row-start-1 w-2 h-2 block outline-2 outline-offset-2 outline-sky-800 peer-disabled:outline-slate-400 rounded-full"
             >
@@ -25,11 +26,6 @@
       </label>
     }
   </div>
-  <pre>disabled: {{disabled()}}</pre>
-  <pre>required: {{required()}}</pre>
-  <pre>touched: {{touched()}}</pre>
-  <pre>invalid: {{invalid()}}</pre>
-  <pre>errors: {{errors() | json}}</pre>
   @if (!showerrors()) {
     <mec-form-notes>
       <ng-content select="[notes]" />

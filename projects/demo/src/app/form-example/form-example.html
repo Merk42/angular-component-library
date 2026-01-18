@@ -11,7 +11,7 @@
       <option value="nj">NJ</option>
       <option value="ny">NY</option>
     </mec-form-select>
-    <mec-form-radio id="radios" [options]="options" [formField]="demoForm.favorite">favorite</mec-form-radio>
+    <mec-form-radio id="radios" [options]="options" [formField]="demoForm.favorite" [groupName]="'favorite'">favorite</mec-form-radio>
     <mec-form-checkbox id="confirm" [formField]="demoForm.confirm">confirm your choice</mec-form-checkbox>
     <button mec-button type="submit" #formsubmit>submit</button>
   </form>
