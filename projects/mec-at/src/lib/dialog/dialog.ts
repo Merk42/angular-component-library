@@ -10,7 +10,7 @@ import { Button } from '../button/button';
   templateUrl: './dialog.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: "bg-canvas rounded-lg shadow-xl max-w-md mx-auto my-auto border-sky-800 dark:border-sky-900 border-4 border-b-8"
+    class: "bg-canvas rounded-lg shadow-xl max-w-md mx-auto my-auto border-sky-800 dark:border-sky-900 border-4 border-b-8 grid-rows-[auto_1fr_auto]"
   }
 })
 export class Dialog implements OnInit {
