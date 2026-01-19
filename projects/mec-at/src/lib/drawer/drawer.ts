@@ -1,7 +1,8 @@
 import { isPlatformBrowser } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, input, OnInit, PLATFORM_ID, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, contentChildren, input, OnInit, PLATFORM_ID, inject, computed } from '@angular/core';
 import { HeroIcon } from "../hero-icon/hero-icon";
 import { ButtonSmall } from "../button-small/button-small";
+import { Button } from '../button/button';
 
 @Component({
   selector: 'dialog[mec-drawer]',
@@ -13,6 +14,16 @@ import { ButtonSmall } from "../button-small/button-small";
   }
 })
 export class Drawer implements OnInit {
+  buttons = contentChildren(Button, {read: ElementRef});
+
+  hasFooterButton = computed(() => {
+    if (!this.buttons() || !this.buttons().length) {
+      return false
+    }
+    const CANCEL = this.buttons().some(button => button?.nativeElement.getAttribute('slot') === 'cancel');
+    const CONFIRM = this.buttons().some(button => button?.nativeElement.getAttribute('slot') === 'confirm');
+    return CANCEL || CONFIRM
+  })
   private host = inject(ElementRef);
 
   platformId: Object;
