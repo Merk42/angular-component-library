@@ -64,11 +64,9 @@ export class Dialog implements OnInit {
 
   showModal(): void {
     if (isPlatformBrowser(this.platformId)) {
-      const BODY = document.getElementsByTagName('body')[0];
-      const WINDOW_WIDTH = window.innerWidth;
-      const VIEWPORT_WIDTH = BODY.clientWidth;
-      const SCROLLBAR_WIDTH = WINDOW_WIDTH - VIEWPORT_WIDTH;
-      BODY.style.setProperty("--scrollbarwidth", SCROLLBAR_WIDTH + 'px');
+      const HTML = document.getElementsByTagName('html')[0]
+      HTML.classList.add("[scrollbar-gutter:stable]");
+      HTML.classList.add("overflow-y-hidden")
     }
     this.modal.showModal();
   }
@@ -80,11 +78,13 @@ export class Dialog implements OnInit {
         if (e.animationName.includes('dialog-out')) {
           this.modal.close();
           this.modal.removeAttribute('closing');
+          document.getElementsByTagName('html')[0].classList.remove("overflow-y-hidden")
         }
       },
       { once: true }
     );
     this.modal.setAttribute('closing', 'true');
+
 
     // this.modal.close();
   }
