@@ -3,6 +3,11 @@
   <ng-container slot="title">basic modal</ng-container>
   <p>Basic modal with no confirm nor cancel buttons</p>
 </dialog>
+<button mec-button (click)="basicmodal2.showModal()">Open Modal 2</button>
+<dialog mec-modal #basicmodal2 id="basic-modal" aria-label="custom label here">
+  <ng-container slot="title">basic modal</ng-container>
+  <p>Basic modal using custom label, different from title</p>
+</dialog>
 <button mec-button (click)="alertmodal.showModal()">Open alert Modal</button>
 <dialog mec-modal #alertmodal id="alert-modal" role="alertdialog">
   <ng-container slot="title">role="alertdialog"</ng-container>
