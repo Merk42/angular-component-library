@@ -28,7 +28,7 @@
 </style>
 
 <header class="flex bg-sky-100 dark:bg-slate-800 p-4 gap-2">
-  <h2 class="grow text-lg" [id]="id() + '-dialog-title'">
+  <h2 class="grow text-lg" [id]="titleID()">
     <ng-content select="[slot=title]" />
   </h2>
   @if (!isAlert) {

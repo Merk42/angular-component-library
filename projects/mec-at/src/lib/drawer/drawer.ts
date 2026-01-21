@@ -35,6 +35,12 @@ export class Drawer implements OnInit {
   readonly id = input.required<string>();
   readonly formid = input<string>('');
   isAlert: boolean = false;
+
+
+  titleID = computed(() => {
+    this.id() + '-dialog-title'
+  })
+
   ngOnInit(): void {
     const ARIALABEL = this.modal.getAttribute('aria-label');
     if (!ARIALABEL) {

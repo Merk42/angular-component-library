@@ -10,7 +10,8 @@ import { Button } from '../button/button';
   templateUrl: './dialog.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: "bg-canvas rounded-lg shadow-xl max-w-md mx-auto my-auto border-sky-800 dark:border-sky-900 border-4 border-b-8 grid-rows-[auto_1fr_auto]"
+    class: "bg-canvas rounded-lg shadow-xl max-w-md mx-auto my-auto border-sky-800 dark:border-sky-900 border-4 border-b-8 grid-rows-[auto_1fr_auto]",
+    '[attr.aria-label]': 'titleID'
   }
 })
 export class Dialog implements OnInit {
@@ -37,6 +38,11 @@ export class Dialog implements OnInit {
   readonly id = input.required<string>();
   readonly formid = input<string>('');
   isAlert: boolean = false;
+
+  titleID = computed(() => {
+    this.id() + '-dialog-title'
+  })
+
   ngOnInit(): void {
     const ARIALABEL = this.modal.getAttribute('aria-label');
     if (!ARIALABEL) {
