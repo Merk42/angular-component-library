@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, contentChildren, input, OnInit, PLATFORM_ID, inject, computed } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, contentChildren, input, PLATFORM_ID, inject, computed, HostAttributeToken, signal } from '@angular/core';
 import { HeroIcon } from "../hero-icon/hero-icon";
 import { ButtonSmall } from "../button-small/button-small";
 import { Button } from '../button/button';
@@ -10,14 +10,31 @@ import { Button } from '../button/button';
   templateUrl: './dialog.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: "bg-canvas rounded-lg shadow-xl max-w-md mx-auto my-auto border-sky-800 dark:border-sky-900 border-4 border-b-8 grid-rows-[auto_1fr_auto]"
+    class: "bg-canvas rounded-lg shadow-xl max-w-md mx-auto my-auto border-sky-800 dark:border-sky-900 border-4 border-b-8 grid-rows-[auto_1fr_auto]",
+    '[attr.closing]':'isClosing() ? true : null',
+    '[attr.aria-labelledby]':'labeledby()',
+    '(cancel)': 'canceled($event)',
+    '(click)': 'outsideClick($event)',
+    '(animationend)': 'closing($event)',
+    '(keydown.escape)':'canceled($event)'
   }
 })
-export class Dialog implements OnInit {
+export class Dialog {
+  readonly id = input.required<string>();
+  readonly formid = input<string>('');
+
+  private label = inject(new HostAttributeToken('aria-label'), {optional:true});
+  private role = inject(new HostAttributeToken('role'), {optional:true});
+  private host = inject(ElementRef);
+
+  platformId: Object;
 
   buttons = contentChildren(Button, {read: ElementRef});
 
-  hasFooterButton = computed(() => {
+  isAlert = !!this.role && this.role === 'alertdialog';
+  isClosing = signal(false)
+
+  hasFooterButton = computed<boolean>(() => {
     if (!this.buttons() || !this.buttons().length) {
       return false
     }
@@ -26,44 +43,45 @@ export class Dialog implements OnInit {
     return CANCEL || CONFIRM
   })
 
-  private host = inject(ElementRef);
-
-  platformId: Object;
-  constructor() {
-    const platformId = inject<Object>(PLATFORM_ID);
-
-    this.platformId = platformId;
-  }
-  readonly id = input.required<string>();
-  readonly formid = input<string>('');
-  isAlert: boolean = false;
-
-  titleID = computed(() => {
-    this.id() + '-dialog-title'
+  labeledby = computed<string|null>(() => {
+    if (!this.label) {
+      return this.titleID()
+    }
+    return null
   })
 
-  ngOnInit(): void {
-    const ARIALABEL = this.modal.getAttribute('aria-label');
-    if (!ARIALABEL) {
-      this.modal.setAttribute('aria-labelledby', this.titleID());
-    }
-    this.isAlert = this.modal.getAttribute('role') === 'alertdialog';
+  titleID = computed<string>(() => {
+    return this.id() + '-dialog-title'
+  })
+
+  constructor() {
+    const platformId = inject<Object>(PLATFORM_ID);
+    this.platformId = platformId;
+  }
+
+
+  canceled(event:Event) {
     if (this.isAlert) {
-      this.modal.addEventListener('cancel', (event:any) => {
-        event.preventDefault();
-      });
-    } else {
-      this.modal.addEventListener(
-        'click',
-        ((event:any) => {
-          const rect = this.modal.getBoundingClientRect();
-          const isInDialog = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height &&
-            rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
-          if (!isInDialog) {
-            this.closeModal()
-          }
-        })
-      );
+      event?.preventDefault()
+    }
+  }
+
+  outsideClick(event:any) {
+    if (!this.isAlert) {
+      const rect = this.modal.getBoundingClientRect();
+      const isInDialog = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height &&
+        rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
+      if (!isInDialog) {
+        this.closeModal()
+      }
+    }
+  }
+
+  closing(event: AnimationEvent) {
+    if (event.animationName.includes('dialog-out')) {
+      this.modal.close();
+      this.isClosing.set(false);
+      document.getElementsByTagName('html')[0].classList.remove("overflow-y-hidden")
     }
   }
 
@@ -77,21 +95,7 @@ export class Dialog implements OnInit {
   }
 
   closeModal(): void {
-    this.modal.addEventListener(
-      'animationend',
-      (e: AnimationEvent) => {
-        if (e.animationName.includes('dialog-out')) {
-          this.modal.close();
-          this.modal.removeAttribute('closing');
-          document.getElementsByTagName('html')[0].classList.remove("overflow-y-hidden")
-        }
-      },
-      { once: true }
-    );
-    this.modal.setAttribute('closing', 'true');
-
-
-    // this.modal.close();
+    this.isClosing.set(true);
   }
 
   private get modal() {
