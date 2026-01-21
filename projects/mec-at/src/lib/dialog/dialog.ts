@@ -10,8 +10,7 @@ import { Button } from '../button/button';
   templateUrl: './dialog.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: "bg-canvas rounded-lg shadow-xl max-w-md mx-auto my-auto border-sky-800 dark:border-sky-900 border-4 border-b-8 grid-rows-[auto_1fr_auto]",
-    '[attr.aria-label]': 'titleID'
+    class: "bg-canvas rounded-lg shadow-xl max-w-md mx-auto my-auto border-sky-800 dark:border-sky-900 border-4 border-b-8 grid-rows-[auto_1fr_auto]"
   }
 })
 export class Dialog implements OnInit {
@@ -46,7 +45,7 @@ export class Dialog implements OnInit {
   ngOnInit(): void {
     const ARIALABEL = this.modal.getAttribute('aria-label');
     if (!ARIALABEL) {
-      this.modal.setAttribute('aria-labelledby', this.id() + '-dialog-title');
+      this.modal.setAttribute('aria-labelledby', this.titleID());
     }
     this.isAlert = this.modal.getAttribute('role') === 'alertdialog';
     if (this.isAlert) {
