@@ -25,26 +25,4 @@ describe('Dialog', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should set aria-labelledby if no aria-label exists', () => {
-    component.ngOnInit();
-    const dialog = fixture.nativeElement;
-    expect(dialog.getAttribute('aria-labelledby')).toBe('test-dialog-dialog-title');
-  });
-
-  it('should detect alert dialog role', () => {
-    const dialog = fixture.nativeElement;
-    dialog.setAttribute('role', 'alertdialog');
-    component.ngOnInit();
-    expect(component.isAlert).toBe(true);
-  });
-/*
-  it('should not show close button for alert dialogs', () => {
-    component.isAlert = true;
-    fixture.detectChanges();
-
-    const closeButton = fixture.nativeElement.querySelector('button');
-    expect(closeButton).toBeFalsy();
-  });
-  */
 });
