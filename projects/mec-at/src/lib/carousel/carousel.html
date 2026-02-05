@@ -2,12 +2,45 @@
 .carousel_pane::-webkit-scrollbar {
 	display: none;
 }
+.snap-1 ::ng-deep mec-carousel-content:nth-of-type(1n + 1) {
+  scroll-snap-stop: always;
+  scroll-snap-align: start;
+}
+.snap-2 ::ng-deep mec-carousel-content:nth-of-type(2n + 1) {
+  scroll-snap-stop: always;
+  scroll-snap-align: start;
+}
+.snap-3 ::ng-deep mec-carousel-content:nth-of-type(3n + 1) {
+  scroll-snap-stop: always;
+  scroll-snap-align: start;
+}
+.snap-4 ::ng-deep mec-carousel-content:nth-of-type(4n + 1) {
+  scroll-snap-stop: always;
+  scroll-snap-align: start;
+}
+.snap-5 ::ng-deep mec-carousel-content:nth-of-type(5n + 1) {
+  scroll-snap-stop: always;
+  scroll-snap-align: start;
+}
+.snap-6 ::ng-deep mec-carousel-content:nth-of-type(6n + 1) {
+  scroll-snap-stop: always;
+  scroll-snap-align: start;
+}
+.snap-7 ::ng-deep mec-carousel-content:nth-of-type(7n + 1) {
+  scroll-snap-stop: always;
+  scroll-snap-align: start;
+}
+.snap-8 ::ng-deep mec-carousel-content:nth-of-type(8n + 1) {
+  scroll-snap-stop: always;
+  scroll-snap-align: start;
+}
 </style>
 
 <div class="relative m-auto w-full"
   role="region"
   aria-roledescription="carousel"
   [attr.aria-label]="title()"
+  [class]="'snap-' + numAcrossOnScreen()"
   [style.--numitems]="numAcrossOnScreen()"
   >
   <header class="text-center text-xl">

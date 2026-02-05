@@ -68,7 +68,7 @@ export class Carousel implements OnInit {
   ngOnInit(): void {
     this.scrolledData.pipe(debounceTime(300)).subscribe(value => {
       const PAGE = (Math.round(value.offset / value.total) + 1)
-      // this.jumpToPage(PAGE)
+      this.jumpToPage(PAGE)
     });
 		if (isPlatformServer(this.platformId)) {
 			this.isServerRendered.set(true);

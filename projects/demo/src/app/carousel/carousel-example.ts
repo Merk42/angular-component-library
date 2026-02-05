@@ -12,8 +12,8 @@ export class CarouselExample {
 
   slides = computed<{id:number,src:string}[]>(() => {
     return Array.from({length:15}, (element, index) => {
-      const min = 300;
-      const max = 400;
+      const min = 600;
+      const max = 800;
       const SIZE = Math.floor(Math.random() * (max - min) + min);
       return {
         id: index + 1,
