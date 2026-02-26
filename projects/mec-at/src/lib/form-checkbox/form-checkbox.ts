@@ -18,7 +18,7 @@ export class FormCheckbox implements FormCheckboxControl {
 
   touched = model<boolean>(false);
   invalid = input<boolean>(false);
-  errors = input<readonly ValidationError.WithOptionalField[]>([]);
+  errors = input<readonly ValidationError.WithOptionalFieldTree[]>([]);
 
   showerrors = computed(() => {
     return this.invalid() && this.touched()

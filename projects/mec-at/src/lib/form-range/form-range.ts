@@ -24,7 +24,7 @@ export class FormRange implements FormValueControl<string|number|null> {
 
   touched = model<boolean>(false);
   invalid = input<boolean>(false);
-  errors = input<readonly ValidationError.WithOptionalField[]>([]);
+  errors = input<readonly ValidationError.WithOptionalFieldTree[]>([]);
 
   displayState = computed<'default'|'error'|'disabled'|'readonly'>(() => {
     if (this.disabled()) {

@@ -12,7 +12,7 @@ import { HeroIcon } from "../hero-icon/hero-icon";
   imports: [HeroIcon]
 })
 export class FormError {
-  errors = input<readonly ValidationError.WithOptionalField[]>([]);
+  errors = input<readonly ValidationError.WithOptionalFieldTree[]>([]);
   readonly minLength = input<number | undefined>(undefined);
   readonly maxLength = input<number | undefined>(undefined);
   readonly min = input<number | undefined>(undefined);
@@ -24,7 +24,7 @@ export class FormError {
     ))
   })
 
-  umessage(obj: ValidationError.WithOptionalField) {
+  umessage(obj: ValidationError.WithOptionalFieldTree) {
     if (obj.message) {
       return obj.message
     }
