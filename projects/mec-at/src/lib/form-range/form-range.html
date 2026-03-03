@@ -22,7 +22,7 @@
   (blur)="touched.set(true)"
   />
   @if (rangeList()) {
-    <datalist class="relative block" [id]="idfor() + '-options'">
+    <datalist class="relative block mx-2" [id]="idfor() + '-options'">
       @for (option of rangeList(); track option.value) {
         <option
           [style.left]="option.left + '%'"

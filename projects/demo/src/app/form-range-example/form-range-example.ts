@@ -37,7 +37,7 @@ export class FormRangeExample {
   },
   {
     label:'20oz',
-    value:577
+    value:567
   }
 ]
 
