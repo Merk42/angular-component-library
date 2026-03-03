@@ -22,16 +22,23 @@
   (blur)="touched.set(true)"
   />
   @if (rangeList()) {
-    <datalist class="relative block mx-2" [id]="idfor() + '-options'">
+    <datalist class="sr-only"  [id]="idfor() + '-options'">
       @for (option of rangeList(); track option.value) {
         <option
-          [style.left]="option.left + '%'"
-          class="absolute -translate-x-1/2 text-sm"
           [value]="option.value"
           [label]="option.label">
         </option>
       }
     </datalist>
+    <div class="relative block mx-2">
+      @for (option of rangeList(); track option.value) {
+        <span
+          [style.left]="option.left + '%'"
+          class="absolute -translate-x-1/2 text-sm">
+          {{option.label}}
+        </span>
+      }
+    </div>
   }
 
 @if (displayState() !== 'error' && !rangeList()) {
