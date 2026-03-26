@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, input, model } from '@angular/core';
 import { FormValueControl } from '@angular/forms/signals';
 import type { ValidationError } from '@angular/forms/signals';
+import { applyEach, required, schema, SchemaPathTree, validate } from "@angular/forms/signals";
 import { FormError } from "../form-error/form-error";
 import { FormNotes } from '../form-notes/form-notes';
 
@@ -66,13 +67,44 @@ export class FormInput implements FormValueControl<string|number|null> {
   }
 }
 
-export const PATTERNS = {
-  zip: {
-    regex: '[0-9]{5}',
-    message: 'Zip code must be 5 digits'
-  },
-  alphanumeric: {
-    regex: '^[a-zA-Z0-9]+$',
-    message: 'Field must only be letters and or numbers'
-  }
+export function url(field: SchemaPathTree<string>, options?: { message?: string }) {
+  validate(field, (ctx) => {
+    try {
+      new URL(ctx.value());
+      return null;
+    } catch {
+      return {
+        kind: 'url',
+        message: options?.message || 'Please enter a valid URL',
+      };
+    }
+  });
+}
+
+export function zip(field: SchemaPathTree<string>, options?: { message?: string }) {
+  validate(field, (ctx) => {
+    const REGEX = /[0-9]{5}/;
+    if (REGEX.test(ctx.value())) {
+      return null
+    } else {
+      return {
+        kind: 'zip',
+        message:  options?.message || 'Zip code must be 5 digits',
+      }
+    }
+  });
+}
+
+export function alphanumeric(field: SchemaPathTree<string>, options?: { message?: string }) {
+  validate(field, (ctx) => {
+    const REGEX = /^[a-zA-Z0-9]+$/;
+    if (REGEX.test(ctx.value())) {
+      return null
+    } else {
+      return {
+        kind: 'zip',
+        message:  options?.message || 'Field must only be letters and or numbers',
+      }
+    }
+  });
 }

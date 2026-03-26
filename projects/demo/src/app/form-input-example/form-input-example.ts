@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
 import { FormField, disabled, email, form, min, minLength, max, maxLength, pattern, readonly, required, submit } from '@angular/forms/signals';
-import { Button, FormInput, PATTERNS } from 'mec-at';
+import { alphanumeric, url, Button, FormInput } from 'mec-at';
 import { ExampleTemplate } from "../example-template/example-template";
 
 interface DemoData {
@@ -14,7 +14,8 @@ interface DemoData {
   minmax:number;
   disabled:string;
   readonly: string;
-  regex: string
+  regex: string;
+  url: string;
 }
 
 @Component({
@@ -38,7 +39,8 @@ export class FormInputExample {
     minmax: 50,
     disabled: '',
     readonly: '',
-    regex: ''
+    regex: '',
+    url: ''
   });
 
   demoForm = form(this.demoModel, (schemaPath) => {
@@ -58,8 +60,10 @@ export class FormInputExample {
       disabled(schemaPath.disabled)
       readonly(schemaPath.readonly)
 
-      // pattern(schemaPath.regex, new RegExp(this.pattern.zip.regex), { message: this.pattern.zip.message });
-      pattern(schemaPath.regex, new RegExp(PATTERNS.alphanumeric.regex), { message: PATTERNS.alphanumeric.message });
+
+      // pattern(schemaPath.regex, new RegExp(PATTERNS.alphanumeric.regex), { message: PATTERNS.alphanumeric.message });
+      alphanumeric(schemaPath.regex)
+      url(schemaPath.url)
   });
 
   onSubmit(event: Event) {
