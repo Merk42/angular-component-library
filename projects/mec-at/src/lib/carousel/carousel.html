@@ -62,7 +62,8 @@
       mec-button
       class="flex-none"
       (click)="goPrev()"
-			[disabled]="isPrevDisabled()">
+			[disabled]="isPrevDisabled()"
+      aria-label="previous page">
       <mec-hero-icon [icon]="'arrow-left'"/>
     </button>
 
@@ -72,7 +73,8 @@
           <button
             (click)="jumpToPage(P.id)"
             mec-button-small
-            [disabled]="P.is_current"></button>
+            [disabled]="P.is_current"
+            [attr.aria-label]="'page ' + P"></button>
         </li>
       }
     </ul>
@@ -80,7 +82,8 @@
       mec-button
       class="flex-none"
       (click)="goNext()"
-      [disabled]="isNextDisabled()">
+      [disabled]="isNextDisabled()"
+      aria-label="next page">
       <mec-hero-icon [icon]="'arrow-right'"/>
     </button>
   </footer>
