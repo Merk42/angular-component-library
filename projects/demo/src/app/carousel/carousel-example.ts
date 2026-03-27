@@ -10,19 +10,20 @@ import { Carousel, CarouselContent, CarouselConfig } from 'mec-at';
 export class CarouselExample {
   carouselconfig: CarouselConfig = new CarouselConfig();
 
-  slides = computed<{id:number,src:string}[]>(() => {
+  slides = computed<{id:number,src:string,size:number}[]>(() => {
     return Array.from({length:15}, (element, index) => {
       const min = 600;
       const max = 800;
       const SIZE = Math.floor(Math.random() * (max - min) + min);
       return {
         id: index + 1,
-        src: `https://placecats.com/${SIZE}/${SIZE}`
+        src: `https://placecats.com/${SIZE}/${SIZE}`,
+        size: SIZE
       }
     })
   });
 
-  toofew = computed<{id:number,src:string}[]>(() => {
+  toofew = computed<{id:number,src:string,size:number}[]>(() => {
     return this.slides().slice(0, 2)
   })
 }

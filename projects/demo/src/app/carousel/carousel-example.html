@@ -2,7 +2,7 @@
   @for (item of slides(); track item.id;) {
     <mec-carousel-content>
       <div class="relative">
-        <img [src]="item.src" [alt]="'cat ' + $index"/>
+        <img [src]="item.src" [alt]="'cat ' + item.id" [width]="item.size" [height]="item.size"/>
       </div>
     </mec-carousel-content>
   }
@@ -13,7 +13,7 @@
   @for (item of toofew(); track item.id;) {
     <mec-carousel-content>
       <div class="relative">
-        <img [src]="item.src" [alt]="'cat alt ' + $index"/>
+        <img [src]="item.src" [alt]="'cat alt ' + item.id" [width]="item.size" [height]="item.size"/>
       </div>
     </mec-carousel-content>
   }
