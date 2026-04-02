@@ -26,3 +26,5 @@ export * from './lib/pagination/pagination'
 export * from './lib/table/table'
 export * from './lib/tabs/tabs'
 export * from './lib/tabs/tab-content/tab-content'
+
+export * from './lib/validators'
