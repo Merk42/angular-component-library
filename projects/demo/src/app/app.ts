@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { FormInputExample } from "./form-input-example/form-input-example";
@@ -23,6 +23,7 @@ import { TableExample } from './table-example/table-example';
   selector: 'app-root',
   imports: [RouterOutlet, FormInputExample, FormTextareaExample, FormCheckboxExample, FormRadioExample, FormSelectExample, FormExample, FormRangeExample, AccordionExample, TabsExample, NotificationExample, DialogExample, DrawerExample, ButtonExample, PaginationExample, CarouselExample, FormToggleExample, TableExample],
   templateUrl: './app.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './app.css'
 })
 export class App {

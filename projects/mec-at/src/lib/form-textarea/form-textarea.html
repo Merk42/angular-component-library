@@ -17,8 +17,8 @@
 @if (displayState() !== 'error') {
   <mec-form-notes [minLength]="minLength()"
     [maxLength]="maxLength()"
-    [min]="min()"
-    [max]="max()">
+    [min]="minnum()"
+    [max]="maxnum()">
     <ng-content select="[notes]" />
   </mec-form-notes>
 }
@@ -29,7 +29,7 @@
     [errors]="errors()"
     [minLength]="minLength()"
     [maxLength]="maxLength()"
-    [min]="min()"
-    [max]="max()"
+    [min]="minnum()"
+    [max]="maxnum()"
     />
 }

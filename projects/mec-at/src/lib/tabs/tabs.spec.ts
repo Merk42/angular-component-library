@@ -1,4 +1,4 @@
-import { Component, provideZonelessChangeDetection } from '@angular/core';
+import { Component, provideZonelessChangeDetection, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { Tabs } from './tabs';
@@ -17,6 +17,7 @@ import { TabContent } from './tab-content/tab-content';
     <p>Pellentesque luctus feugiat malesuada. Nunc commodo at nibh quis rutrum. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
   </mec-tab-content>
 </mec-tabs>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports:[TabContent]
 })
 class ChildStubComponent {}

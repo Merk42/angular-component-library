@@ -43,8 +43,8 @@
 
 @if (displayState() !== 'error' && !rangeList()) {
   <mec-form-notes
-    [min]="min()"
-    [max]="max()">
+    [min]="minnum()"
+    [max]="maxnum()">
     <ng-content select="[notes]" />
   </mec-form-notes>
 }
@@ -53,7 +53,7 @@
   <mec-form-error
     role="alert"
     [errors]="errors()"
-    [min]="min()"
-    [max]="max()"
+    [min]="minnum()"
+    [max]="maxnum()"
     />
 }

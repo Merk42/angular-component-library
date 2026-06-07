@@ -17,8 +17,11 @@ export class FormRange implements FormValueControl<string|number|null> {
   readonly required = input(false);
   readonly readonly = input(false);
 
-  readonly min = input<number | undefined>(0);
-  readonly max = input<number | undefined>(0);
+  readonly min = input<number | string | undefined>(undefined);
+  readonly max = input<number | string | undefined>(undefined);
+
+  readonly minnum = computed<number | undefined>(() => this.min() ? Number(this.min()) : undefined);
+  readonly maxnum = computed<number | undefined>(() => this.max() ? Number(this.max()) : undefined);
 
   readonly id = input.required()
 
@@ -50,13 +53,13 @@ export class FormRange implements FormValueControl<string|number|null> {
   options = input<{value:number,label:string}[]>([])
 
   rangeList = computed(() => {
-    if (!this.max() || !this.options() || !this.options().length) {
+    if (!this.maxnum() || !this.options() || !this.options().length) {
       return []
     }
 
     const OPTIONS = this.options().sort((a, b) => a.value - b.value);
-    const MAX = this.max() || 0;
-    const MIN = this.min() || 0;
+    const MAX = this.maxnum() || 0;
+    const MIN = this.minnum() || 0;
 
     if (MAX < OPTIONS[this.options().length - 1].value) {
       throw new Error(`option ${OPTIONS[this.options().length - 1].value} is greater than max of ${MAX}`);
@@ -75,8 +78,8 @@ export class FormRange implements FormValueControl<string|number|null> {
   })
 
   rangeLeft(value:number):number {
-    const MIN = this.min() || 0;
-    const MAX = this.max() || 0;
+    const MIN = this.minnum() || 0;
+    const MAX = this.maxnum() || 0;
     return ((value - MIN) / (MAX - MIN)) * 100
   }
 }

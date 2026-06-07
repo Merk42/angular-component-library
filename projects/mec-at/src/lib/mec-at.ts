@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'lib-mec-at',
@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
       mec-at works!
     </p>
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styles: ``,
 })
 export class MecAt {

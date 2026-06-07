@@ -60,14 +60,7 @@ offsetranges = [
   });
 
   demoForm = form(this.demoModel, (schemaPath) => {
-    max(schemaPath.optional, 600)
-    max(schemaPath.required, 150)
-
       disabled(schemaPath.disabled)
-      max(schemaPath.disabled, 100)
-
-
-      min(schemaPath.required, 32)
   });
 
   onSubmit(event: Event) {

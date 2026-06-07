@@ -1,8 +1,9 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'mec-hero-icon',
   imports: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './hero-icon.html',
 })
 export class HeroIcon {

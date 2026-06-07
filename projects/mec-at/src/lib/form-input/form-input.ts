@@ -22,8 +22,11 @@ export class FormInput implements FormValueControl<string|number|null> {
 
   readonly minLength = input<number | undefined>(undefined);
   readonly maxLength = input<number | undefined>(undefined);
-  readonly min = input<number | undefined>(undefined);
-  readonly max = input<number | undefined>(undefined);
+  readonly min = input<number | string | undefined>(undefined);
+  readonly max = input<number | string | undefined>(undefined);
+
+  readonly minnum = computed<number | undefined>(() => this.min() ? Number(this.min()) : undefined);
+  readonly maxnum = computed<number | undefined>(() => this.max() ? Number(this.max()) : undefined);
 
   readonly id = input.required()
 
